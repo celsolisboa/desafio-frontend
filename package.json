@@ -1,5 +1,5 @@
 {
-  "name": "desafio-frontend",
+  "name": "desafio-frontend-diego-costa",
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -7,5 +7,9 @@
   },
   "scripts": {
     "start": "node server.js"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-sassdoc": "^2.0.3"
   }
 }
