@@ -43,7 +43,8 @@
 ### Documentação do SASS (SCSS)
 
 1. Para gerar a documentação utilize o comando *grunt* na raiz do projeto, a documentação será gerada na raiz do projeto em /sassdoc
-http://sassdoc.com/
+
+*Referência`http://sassdoc.com/`
 
 ### O que será avaliado 
 
