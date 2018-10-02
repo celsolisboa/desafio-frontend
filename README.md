@@ -40,6 +40,12 @@
 5. Realize um Pull Request para este repositório.
 
 
+### Documentação do SASS (SCSS)
+
+1. Para gerar a documentação utilize o comando *grunt* na raiz do projeto, a documentação será gerada na raiz do projeto em /sassdoc
+
+*Referência`http://sassdoc.com/`
+
 ### O que será avaliado 
 
 1. Fidelidade às instruções e ao cenário.
