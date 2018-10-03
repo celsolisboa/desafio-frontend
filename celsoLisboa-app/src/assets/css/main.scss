@@ -1,9 +1,18 @@
 // importa todos os sass
 @import "mixins/grid-mixins";
 @import "mixins/flexbox";
+@import "mixins/mixins_project";
 @import "fonts";
 @import "variables";
 
+body{
+  @include padding(0,0);
+  @include margin(0,0);
+  background: url('#{$path-img}/background.jpg') no-repeat center center;
+  -webkit-background-size:cover;
+  background-size:cover;
+  height: 100vh;
+}
 .loading {
   width: 100vw;
   height: 100vh;
