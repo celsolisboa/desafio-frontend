@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-$teste: red;
-
-.teste{
-  color: $teste;
-}
+// todos os sass
+@import "./assets/css/main";
+// este import deve ser o ultimo dos css
+@import "./assets/css/queries";

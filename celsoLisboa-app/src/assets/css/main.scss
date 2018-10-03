@@ -1,0 +1,11 @@
+// importa todos os sass
+@import "mixins/grid-mixins";
+@import "mixins/flexbox";
+@import "fonts";
+@import "variables";
+
+
+
+.teste{
+  color: $teste;
+}
