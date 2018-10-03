@@ -4,8 +4,16 @@
 @import "fonts";
 @import "variables";
 
-
-
-.teste{
-  color: $teste;
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  @include flex-direction(row);
+  @include justify-content(center);
+  @include align-items(center);
+  @include flexbox;
+  .img_loading{
+    height:180px;
+    width: 180px;
+  }
 }
