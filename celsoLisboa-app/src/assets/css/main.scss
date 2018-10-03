@@ -5,6 +5,9 @@
 @import "fonts";
 @import "variables";
 
+// imports components
+@import "components/login";
+
 body{
   @include padding(0,0);
   @include margin(0,0);
