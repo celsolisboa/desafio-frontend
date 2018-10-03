@@ -1,2 +1,7 @@
 .login_grid{
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
+  font-family: Heebo;
 }

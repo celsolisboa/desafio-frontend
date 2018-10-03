@@ -1,9 +1,9 @@
 // importa todos os sass
-@import "mixins/grid-mixins";
-@import "mixins/flexbox";
-@import "mixins/mixins_project";
-@import "fonts";
 @import "variables";
+@import "mixins/mixins_project";
+@import "mixins/flexbox";
+@import "fonts";
+@import "forms";
 
 // imports components
 @import "components/login";
