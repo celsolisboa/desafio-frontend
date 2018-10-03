@@ -1,6 +1,22 @@
 // variáveis
 
 /// cores
+$white: (1: #ffffff);
+$black: (1: #000000);
+$pink: (1: #ff0669);
 
 /// paths
 $path-img: 'assets/image';
+
+/// input's and buttons
+.input {
+  border: solid 1px map_get($white, 1);
+  height: 26px;
+  width: auto;
+  @include padding(5px,10px);
+  color: map_get($white, 1);
+  background: none;
+  &.border-radius{
+    @include border-radius(5px);
+  }
+}
