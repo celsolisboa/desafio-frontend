@@ -22,7 +22,7 @@
   @include flexbox;
   @include justify-content(center);
   @include align-items(center);
-  @include box-shadow-inner($type:inset, $left:0, $top:0, $blur:20px, $color:rgba(0,0,0,0.5));
+  @include box-shadow-inner($type: inset, $left: 0, $top: 0, $blur: 20px, $color: rgba(0, 0, 0, 0.5));
   font-size: 15px;
   cursor: pointer;
   border: none;
@@ -31,8 +31,10 @@
   text-transform: uppercase;
   @include transition;
   &.btn_login {
-    background-color: map_get($pink, 1);
+    @include box-shadow(0, 0, 10px, rgba(0, 0, 0, 0.35));
+    background: url("#{$path-img}/bg_btn_acessar.png") repeat-x;
     color: map_get($white, 1);
+    margin-top: 7px;
   }
   &.btn_radius {
     @include border-radius(5px);
@@ -40,8 +42,8 @@
   &.btn_block {
     width: 100%;
   }
-  &:hover{
+  &:hover {
+    background: url("#{$path-img}/bg_btn_acessar_hover.png") repeat-x;
     @include transition;
-    @include box-shadow-inner($type:inset, $left:0, $top:0, $blur:0, $color:rgba(0,0,0,0.5));
   }
 }
