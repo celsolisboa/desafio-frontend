@@ -3,6 +3,11 @@
   @include justify-content(space-between);
   @include align-items(center);
 
+  &.login_dektop{
+    @include margin(64px, auto);
+    @include justify-content(center);
+  }
+
   .logo{
     @include flexbox;
     width: 77px;
