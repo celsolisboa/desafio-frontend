@@ -7,8 +7,7 @@
 @import "utilities";
 
 // imports components
-@import "components/login";
-@import "components/header";
+@import "components/components";
 
 body{
   @include padding(0,0);
