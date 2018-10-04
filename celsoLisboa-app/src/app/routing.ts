@@ -5,7 +5,7 @@ import {CoursesComponent} from "./courses/courses.component";
 
 const appRoutes: Routes = [
   // aqui vão as rotas (links de navegação)
-  { path: '', directTo:'/login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   //{ path: '**', component: LoginComponent },
   { path: 'courses', component: CoursesComponent },
 ];

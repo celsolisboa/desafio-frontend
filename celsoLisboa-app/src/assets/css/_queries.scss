@@ -10,10 +10,21 @@
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
+  .card_box{
+    grid-template-columns: 1fr;
+    width:100%;
+    grid-row-gap: 20px;
+    .card{
+      width:auto;
+    }
+  }
 }
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
+  body{
+    height:auto;
+  }
 }
 
 // Large devices (desktops, less than 1200px)
