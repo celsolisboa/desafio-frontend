@@ -1,0 +1,8 @@
+.header{
+  .logo{
+    @include flexbox;
+    width: 77px;
+    height:36px;
+    background: url("#{$path-img}/logo_medium.png") no-repeat center center;
+  }
+}

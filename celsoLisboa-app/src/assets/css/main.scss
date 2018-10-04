@@ -7,6 +7,7 @@
 
 // imports components
 @import "components/login";
+@import "components/header";
 
 body{
   @include padding(0,0);
@@ -15,6 +16,14 @@ body{
   -webkit-background-size:cover;
   background-size:cover;
   height: 100vh;
+}
+.wrapper{
+  @include flexbox;
+  @include margin(0, auto);
+  @include flex-direction(column);
+  @include padding(18px, 18px);
+  width: 90vw;
+  height: auto;
 }
 .loading {
   width: 100vw;

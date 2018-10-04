@@ -39,10 +39,16 @@
   -moz-border-radius: $radius;
 }
 
-@mixin box-shadow($left,$top,$blur,$color) {
+@mixin box-shadow($left, $top, $blur, $color) {
   box-shadow: $left $top $blur $color;
   -webkit-box-shadow: $left $top $blur $color;
   -moz-box-shadow: $left $top $blur $color;
+}
+
+@mixin box-shadow-inner($type:0, $left:0, $top:0, $blur:0, $color:transparent) {
+  box-shadow: $type $left $top $blur $color;
+  -webkit-box-shadow: $type $left $top $blur $color;
+  -moz-box-shadow: $type $left $top $blur $color;
 }
 
 @mixin zoom($value) {
@@ -71,8 +77,9 @@
   -khtml-opacity: $value !important;
   opacity: $value !important;
 }
+
 //usage: @include shift([property],[duration],[easing]);
-@mixin transition($property: all, $duration: .3s, $ease: linear){
+@mixin transition($property: all, $duration: .3s, $ease: linear) {
   -webkit-transition: $property $duration $ease;
   -moz-transition: $property $duration $ease;
   -o-transition: $property $duration $ease;
@@ -111,10 +118,10 @@
 @mixin grayscale($value) {
   -webkit-filter: #{"grayscale(#{$value})"};
   -moz-filter: #{"grayscale(#{$value})"};
-  filter:#{"grayscale(#{$value})"};
+  filter: #{"grayscale(#{$value})"};
 }
 
-@mixin placeholder($value){
+@mixin placeholder($value) {
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     text-transform: $value;
   }
