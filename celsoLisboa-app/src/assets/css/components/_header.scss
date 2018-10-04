@@ -1,4 +1,8 @@
 .header{
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+
   .logo{
     @include flexbox;
     width: 77px;

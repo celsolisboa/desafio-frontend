@@ -39,6 +39,15 @@
   &.btn_radius {
     @include border-radius(5px);
   }
+  &.btn_radius_100{
+    @include border-radius(100px);
+  }
+  &.criar{
+    width: 120px;
+    height: 31px;
+    text-decoration: none;
+    margin-top:0;
+  }
   &.btn_block {
     width: 100%;
   }
