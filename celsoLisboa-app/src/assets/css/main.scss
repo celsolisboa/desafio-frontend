@@ -1,0 +1,40 @@
+// importa todos os sass
+@import "variables";
+@import "mixins/mixins_project";
+@import "mixins/flexbox";
+@import "fonts";
+@import "forms";
+
+// imports components
+@import "components/login";
+@import "components/header";
+
+body{
+  @include padding(0,0);
+  @include margin(0,0);
+  background: url('#{$path-img}/background.jpg') no-repeat center center;
+  -webkit-background-size:cover;
+  background-size:cover;
+  height: 100vh;
+}
+.wrapper{
+  @include flexbox;
+  @include margin(0, auto);
+  @include flex-direction(column);
+  @include padding(18px, 18px);
+  width: 90vw;
+  height: auto;
+}
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  @include flex-direction(row);
+  @include justify-content(center);
+  @include align-items(center);
+  @include flexbox;
+  .img_loading{
+    height:180px;
+    width: 180px;
+  }
+}

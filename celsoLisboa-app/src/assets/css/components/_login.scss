@@ -1,0 +1,13 @@
+.login{
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
+  font-family: Heebo-Regular;
+  width: 339px;
+  margin: auto;
+  .login_titulo{
+    margin-bottom: 23px;
+    color: map_get($white, 1);
+  }
+}

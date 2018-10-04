@@ -1,0 +1,49 @@
+//FORMS, INPUTs AND BUTTONS
+.input-group {
+  @include flexbox;
+  @include padding(10px, 0);
+  width: 100%;
+  height: auto;
+
+  .input {
+    border: solid 1px map_get($white, 1);
+    height: 36px;
+    width: 100%;
+    @include padding(5px, 10px);
+    color: map_get($white, 1);
+    background: none;
+    &.border-radius {
+      @include border-radius(5px);
+    }
+  }
+}
+
+.btn {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+  @include box-shadow-inner($type: inset, $left: 0, $top: 0, $blur: 20px, $color: rgba(0, 0, 0, 0.5));
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  font-family: Heebo-Regular;
+  height: 50px;
+  text-transform: uppercase;
+  @include transition;
+  &.btn_login {
+    @include box-shadow(0, 0, 10px, rgba(0, 0, 0, 0.35));
+    background: url("#{$path-img}/bg_btn_acessar.png") repeat-x;
+    color: map_get($white, 1);
+    margin-top: 7px;
+  }
+  &.btn_radius {
+    @include border-radius(5px);
+  }
+  &.btn_block {
+    width: 100%;
+  }
+  &:hover {
+    background: url("#{$path-img}/bg_btn_acessar_hover.png") repeat-x;
+    @include transition;
+  }
+}
