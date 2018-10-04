@@ -1,1 +1,66 @@
-// COMPONENTE DE CURSOS
+//COMPONENTE DE CURSOS
+.cursos{
+  @include flexbox;
+  @include justify-content(center);
+}
+.card_box{
+  display: grid;
+  display: -ms-grid;
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  width: 859px;
+}
+.card{
+  width: calc(410px - 36px);
+  background-color: map_get($white, 1);
+  color: map_get($black, 2);
+  font-family: Heebo-Regular;
+  @include border-radius(5px);
+  @include box-shadow(0, 0, 10px, rgba(0, 0, 0, 0.35));
+  @include padding(18px, 18px);
+  @include transition;
+  &:hover{
+    @include box-shadow(0, 0, 30px, rgba(0, 0, 0, 0.35));
+    @include transition;
+  }
+}
+.card_header{
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+.card_body{
+  @include flexbox;
+  @include flex-direction(column);
+  font-size:14px;
+  color: map_get($gray, 1);
+
+  .card_body_instructor{
+    width:100%;
+    @include flexbox;
+    @include flex-direction(column);
+  }
+  .card_body_room_hour{
+    @include flexbox;
+    @include justify-content(space-between);
+    width:100%;
+  }
+  p{
+    margin:0;
+  }
+}
+.card_close{
+  display: block;
+  background: url("#{$path-img}/close_grey.png") center center no-repeat;
+  height:13px;
+  width: 13px;
+  @include transition;
+
+  &:hover{
+    @include rotate(90deg);
+    @include transition;
+  }
+}
