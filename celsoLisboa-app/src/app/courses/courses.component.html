@@ -1,9 +1,14 @@
-<div>
-    <div *ngFor="let chave of cursos">
-        {{ chave }}
+<div *ngFor='let key of objectKeys(jsonObj)'>
+    Key: {{key | json}}
+
+    <div *ngFor='let obj of jsonObj[key]'>
+        {{ obj.title }} {{ obj.desc }}
     </div>
+    <hr/>
+
 </div>
 
+<!--
 <section>
     <div class="cursos">
         <div class="card_box">
@@ -70,3 +75,4 @@
         </div>
     </div>
 </section>
+-->
