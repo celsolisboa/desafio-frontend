@@ -1,0 +1,78 @@
+<div *ngFor='let key of objectKeys(jsonObj)'>
+    Key: {{key | json}}
+
+    <div *ngFor='let obj of jsonObj[key]'>
+        {{ obj.title }} {{ obj.desc }}
+    </div>
+    <hr/>
+
+</div>
+
+<!--
+<section>
+    <div class="cursos">
+        <div class="card_box">
+            <div class="card">
+                <div class="card_header">
+                    <span>Biologia</span>
+                    <a href="#" class="card_close"></a>
+                </div>
+                <div class="card_body">
+                    <div class="card_body_instructor">
+                        <p>Prof. Álvares de Azevedo</p>
+                    </div>
+                    <div class="card_body_room_hour">
+                        <span>sala 05</span>
+                        <span>09:00 às 12:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_header">
+                    <span>Biologia</span>
+                    <a href="#" class="card_close"></a>
+                </div>
+                <div class="card_body">
+                    <div class="card_body_instructor">
+                        <p>Prof. Álvares de Azevedo</p>
+                    </div>
+                    <div class="card_body_room_hour">
+                        <span>sala 05</span>
+                        <span>09:00 às 12:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_header">
+                    <span>Biologia</span>
+                    <a href="#" class="card_close"></a>
+                </div>
+                <div class="card_body">
+                    <div class="card_body_instructor">
+                        <p>Prof. Álvares de Azevedo</p>
+                    </div>
+                    <div class="card_body_room_hour">
+                        <span>sala 05</span>
+                        <span>09:00 às 12:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_header">
+                    <span>Biologia</span>
+                    <a href="#" class="card_close"></a>
+                </div>
+                <div class="card_body">
+                    <div class="card_body_instructor">
+                        <p>Prof. Álvares de Azevedo</p>
+                    </div>
+                    <div class="card_body_room_hour">
+                        <span>sala 05</span>
+                        <span>09:00 às 12:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+-->
