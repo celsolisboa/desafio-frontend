@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CursoService } from './curso.service';
-
-import {Curso} from './curso';
-
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-courses',
@@ -12,13 +9,13 @@ import {Curso} from './curso';
 
 export class CoursesComponent implements OnInit {
 
-  cursos:object;
+  //url do curso
+  private cursoURL = 'http://localhost:3000/api/curso';
 
-  constructor(private service: CursoService) {}
+  constructor( private _http: Http ) {}
 
     ngOnInit() {
-      this.service.getCursos().subscribe(
-        dados => this.service = dados
-      );
-  }
+
+    }
+
 }
