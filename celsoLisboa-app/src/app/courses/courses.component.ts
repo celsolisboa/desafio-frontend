@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from './courses.service';
 import { Curso } from './courses';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-courses',
