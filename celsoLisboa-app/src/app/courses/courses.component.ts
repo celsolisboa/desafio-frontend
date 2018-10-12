@@ -13,7 +13,6 @@ export class CoursesComponent implements OnInit {
 
   //recebe os dados de curso
   cursos: Curso[];
-  errorMsg;
 
   constructor(private service: CoursesService) {}
 
@@ -21,8 +20,7 @@ export class CoursesComponent implements OnInit {
 
       this.service.getCursos()
       .subscribe(
-        dados => this.cursos = dados,
-        error => this.errorMsg = error
+        dados => this.cursos = dados
         )
 
     }

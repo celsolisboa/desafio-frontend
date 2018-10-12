@@ -1,63 +1,20 @@
 <section>
     <div class="cursos">
         <div class="card_box">
-            <div class="card">
+            <div class="card" *ngFor="let curso of cursos.cursos">
                 <div class="card_header">
-                    <span>Biologia</span>
+                    <span>{{curso.nome}}</span>
                     <a href="#" class="card_close"></a>
                 </div>
                 <div class="card_body">
-                    <div class="card_body_instructor">
-                        <p>Prof. Álvares de Azevedo</p>
+                    <div class="card_body_instructor" *ngFor="let professor of curso.professores">
+                        <p>{{professor.nome}}</p>
                     </div>
                     <div class="card_body_room_hour">
-                        <span>sala 05</span>
-                        <span>09:00 às 12:00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_header">
-                    <span>Biologia</span>
-                    <a href="#" class="card_close"></a>
-                </div>
-                <div class="card_body">
-                    <div class="card_body_instructor">
-                        <p>Prof. Álvares de Azevedo</p>
-                    </div>
-                    <div class="card_body_room_hour">
-                        <span>sala 05</span>
-                        <span>09:00 às 12:00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_header">
-                    <span>Biologia</span>
-                    <a href="#" class="card_close"></a>
-                </div>
-                <div class="card_body">
-                    <div class="card_body_instructor">
-                        <p>Prof. Álvares de Azevedo</p>
-                    </div>
-                    <div class="card_body_room_hour">
-                        <span>sala 05</span>
-                        <span>09:00 às 12:00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_header">
-                    <span>Biologia</span>
-                    <a href="#" class="card_close"></a>
-                </div>
-                <div class="card_body">
-                    <div class="card_body_instructor">
-                        <p>Prof. Álvares de Azevedo</p>
-                    </div>
-                    <div class="card_body_room_hour">
-                        <span>sala 05</span>
-                        <span>09:00 às 12:00</span>
+                        <span *ngFor="let sala of curso.salas">
+                            <p>{{sala.sala}}</p>
+                        </span>
+                        <span>{{curso.inicio}} às {{curso.fim}}</span>
                     </div>
                 </div>
             </div>

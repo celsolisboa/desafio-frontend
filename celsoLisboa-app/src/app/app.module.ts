@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { CoursesComponent } from './courses/courses.component';
-import { CourseComponent } from './courses/course/course.component';
 
 
 @NgModule({
@@ -16,7 +15,6 @@ import { CourseComponent } from './courses/course/course.component';
     LoginComponent,
     HeaderComponent,
     CoursesComponent,
-    CourseComponent
   ],
   imports: [
     HttpClientModule,
