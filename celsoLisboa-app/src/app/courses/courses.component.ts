@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { CoursesService } from './courses.service';
+import { Curso } from './courses';
 
 @Component({
   selector: 'app-courses',
@@ -9,13 +10,17 @@ import { Http } from '@angular/http';
 
 export class CoursesComponent implements OnInit {
 
-  //url do curso
-  private cursoURL = 'http://localhost:3000/api/curso';
+  //recebe os dados de curso
+  cursos: Curso[];
 
-  constructor( private _http: Http ) {}
+  constructor(private service: CoursesService) {}
 
     ngOnInit() {
 
-    }
+      this.service.getCursos()
+      .subscribe(
+        dados => this.cursos = dados
+        )
 
+    }
 }
