@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CursoService } from './curso.service';
-
-import {Curso} from './curso';
-
+import { CoursesService } from './courses.service';
+import { Curso } from './courses';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-courses',
@@ -12,13 +11,19 @@ import {Curso} from './curso';
 
 export class CoursesComponent implements OnInit {
 
-  cursos:object;
+  //recebe os dados de curso
+  cursos: Curso[];
+  errorMsg;
 
-  constructor(private service: CursoService) {}
+  constructor(private service: CoursesService) {}
 
     ngOnInit() {
-      this.service.getCursos().subscribe(
-        dados => this.service = dados
-      );
-  }
+
+      this.service.getCursos()
+      .subscribe(
+        dados => this.cursos = dados,
+        error => this.errorMsg = error
+        )
+
+    }
 }
