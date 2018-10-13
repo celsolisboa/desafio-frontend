@@ -1,0 +1,77 @@
+.create_course_bg {
+    background-color: map-get($black, 3);
+    @include opacity(.85);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.create_course_modal {
+    @include padding(22px, 22px);
+    height: 446px;
+    width: 510px;
+    background-color: map-get($gray, 2);
+    z-index: 9999;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.create_course_modal_header {
+    @include flexbox;
+    @include justify-content(flex-end);
+}
+
+.create_course_modal_titulo {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items (center);
+    font-family: Heebo-Regular;
+    color: map-get($white, 1);
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.create_course_modal_content {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items (center);
+    @include flex-direction(column);
+    width: 340px;
+    margin: auto;
+    height: 100%;
+    .input {
+        outline: none;
+        &::placeholder {
+            color: map-get($white, 1);
+            opacity: 1;
+            /* Firefox */
+        }
+        &:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: map-get($white, 1);
+        }
+        &::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: map-get($white, 1);
+        }
+    }
+}
+
+.d_column_2 {
+    @include flexbox;
+    @include justify-content(space-between);
+    width: 100%;
+    >.input {
+        max-width: 140px;
+    }
+}
+
+.modal_close {
+    @extend .card_close;
+    background: url("#{$path-img}/close_white.png") center center no-repeat;
+}
