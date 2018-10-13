@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AuthService } from './login/auth.service';
 import { InputComponent } from './shared/input/input.component';
+import { AuthGuard } from './guards/auth.guard.service';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { InputComponent } from './shared/input/input.component';
     routing,
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
