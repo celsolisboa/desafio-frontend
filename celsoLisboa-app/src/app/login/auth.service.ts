@@ -20,4 +20,8 @@ export class AuthService {
       this.usuarioAutenticado = false;
     }
   }
+
+  usuarioEstaAutenticado(){
+    this.usuarioAutenticado
+  }
 }
