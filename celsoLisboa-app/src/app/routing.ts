@@ -8,10 +8,7 @@ const appRoutes: Routes = [
   // aqui vão as rotas (links de navegação)
   {
      path: '',
-     component: LoginComponent,
-  },
-  {
-     path: '**', component: LoginComponent
+     component: LoginComponent
   },
   {
     path: 'courses',
