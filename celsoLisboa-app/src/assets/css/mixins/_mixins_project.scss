@@ -1,137 +1,149 @@
 // @include background('/my/img/path.png');
 @mixin padding($y, $x) {
-  padding: #{$y} #{$x};
+    padding: #{$y} #{$x};
 }
 
 @mixin margin($y, $x) {
-  margin: #{$y} #{$x};
+    margin: #{$y} #{$x};
 }
 
 @mixin font-face($name, $name-font, $weight: normal, $style: normal) {
-  @font-face {
-    font-family: "#{$name}";
-    src: url('#{$path-font}/#{$name-font}.eot');
-    src: url('#{$path-font}/#{$name-font}.eot?#iefix') format('embedded-opentype'),
-    url('#{$path-font}/#{$name-font}.woff') format('woff'),
-    url('#{$path-font}/#{$name-font}.ttf') format('truetype'),
-    url('#{$path-font}/#{$name-font}.svg?#webfont') format('svg');
-    font-weight: $weight;
-    font-style: $style;
-  }
+    @font-face {
+        font-family: "#{$name}";
+        src: url('#{$path-font}/#{$name-font}.eot');
+        src: url('#{$path-font}/#{$name-font}.eot?#iefix') format('embedded-opentype'),
+        url('#{$path-font}/#{$name-font}.woff') format('woff'),
+        url('#{$path-font}/#{$name-font}.ttf') format('truetype'),
+        url('#{$path-font}/#{$name-font}.svg?#webfont') format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
 }
 
 // font-size
 @mixin font-size($sizeValue: 1.6) {
-  font-size: ($sizeValue * 10) + px !important;
-  font-size: $sizeValue + rem !important;
+    font-size: ($sizeValue * 10) + px !important;
+    font-size: $sizeValue + rem !important;
 }
 
 @mixin background-size($background-size) {
-  -webkit-background-size: $background-size;
-  -moz-background-size: $background-size;
-  -o-background-size: $background-size;
-  background-size: $background-size;
+    -webkit-background-size: $background-size;
+    -moz-background-size: $background-size;
+    -o-background-size: $background-size;
+    background-size: $background-size;
 }
 
 @mixin border-radius($radius) {
-  border-radius: $radius;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
 }
 
-@mixin box-shadow($left, $top, $blur, $color) {
-  box-shadow: $left $top $blur $color;
-  -webkit-box-shadow: $left $top $blur $color;
-  -moz-box-shadow: $left $top $blur $color;
+@mixin box-shadow($left,
+$top,
+$blur,
+$color) {
+    box-shadow: $left $top $blur $color;
+    -webkit-box-shadow: $left $top $blur $color;
+    -moz-box-shadow: $left $top $blur $color;
 }
 
-@mixin box-shadow-inner($type:0, $left:0, $top:0, $blur:0, $color:transparent) {
-  box-shadow: $type $left $top $blur $color;
-  -webkit-box-shadow: $type $left $top $blur $color;
-  -moz-box-shadow: $type $left $top $blur $color;
+@mixin box-shadow-inner($type:0,
+$left:0,
+$top:0,
+$blur:0,
+$color:transparent) {
+    box-shadow: $type $left $top $blur $color;
+    -webkit-box-shadow: $type $left $top $blur $color;
+    -moz-box-shadow: $type $left $top $blur $color;
 }
 
 @mixin zoom($value) {
-  zoom: $value;
-  /* IE */
-  -moz-transform: scale($value);
-  /* Firefox */
-  -moz-transform-origin: $value $value;
-  -o-transform: scale($value);
-  /* Opera */
-  -o-transform-origin: $value $value;
-  -webkit-transform: scale($value);
-  /* Safari And Chrome */
-  -webkit-transform-origin: $value $value;
-  transform: scale($value);
-  /* Standard Property */
-  transform-origin: $value $value;
-  /* Standard Property */
+    zoom: $value;
+    /* IE */
+    -moz-transform: scale($value);
+    /* Firefox */
+    -moz-transform-origin: $value $value;
+    -o-transform: scale($value);
+    /* Opera */
+    -o-transform-origin: $value $value;
+    -webkit-transform: scale($value);
+    /* Safari And Chrome */
+    -webkit-transform-origin: $value $value;
+    transform: scale($value);
+    /* Standard Property */
+    transform-origin: $value $value;
+    /* Standard Property */
 }
 
 @mixin opacity($value) {
-  $IEValue: $value*100;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
-  filter: alpha(opacity=$IEValue);
-  -moz-opacity: $value !important;
-  -khtml-opacity: $value !important;
-  opacity: $value !important;
+    $IEValue: $value*100;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+    filter: alpha(opacity=$IEValue);
+    -moz-opacity: $value !important;
+    -khtml-opacity: $value !important;
+    opacity: $value !important;
 }
 
 //usage: @include shift([property],[duration],[easing]);
-@mixin transition($property: all, $duration: .3s, $ease: linear) {
-  -webkit-transition: $property $duration $ease;
-  -moz-transition: $property $duration $ease;
-  -o-transition: $property $duration $ease;
-  transition: $property $duration $ease;
+@mixin transition($property: all,
+$duration: .3s,
+$ease: linear) {
+    -webkit-transition: $property $duration $ease;
+    -moz-transition: $property $duration $ease;
+    -o-transition: $property $duration $ease;
+    transition: $property $duration $ease;
 }
 
 // @include background-gradient(green, blue, 'vertical');
-@mixin background-gradient($start-color, $end-color, $orientation) {
-  background-color: $start-color;
-
-  // Vertical Gradient
-  @if $orientation == 'vertical' {
-    background-image: linear-gradient(to bottom, $start-color, $end-color);
-  }
-
+@mixin background-gradient($start-color,
+$end-color,
+$orientation) {
+    background-color: $start-color;
+    // Vertical Gradient
+    @if $orientation=='vertical' {
+        background-image: linear-gradient(to bottom, $start-color, $end-color);
+    }
     // Horizontal Gradient
-  @else if $orientation == 'horizontal' {
-    background-image: linear-gradient(to right, $start-color, $end-color);
-  }
-
+    @else if $orientation=='horizontal' {
+        background-image: linear-gradient(to right, $start-color, $end-color);
+    }
     // Radial Gradient
-  @else if $orientation == 'radial' {
-    background-image: radial-gradient(ellipse at center, $start-color, $end-color);
-  }
-
+    @else if $orientation=='radial' {
+        background-image: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
 }
 
 @mixin rotate($degrees) {
-  -webkit-transform: rotate($degrees);
-  -moz-transform: rotate($degrees);
-  -ms-transform: rotate($degrees);
-  -o-transform: rotate($degrees);
-  transform: rotate($degrees);
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
 }
 
 @mixin grayscale($value) {
-  -webkit-filter: #{"grayscale(#{$value})"};
-  -moz-filter: #{"grayscale(#{$value})"};
-  filter: #{"grayscale(#{$value})"};
+    -webkit-filter: #{"grayscale(#{$value})"};
+ -moz-filter: #{"grayscale(#{$value})"};
+ filter: #{"grayscale(#{$value})"};
+
 }
 
 @mixin placeholder($value) {
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    text-transform: $value;
-  }
-  ::-moz-placeholder { /* Firefox 19+ */
-    text-transform: $value;
-  }
-  :-ms-input-placeholder { /* IE 10+ */
-    text-transform: $value;
-  }
-  :-moz-placeholder { /* Firefox 18- */
-    text-transform: $value;
-  }
+     ::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        text-transform: $value;
+    }
+     ::-moz-placeholder {
+        /* Firefox 19+ */
+        text-transform: $value;
+    }
+     :-ms-input-placeholder {
+        /* IE 10+ */
+        text-transform: $value;
+    }
+     :-moz-placeholder {
+        /* Firefox 18- */
+        text-transform: $value;
+    }
 }

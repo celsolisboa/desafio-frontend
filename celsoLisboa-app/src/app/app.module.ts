@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AuthService } from './login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { CreateCourseComponent } from './create-course/create-course.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     HeaderComponent,
     CoursesComponent,
+    CreateCourseComponent
   ],
   imports: [
     HttpClientModule,
