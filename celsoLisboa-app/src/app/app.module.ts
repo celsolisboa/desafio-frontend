@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { CoursesComponent } from './courses/courses.component';
+import { AuthService } from './login/auth.service';
+import { InputComponent } from './shared/input/input.component';
 
 
 @NgModule({
@@ -15,13 +17,16 @@ import { CoursesComponent } from './courses/courses.component';
     LoginComponent,
     HeaderComponent,
     CoursesComponent,
+    InputComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     routing,
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
