@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { routing } from './routing';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { InputComponent } from './shared/input/input.component';
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
     routing,
   ],
   providers: [
