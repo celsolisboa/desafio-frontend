@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AuthService } from './login/auth.service';
-import { AuthGuard } from './guards/auth.guard.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
