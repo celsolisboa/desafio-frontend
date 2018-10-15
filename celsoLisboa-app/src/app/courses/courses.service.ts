@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Curso } from './courses';
 import {API} from '../API/api';
-import { tap } from 'rxjs/operators';
-// lembrar de criar a interface.model
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,4 +17,7 @@ export class CoursesService {
     return this.http.get<Curso[]>(`${API}/curso`)
   }
 
+  deleteCourse(id: number){
+    return this.http.delete<Curso[]>(`${API}/curso/${id}`)
+  }
 }
