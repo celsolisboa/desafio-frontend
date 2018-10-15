@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateCourseService } from './create-course.service';
 import { CreateCourse } from './create-course';
+import { HttpClient } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-create-course',
@@ -9,7 +12,7 @@ import { CreateCourse } from './create-course';
 })
 export class CreateCourseComponent implements OnInit {
 
-  constructor( private service: CreateCourseService) { }
+  constructor( private service: CreateCourseService, http: HttpClient) { }
 
     //recebe os dados de professores
     professor: CreateCourse[];
@@ -19,5 +22,4 @@ export class CreateCourseComponent implements OnInit {
       dados => this.professor = dados
     );
   }
-
 }
