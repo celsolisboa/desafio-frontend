@@ -3,12 +3,20 @@ const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use((request, response, next) => {
+    response.setHeader('Content-Type', 'application/json');
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
+
+
 
 
 app.get('/', function(req, res) {
-
     res.json({
         title: 'Desafio Celso Lisboa FrontEnd',
         version: '1.0.0',
