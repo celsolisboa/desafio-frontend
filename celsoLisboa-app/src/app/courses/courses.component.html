@@ -1,7 +1,7 @@
 <section>
     <div class="cursos">
         <div class="card_box">
-            <div class="card" *ngFor="let curso of cursos.cursos">
+            <div class="card" *ngFor="let curso of cursos">
                 <div class="card_header">
                     <span>{{curso.nome}}</span>
                     <a href="#" class="card_close"></a>
@@ -12,7 +12,7 @@
                     </div>
                     <div class="card_body_room_hour">
                         <span *ngFor="let sala of curso.salas">
-                            <p>{{sala.sala}}</p>
+                            <p>sala {{sala.sala}}</p>
                         </span>
                         <span>{{curso.inicio}} às {{curso.fim}}</span>
                     </div>
@@ -21,4 +21,6 @@
         </div>
     </div>
 </section>
--->
+
+<!-- MODAL CRIAR CURSO -->
+<app-create-course></app-create-course>

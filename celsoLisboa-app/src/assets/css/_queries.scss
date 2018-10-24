@@ -1,45 +1,54 @@
 // queries de css
-
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
-  .login{
-    margin-top:72px;
-    width: 100%;
-  }
+    .login {
+        margin-top: 72px;
+        width: 100%;
+    }
 }
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
-  .card_box{
-    grid-template-columns: 1fr;
-    width:100%;
-    grid-row-gap: 20px;
-    .card{
-      width:auto;
+    .card_box {
+        grid-template-columns: 1fr;
+        width: 100%;
+        grid-row-gap: 20px;
+        .card {
+            width: auto;
+        }
     }
-  }
+    .create_course_modal {
+        width: 100vw;
+        position: fixed;
+    }
+    //modal criar cursos
+    .create_course_modal_header {
+        margin: auto;
+    }
+    .create_course_modal_content,
+    .create_course_modal_header {
+        width: 340px;
+    }
+    .d_column_2>.input {
+        width: 43%;
+    }
 }
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
-  body{
-    height:auto;
-  }
+    body {
+        height: auto;
+    }
 }
 
 // Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {
-
-}
+@media (max-width: 1199.98px) {}
 
 // Large devices (desktops, less than 1366px)
-@media (max-width: 1365.98px) {
-}
+@media (max-width: 1365.98px) {}
 
 // Large devices (desktops, less than 1920px)
-@media (max-width: 1919.98px) {
-}
+@media (max-width: 1919.98px) {}
 
 // Large devices (desktops, less than 1920px)
-@media (min-width: 1920px) {
-}
+@media (min-width: 1920px) {}

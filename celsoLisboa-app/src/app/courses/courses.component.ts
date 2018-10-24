@@ -19,7 +19,7 @@ export class CoursesComponent implements OnInit {
 
       this.service.getCursos()
       .subscribe(
-        dados => this.cursos = dados
+        dados => this.cursos = dados.cursos
         )
 
     }
