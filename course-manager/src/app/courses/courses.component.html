@@ -21,6 +21,10 @@
       <span class="course__time" *ngIf="course.inicio && course.fim">{{course.inicio}} às {{course.fim}}</span>
     </div>
 
-    <button class="course__remove">X</button>
+    <button class="course__remove" (click)="deleteCourse(course.id)">X</button>
   </div>
+</div>
+
+<div class="course--none" *ngIf="!courses || courses.length === 0">
+  Não há cursos para exibir.
 </div>
