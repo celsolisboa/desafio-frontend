@@ -2,6 +2,9 @@
 
 Lucas AnDesenv Lima 
 
+`Pixel Perfect (Utilizado):
+X=240 | Y=0 | Scale: 1.0 | 1920x1080p
+
 ### Cenário
 
 **Como** Coordenador Acadêmico de uma Instituição de Ensino  
