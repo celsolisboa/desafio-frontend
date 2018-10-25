@@ -1,5 +1,9 @@
 <h1>Login</h1>
 
+<div class="login__error-message" *ngIf="errorMessage">
+  <p>{{errorMessage}}</p>
+</div>
+
 <div class="login">
   <input type="text" #userEmail>
   <input type="password" #userPassword>
