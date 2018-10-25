@@ -4,9 +4,27 @@
 }
 
 .form-control::placeholder{
-        color: #ffffff;;
+    color: #ffffff;;
 }
 
-.btn{
+.tela-login .col-md-4.email{
+    margin-top: 2em;
+}
+
+.tela-login .col-md-4.senha {
+    margin-top: 1.1em;
+}
+
+.tela-login .col-md-4.email,
+.tela-login .col-md-4.senha{	
+	padding-right: 12px;
+    padding-left: 12px;
+}
+
+.tela-login .form-control{
+    padding: 1.475rem 1.10rem;
+    font-size: 1.1em;
+}
+.tela-login .btn{
     width: 31%; 
 }
