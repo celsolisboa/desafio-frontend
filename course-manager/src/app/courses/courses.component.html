@@ -1,5 +1,5 @@
 <header class="courses__header">
-  <button class="course__add" (click)="addCourse = true">Criar</button>
+  <button class="course__add" (click)="showAddCourse = true">Criar</button>
 </header>
 
 <h1>Cursos</h1>
@@ -33,24 +33,25 @@
   Não há cursos para exibir.
 </div>
 
-<div class="course__add" *ngIf="addCourse">
+<div class="course__add" *ngIf="showAddCourse && teachers && rooms">
   <div class="course__form">
     <input #name>
-    <select #professores [(ngModel)]="selectedTeachers">
-      <option *ngFor="let teacher in teachers"
-        [ngValue]="teacher">
-          {{teacher.nome}}
-      </option>
+    
+    <select #selectedTeachers multiple>
+      <option value="" default disabled>Professores</option>
+      <option *ngFor="let teacher of teachers" [value]="teacher.id">{{teacher.nome}}</option>
     </select>
-    <select #rooms [(ngModel)]="selectedRooms">
-      <option *ngFor="let room in rooms"
-        [value]="room.id">
-          {{room.sala}}
-      </option>
+
+    <select #selectedRooms multiple>
+      <option value="" default disabled>Salas</option>
+      <option *ngFor="let room of rooms" [value]="room.id">{{room.sala}}</option>
     </select>
+    
     <input #start>
     <input #end>
 
-    <button class="course__close" (click)="addCourse = false">X</button>
+    <button class="course__close" (click)="addCourse(name.value, selectedTeachers.selectedOptions, selectedRooms.selectedOptions, start.value, end.value)">Salvar</button>
+
+    <button class="course__close" (click)="showAddCourse = false">X</button>
   </div>
 </div>

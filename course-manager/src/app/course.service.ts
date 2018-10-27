@@ -28,6 +28,14 @@ export class CourseService {
       );
   }
 
+  addCourse(course: Course): Observable<any> {
+    return this.http.post<any>(this.courseUrl, course, httpOptions)
+      .pipe(
+        tap(() => this.log(`added course id=${course.id}`)),
+        catchError(this.handleError<any>('addCourse'))
+      );
+  }
+
   deleteCourse(course: Course | number): Observable<any> {
     const id = typeof course === 'number' ? course : course.id;
     const deleteUrl = `${this.courseUrl}/${id}`;
