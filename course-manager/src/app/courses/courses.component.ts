@@ -3,6 +3,7 @@ import { Course } from '../course';
 import { CourseService } from '../course.service';
 import { Teacher } from '../teacher';
 import { Room } from '../room';
+import { extractDirectiveDef } from '@angular/core/src/render3/definition';
 
 @Component({
   selector: 'app-courses',
@@ -14,6 +15,7 @@ export class CoursesComponent implements OnInit {
   public teachers: Teacher[];
   public rooms: Room[];
   public showAddCourse = false;
+  public selectedCourse: Course;
 
   constructor(private courseService: CourseService) { }
 
@@ -35,18 +37,8 @@ export class CoursesComponent implements OnInit {
   }
 
   addCourse(name: string, selectedTeachers: HTMLOptionElement[], selectedRooms: HTMLOptionElement[], start: string, end: string): void {
-    const teachers = Array.from(selectedTeachers).map(teacher => {
-      return {
-        id: parseInt(teacher.value),
-        nome: this.teachers.find(teach => teach.id.toString() === teacher.value).nome
-      }
-    });
-    const rooms = Array.from(selectedRooms).map(room => {
-      return {
-        id: parseInt(room.value),
-        sala: this.rooms.find(rm => rm.id.toString() === room.value).sala
-      }
-    });
+    const teachers = this.mapTeacher(selectedTeachers);
+    const rooms = this.mapRoom(selectedRooms);
 
     const newId = this.createId();
     const newCourse = {
@@ -60,6 +52,49 @@ export class CoursesComponent implements OnInit {
 
     this.courses.push(newCourse);
     this.courseService.addCourse(newCourse).subscribe();
+  }
+
+  selectCourse(course: Course): void {
+    this.selectedCourse = course;
+  }
+
+  inArray(item: any, list: any[]): boolean {
+    return list.some(i => i.id === item.id);
+  }
+
+  mapTeacher(selectedTeachers: HTMLOptionElement[]): Teacher[] {
+    return Array.from(selectedTeachers).map(teacher => {
+      return {
+        id: parseInt(teacher.value),
+        nome: this.teachers.find(teach => teach.id.toString() === teacher.value).nome
+      }
+    });
+  }
+
+  mapRoom(selectedRooms: HTMLOptionElement[]): Room[] {
+    return Array.from(selectedRooms).map(room => {
+      return {
+        id: parseInt(room.value),
+        sala: this.rooms.find(rm => rm.id.toString() === room.value).sala
+      }
+    });
+  }
+
+  editCourse(id: number, name: string, selectedTeachers: HTMLOptionElement[], selectedRooms: HTMLOptionElement[], start: string, end: string): void {
+    const teachers = this.mapTeacher(selectedTeachers);
+    const rooms = this.mapRoom(selectedRooms);
+
+    const editedCourse = {
+      id: id,
+      nome: name,
+      inicio: start,
+      fim: end,
+      salas: rooms,
+      professores: teachers
+    } as Course;
+
+    this.courses = this.courses.map(course => (editedCourse.id === course.id) ? editedCourse : course);
+    this.courseService.editCourse(editedCourse).subscribe();
   }
 
   deleteCourse(courseId: number): void {

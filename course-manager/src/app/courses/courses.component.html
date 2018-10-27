@@ -5,7 +5,7 @@
 <h1>Cursos</h1>
 
 <div class="courses" *ngIf="courses">
-  <div class="course" *ngFor="let course of courses">
+  <div class="course" *ngFor="let course of courses" (click)="selectCourse(course)">
     <span class="course__name" *ngIf="course.nome">{{course.nome}}</span>
 
     <span class="course__teachers" *ngIf="course.professores">
@@ -53,5 +53,29 @@
     <button class="course__close" (click)="addCourse(name.value, selectedTeachers.selectedOptions, selectedRooms.selectedOptions, start.value, end.value)">Salvar</button>
 
     <button class="course__close" (click)="showAddCourse = false">X</button>
+  </div>
+</div>
+
+<div class="course__edit" *ngIf="selectedCourse && teachers && rooms">
+  <div class="course__form">
+    <input #id [value]="selectedCourse.id" type="hidden">
+    <input #name [value]="selectedCourse.nome">
+    
+    <select #selectedTeachers multiple>
+      <option value="" default disabled>Professores</option>
+      <option *ngFor="let teacher of teachers" [value]="teacher.id" [selected]="inArray(teacher, selectedCourse.professores)">{{teacher.nome}}</option>
+    </select>
+
+    <select #selectedRooms multiple>
+      <option value="" default disabled>Salas</option>
+      <option *ngFor="let room of rooms" [value]="room.id" [selected]="inArray(room, selectedCourse.salas)">{{room.sala}}</option>
+    </select>
+    
+    <input #start [value]="selectedCourse.inicio">
+    <input #end [value]="selectedCourse.fim">
+
+    <button class="course__close" (click)="editCourse(id.value, name.value, selectedTeachers.selectedOptions, selectedRooms.selectedOptions, start.value, end.value)">Salvar</button>
+
+    <button class="course__close" (click)="selectedCourse = null">X</button>
   </div>
 </div>

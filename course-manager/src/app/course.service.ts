@@ -36,6 +36,15 @@ export class CourseService {
       );
   }
 
+  editCourse(course: Course): Observable<any> {
+    const patchUrl = `${this.courseUrl}/${course.id}`;
+    return this.http.patch<any>(patchUrl, course, httpOptions)
+      .pipe(
+        tap(() => this.log(`edited course id=${course.id}`)),
+        catchError(this.handleError<any>('editCourse'))
+      );
+  }
+
   deleteCourse(course: Course | number): Observable<any> {
     const id = typeof course === 'number' ? course : course.id;
     const deleteUrl = `${this.courseUrl}/${id}`;
