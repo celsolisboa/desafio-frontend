@@ -1,11 +1,17 @@
-<h1>Login</h1>
-
-<div class="login__error-message" *ngIf="errorMessage">
-  <p>{{errorMessage}}</p>
-</div>
-
 <div class="login">
-  <input type="text" #userEmail>
-  <input type="password" #userPassword>
-  <button (click)="login(userEmail.value, userPassword.value)">Acessar</button>
+  <div class="logo-wrapper">
+    <img src="../../assets/images/logo_big.png" alt="Celso Lisboa">
+  </div>
+
+  <h1>Login</h1>
+  
+  <div class="login__error-message" *ngIf="errorMessage">
+    <p>{{errorMessage}}</p>
+  </div>
+  
+  <div class="login__form">
+    <input type="text" #userEmail placeholder="Email">
+    <input type="password" #userPassword placeholder="Senha">
+    <button class="btn" (click)="login(userEmail.value, userPassword.value)">Acessar</button>
+  </div>
 </div>

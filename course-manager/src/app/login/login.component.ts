@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         if (response) {
           this.router.navigate(['/cursos']);
         } else {
-          this.errorMessage = 'Credenciais inválidas. Favor verificar seu email e senha.';
+          this.errorMessage = 'Credenciais inválidas.\nFavor verificar seu email e senha.';
         }
       }
     );

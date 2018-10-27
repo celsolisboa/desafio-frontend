@@ -33,7 +33,7 @@ export class CoursesComponent implements OnInit {
   }
 
   createId(): number { 
-    return Math.max(...this.courses.map(course => parseInt(course.id))) + 1;
+    return this.courses.length === 0 ? 1 : Math.max(...this.courses.map(course => parseInt(course.id))) + 1;
   }
 
   addCourse(name: string, selectedTeachers: HTMLOptionElement[], selectedRooms: HTMLOptionElement[], start: string, end: string): void {
