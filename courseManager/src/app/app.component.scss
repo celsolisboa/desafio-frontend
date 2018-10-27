@@ -1,1 +1,50 @@
+.container {
+  width: 20em;
+  margin-top: 10em;
+}
 
+.logo {
+  width: fit-content;
+}
+.form{
+  margin-top: 5em;
+}
+
+form{
+  p{
+    text-align: center;
+    color: white;
+  }
+}
+
+.form-control {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.input {
+  position: relative;
+  label{
+    margin-top: -25px;
+    padding: 5px 0 7px 10px;
+    color: white;
+  }
+  input{
+    margin-top: -25px;
+    border-radius: 5px;
+    height: 2.7em;
+  }
+  button{
+    width: -webkit-fill-available;
+    background-color: deeppink;
+    border-radius: 5px;
+    color: white;
+  }
+}
+
+.is-focused{
+  label{
+    top: 0.7rem;
+  }
+}
