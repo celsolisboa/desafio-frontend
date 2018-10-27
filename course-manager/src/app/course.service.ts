@@ -45,8 +45,8 @@ export class CourseService {
       );
   }
 
-  deleteCourse(course: Course | number): Observable<any> {
-    const id = typeof course === 'number' ? course : course.id;
+  deleteCourse(course: Course | string): Observable<any> {
+    const id = typeof course === 'string' ? course : course.id;
     const deleteUrl = `${this.courseUrl}/${id}`;
 
     return this.http.delete<any>(deleteUrl, httpOptions)

@@ -33,7 +33,7 @@ export class CoursesComponent implements OnInit {
   }
 
   createId(): number { 
-    return Math.max(...this.courses.map(course => course.id)) + 1;
+    return Math.max(...this.courses.map(course => parseInt(course.id))) + 1;
   }
 
   addCourse(name: string, selectedTeachers: HTMLOptionElement[], selectedRooms: HTMLOptionElement[], start: string, end: string): void {
@@ -42,7 +42,7 @@ export class CoursesComponent implements OnInit {
 
     const newId = this.createId();
     const newCourse = {
-      id: newId,
+      id: newId.toString(),
       nome: name,
       inicio: start,
       fim: end,
@@ -80,7 +80,7 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  editCourse(id: number, name: string, selectedTeachers: HTMLOptionElement[], selectedRooms: HTMLOptionElement[], start: string, end: string): void {
+  editCourse(id: string, name: string, selectedTeachers: HTMLOptionElement[], selectedRooms: HTMLOptionElement[], start: string, end: string): void {
     const teachers = this.mapTeacher(selectedTeachers);
     const rooms = this.mapRoom(selectedRooms);
 
@@ -97,7 +97,7 @@ export class CoursesComponent implements OnInit {
     this.courseService.editCourse(editedCourse).subscribe();
   }
 
-  deleteCourse(courseId: number): void {
+  deleteCourse(courseId: string): void {
     this.courses = this.courses.filter(courseItem => courseItem.id !== courseId);
     this.courseService.deleteCourse(courseId).subscribe();
   }
