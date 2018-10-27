@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../course';
 import { CourseService } from '../course.service';
+import { Teacher } from '../teacher';
+import { Room } from '../room';
 
 @Component({
   selector: 'app-courses',
@@ -9,11 +11,16 @@ import { CourseService } from '../course.service';
 })
 export class CoursesComponent implements OnInit {
   public courses: Course[];
+  public teachers: Teacher[];
+  public rooms: Room[];
+  public addCourse = false;
 
   constructor(private courseService: CourseService) { }
 
   ngOnInit() {
     this.getCourses();
+    this.getTeachers();
+    this.getRooms();
   }
 
   getCourses(): void {
@@ -26,6 +33,20 @@ export class CoursesComponent implements OnInit {
   deleteCourse(courseId: number): void {
     this.courses = this.courses.filter(courseItem => courseItem.id !== courseId);
     this.courseService.deleteCourse(courseId).subscribe();
+  }
+
+  getTeachers(): void {
+    this.courseService.getTeachers()
+      .subscribe((teachers) => {
+        this.teachers = teachers
+      });
+  }
+
+  getRooms(): void {
+    this.courseService.getRooms()
+      .subscribe((rooms) => {
+        this.rooms = rooms
+      });
   }
 
 }

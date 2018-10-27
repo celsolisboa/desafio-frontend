@@ -1,3 +1,7 @@
+<header class="courses__header">
+  <button class="course__add" (click)="addCourse = true">Criar</button>
+</header>
+
 <h1>Cursos</h1>
 
 <div class="courses" *ngIf="courses">
@@ -27,4 +31,26 @@
 
 <div class="course--none" *ngIf="!courses || courses.length === 0">
   Não há cursos para exibir.
+</div>
+
+<div class="course__add" *ngIf="addCourse">
+  <div class="course__form">
+    <input #name>
+    <select #professores [(ngModel)]="selectedTeachers">
+      <option *ngFor="let teacher in teachers"
+        [ngValue]="teacher">
+          {{teacher.nome}}
+      </option>
+    </select>
+    <select #rooms [(ngModel)]="selectedRooms">
+      <option *ngFor="let room in rooms"
+        [value]="room.id">
+          {{room.sala}}
+      </option>
+    </select>
+    <input #start>
+    <input #end>
+
+    <button class="course__close" (click)="addCourse = false">X</button>
+  </div>
 </div>
