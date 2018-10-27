@@ -1,10 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
+<div *ngIf="!logado" class="container">
   <div class="row logo mx-auto">
     <img alt="Celso Lisboa Logo" src="../assets/img/logo_big.png">
   </div>
   <div class="form mx-auto">
-    <form>
+    <div>
       <p class="mx-auto">Login</p>
       <div>
         <div class="input form-group">
@@ -16,9 +16,10 @@
         <input id="senha" class="form-control" type="password">
       </div>
       <div class="input">
-        <button class="btn btn-raised">acessar</button>
+        <button (click)="login()" class="btn btn-raised">acessar</button>
       </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
+<app-home *ngIf="logado"></app-home>
