@@ -96,3 +96,63 @@ nav.cursos.row {
 .tela-cursos .col p.card-text.text-sala {
     font-size: .9em;
 }
+
+/* FORMULARIO - CRIAR CURSO */
+.tela-cursos .modal-content{
+    background-color: rgb(136,136,136);
+    border-radius: 0px;
+}
+
+.tela-cursos .modal-header {
+    border-bottom: none;
+    margin-top: .6em;
+    color: white;
+    text-align: center;
+}
+
+.tela-cursos .modal-footer {
+    border-top: none;
+    padding: 0em 5.4em 4.4em 5.4em;
+}
+
+.tela-cursos .modal-dialog.modal-lg {
+    padding: 11rem 9em;
+}
+
+.tela-cursos .modal-body {
+    padding: .8rem 4.3em 0 4.3em;
+}
+
+.tela-cursos .form-control{
+    padding: 1.5rem 1rem;
+}
+
+.tela-cursos .modal-header .close {
+    margin: -2rem -.3rem -1rem auto;
+}
+
+.tela-cursos .modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    margin-top: 0.7em;
+    font-size: 1.3em;
+    padding: 0 0 0 9em;
+}
+
+.tela-cursos .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.tela-cursos .cursos .modal .row {
+    margin-top: 0em;
+    padding: 0em 1em;
+}
+
+.tela-cursos .form-group {
+    margin-bottom: 1.25rem;
+    margin-top: 0em;
+}
+
+.tela-cursos button.btn.btn-danger.col-md-12 {
+    padding: .75em;
+}
