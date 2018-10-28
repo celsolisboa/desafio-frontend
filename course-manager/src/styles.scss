@@ -19,22 +19,23 @@ input {
     height: 3.125em;
     font-size: 100%;
     overflow: hidden;
+    letter-spacing: 0.0625em;
 
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: #eeeeee;
-        transition: opacity .15s, transform .15s;
+        transition: opacity .1s, transform .15s;
     }
     &::-moz-placeholder { /* Firefox 19+ */
         color: #eeeeee;
-        transition: opacity .15s, transform .15s;
+        transition: opacity .1s, transform .15s;
     }
     &:-ms-input-placeholder { /* IE 10+ */
         color: #eeeeee;
-        transition: opacity .15s, transform .15s;
+        transition: opacity .1s, transform .15s;
     }
     &:-moz-placeholder { /* Firefox 18- */
         color: #eeeeee;
-        transition: opacity .15s, transform .15s;
+        transition: opacity .1s, transform .15s;
     }
 
     &:focus {
@@ -59,21 +60,158 @@ input {
     }
 }
 
-.btn {
+%btn-std {
     -webkit-appearance: none;
     border: none;
     background-color: #ff0669;
     color: #fff;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    transition: box-shadow .15s;
+    cursor: pointer;
+    letter-spacing: 0.0625em;
+    
+    &:hover,
+    &:focus {
+        outline: none;
+        box-shadow: -0.1333em 0.1333em 0.6667em 0 rgba(#000, 0.51);
+    }
+}
+
+.btn {
+    @extend %btn-std;
     height: 3.3333em;
     border-radius: 0.4em;
     font-size: 0.9375em;
-    display: block;
-    width: 100%;
-    transition: box-shadow .15s;
-    text-transform: uppercase;
+    
+    &--pill {
+        @extend %btn-std;
+        font-size: 0.875em;
+        font-weight: 500;
+        height: 2.2143em;
+        border-radius: 1.1071em;
+    }
+}
+
+.btn--close {
+    -webkit-appearance: none;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 1em;
+    right: 1.125em;
+    cursor: pointer;
+    transition: transform .15s, background-color .15s;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 2em;
+    height: 2em;
 
     &:hover,
     &:focus {
-        box-shadow: -0.1333em 0.1333em 0.6667em 0 rgba(#000, 0.51);
+        outline: none;
+        transform: scale(1.1);
+        background-color: rgba(#777, 0.3);
+    }
+}
+
+.custom-multiselect {
+    position: relative;
+
+    select {
+        display: none;
+    }
+
+    &__options {
+        // position: absolute;
+        top: 100%;
+        left: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-flow: row wrap;
+        background-color: rgba(#000, 0.85);
+        width: 100%;
+        padding: 0.5em 0;
+        z-index: 1;
+        border-radius: 0 0 0.625em 0.625em;
+
+        .option {
+            flex: 0 0 100%;
+            padding: 0 0.75em;
+            height: 2.5em;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .icon {
+                margin-right: 0.75em;
+                width: 1.5em;
+                margin-bottom: -0.25em;
+                margin-top: 0.125em;
+            }
+
+            &.disabled {
+                cursor: not-allowed;
+            }
+
+            &:hover:not(.disabled) {
+                background-color: #ff0669;
+            }
+
+            &.selected {
+                color: #ff0669; 
+
+                &:hover:not(.disabled) {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &__selection {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-flow: row wrap;
+        padding: 0.5em 0;
+
+        .tag {
+            flex: 0 0 auto;
+            font-size: 0.75em;
+            padding: 0 0.875em;
+            margin-right: 0.5em;
+            background-color: #444;
+            border-radius: 1em;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 2em;
+
+            .btn--close {
+                position: static;
+                top: auto;
+                right: auto;
+                font-size: 0.75em;
+                margin-left: 0.5em;
+                margin-right: -0.5em;
+
+                img {
+                    width: 1em;
+                }
+
+                &:hover,
+                &:focus {
+                    background-color: rgba(#ff0669, 0.7);
+                    transform: none;
+                }
+            }
+        }
     }
 }

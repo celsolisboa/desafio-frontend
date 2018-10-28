@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(email: string, password: string): void {
+    event.preventDefault();
     this.errorMessage = null;
     
     this.loginService.login(email, password).subscribe(
