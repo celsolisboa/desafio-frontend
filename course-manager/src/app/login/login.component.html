@@ -12,6 +12,7 @@
   <form class="login__form" (submit)="login(userEmail.value, userPassword.value)">
     <input type="text" #userEmail placeholder="Email">
     <input type="password" #userPassword placeholder="Senha">
-    <button class="btn">Acessar</button>
+    <!-- <button class="btn">Acessar</button> -->
+    <app-button class="rounded" [text]="'Acessar'"></app-button>
   </form>
 </div>
