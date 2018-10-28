@@ -51,3 +51,48 @@
 nav.cursos.row {
     margin: 0px;
 }
+
+.tela-cursos .caixa-criar-curso.col-md-4 {
+    text-align: right;
+    padding: 0 .15em;
+}
+
+.tela-cursos .btn-group-sm>.btn, .btn-sm {
+    padding: .3rem 2.5rem;
+    border-radius: 2em;
+    background-color: rgb(255,6,105);
+}
+
+.tela-cursos .cursos .row {
+    margin-top: 5em;
+    padding: 6% 12%;
+}
+
+.tela-cursos .col {
+    margin: 1rem .4rem;
+    padding: 0 .5em;
+}
+
+.tela-cursos .col .card {
+    width: 26em;
+    padding: 1em 1em;
+    border-radius: 0.5em;
+}
+
+.tela-cursos .col .card-body {
+    padding: 0;
+}
+
+.tela-cursos .col h5.card-title {
+    font-size: 1.1em;
+    margin-bottom: 1.1rem;
+}
+
+.tela-cursos .col p.card-text {
+    font-size: .9em;
+    margin-bottom: 0px;
+}
+
+.tela-cursos .col p.card-text.text-sala {
+    font-size: .9em;
+}
