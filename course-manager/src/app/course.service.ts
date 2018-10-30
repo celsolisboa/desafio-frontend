@@ -15,8 +15,6 @@ const httpOptions = {
 })
 export class CourseService {
   private courseUrl = 'http://localhost:3000/api/curso'
-  private teacherUrl = 'http://localhost:3000/api/professor'
-  private roomUrl = 'http://localhost:3000/api/sala'
 
   constructor(private http: HttpClient) { }
 
@@ -45,8 +43,8 @@ export class CourseService {
       );
   }
 
-  deleteCourse(course: Course | number): Observable<any> {
-    const id = typeof course === 'number' ? course : course.id;
+  deleteCourse(course: Course | string): Observable<any> {
+    const id = typeof course === 'string' ? course : course.id;
     const deleteUrl = `${this.courseUrl}/${id}`;
 
     return this.http.delete<any>(deleteUrl, httpOptions)
@@ -54,22 +52,6 @@ export class CourseService {
         tap(() => this.log(`deleted course id=${id}`)),
         catchError(this.handleError<any>('deleteCourse'))
       );
-  }
-
-  getTeachers(): Observable<Teacher[]> {
-    return this.http.get<Teacher[]>(this.teacherUrl)
-      .pipe(
-        tap((teachers: Teacher[]) => this.log(`fetched ${teachers.length} teacher${teachers.length === 1 ? '' : 's'}`)),
-        catchError(this.handleError<Teacher[]>('getTeachers'))
-      )
-  }
-
-  getRooms(): Observable<Room[]> {
-    return this.http.get<Room[]>(this.roomUrl)
-      .pipe(
-        tap((rooms: Room[]) => this.log(`fetched ${rooms.length} room${rooms.length === 1 ? '' : 's'}`)),
-        catchError(this.handleError<Room[]>('getTeachers'))
-      )
   }
   
   private log(message: string) {

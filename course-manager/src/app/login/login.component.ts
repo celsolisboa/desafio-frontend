@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(email: string, password: string): void {
+    event.preventDefault();
     this.errorMessage = null;
     
     this.loginService.login(email, password).subscribe(
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
         if (response) {
           this.router.navigate(['/cursos']);
         } else {
-          this.errorMessage = 'Credenciais inválidas. Favor verificar seu email e senha.';
+          this.errorMessage = 'Credenciais inválidas.\nFavor verificar seu email e senha.';
         }
       }
     );

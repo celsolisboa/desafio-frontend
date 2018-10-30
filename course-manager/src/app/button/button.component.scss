@@ -1,0 +1,35 @@
+%btn-std {
+    -webkit-appearance: none;
+    border: none;
+    background-color: #ff0669;
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    transition: box-shadow .15s;
+    cursor: pointer;
+    letter-spacing: 0.0625em;
+    
+    &:hover,
+    &:focus {
+        outline: none;
+        box-shadow: -0.1333em 0.1333em 0.6667em 0 rgba(#000, 0.51);
+    }
+}
+
+button {
+    &.rounded {
+        @extend %btn-std;
+        height: 3.3333em;
+        border-radius: 0.4em;
+        font-size: 0.9375em;
+    }
+
+    &.pill {
+        @extend %btn-std;
+        font-size: 0.875em;
+        font-weight: 500;
+        height: 2.2143em;
+        border-radius: 1.1071em;
+    }
+}
