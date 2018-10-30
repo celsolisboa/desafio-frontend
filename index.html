@@ -9,6 +9,10 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
+    <script src="js/angularjs/angular.min.js"></script>
+    <script src="js/script.js"></script>
+
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/adaptacao-bootstrap.css">
@@ -17,11 +21,9 @@
     <title>R4S Recrutamento - Login</title>
 </head>
 
-<body class="container">
-
+<body class="container" ng-app="celsoLisboa" ng-controller="loginController">
     <section class="tela-login col-md-12 text-center">
         <img class="logo-celso-lisboa" src="image/logo_big.png" alt="logo-celso-lisboa">
-
         <p class="login-text">Login</p>
 
         <div class="col-md-4 offset-md-4 form-group email">
@@ -34,7 +36,6 @@
 
         <a href="cursos.html" class="col-md-4 btn btn-lg btn-danger">ACESSAR</a>
     </section>
-
 </body>
 
 </html>
