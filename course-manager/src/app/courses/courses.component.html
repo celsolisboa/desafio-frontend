@@ -41,7 +41,7 @@
     Não há cursos para exibir.
   </div>
 
-  <app-add-modal *ngIf="showAddCourse && teachers && rooms" [courses]="courses"></app-add-modal>
+  <app-add-modal *ngIf="showAddCourse" [courses]="courses" (close)="showAddCourse = false; getCourses();"></app-add-modal>
   
-  <app-edit-modal *ngIf="selectedCourse && teachers && rooms" [courses]="courses"></app-edit-modal>
+  <app-edit-modal *ngIf="selectedCourse" [courses]="courses" [selectedCourse]="selectedCourse" (close)="selectedCourse = null; getCourses();"></app-edit-modal>
 </div>

@@ -68,7 +68,7 @@ input {
     }
 
     &__options {
-        // position: absolute;
+        position: absolute;
         top: 100%;
         left: 0;
         display: flex;
@@ -122,7 +122,7 @@ input {
         align-items: center;
         flex-flow: row wrap;
         padding: 0.5em 0;
-
+        
         .tag {
             flex: 0 0 auto;
             font-size: 0.75em;
@@ -134,24 +134,27 @@ input {
             justify-content: flex-start;
             align-items: center;
             height: 2em;
-
-            .btn--close {
+        
+            app-close-button {
                 position: static;
                 top: auto;
                 right: auto;
-                font-size: 0.75em;
-                margin-left: 0.5em;
-                margin-right: -0.5em;
-
+            
                 img {
                     width: 1em;
                 }
 
-                &:hover,
-                &:focus {
-                    background-color: rgba(#ff0669, 0.7);
-                    transform: none;
-                }
+                button {
+                    font-size: 0.75em;
+                    margin-left: 0.5em;
+                    margin-right: -0.5em;
+
+                    &:hover,
+                    &:focus {
+                        background-color: rgba(#ff0669, 0.7);
+                        transform: none;
+                    }
+                }            
             }
         }
     }
