@@ -9,68 +9,24 @@
     <div class="course__form__w100">
       <input #name [value]="selectedCourse.nome">
     </div>
-    
-    <div class="course__form__w100">
-      <div class="custom-multiselect">
-        <input class="teachers-options" #teacherSearch placeholder="Professores" (keyup)="searchTeachers(teacherSearch.value)" (focus)="searchTeachers(teacherSearch.value)">
-        
-        <div class="custom-multiselect__options teachers-options" *ngIf="foundTeachers">
-          <span class="option teachers-options" *ngFor="let teacher of foundTeachers" data-id="{{teacher.id}}" (click)="toggleTeacher(teacher.id)" [class.selected]="inArray(teacher, selectedTeachersList)">
-            <span class="icon teachers-options" *ngIf="inArray(teacher, selectedTeachersList)">
-              <svg aria-hidden="true" data-prefix="fal" data-icon="check-circle" class="svg-inline--fa fa-check-circle fa-w-16 teachers-options" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="teachers-options" fill="currentColor" d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"></path></svg>
-            </span>
-            {{teacher.nome}}
-          </span>
-          <span class="option disabled" *ngIf="foundTeachers.length === 0"><em>Professor(a) não encontrado(a).</em></span>
-        </div>
 
-        <select #selectedTeachers multiple>
-          <option *ngFor="let teacher of teachers" [value]="teacher.id" [selected]="inArray(teacher, selectedTeachersList)">{{teacher.nome}}</option>
-        </select>
-      </div>
-      <div class="custom-multiselect__selection" *ngIf="selectedTeachersList.length > 0">
-        <span class="tag" *ngFor="let teacher of selectedTeachersList">
-          {{teacher.nome}}
-        <app-close-button [color]="'white'" (click)="unselectTeacher(teacher.id)"></app-close-button>
-        </span>
-      </div>
+    <div class="course__form__w100">
+      <app-multiselect [list]="teachers" [selectedItems]="selectedTeachersList" [prop]="'nome'" [placeholder]="'Professores'"></app-multiselect>
     </div>
 
     <div class="course__form__w100">
-      <div class="custom-multiselect">
-        <input class="rooms-options" #roomSearch placeholder="Salas" (keyup)="searchRooms(roomSearch.value)" (focus)="searchRooms(roomSearch.value)">
-        
-        <div class="custom-multiselect__options rooms-options" *ngIf="foundRooms">
-          <span class="option rooms-options" *ngFor="let room of foundRooms" data-id="{{room.id}}" (click)="toggleRoom(room.id)" [class.selected]="inArray(room, selectedRoomsList)">
-            <span class="icon rooms-options" *ngIf="inArray(room, selectedRoomsList)">
-              <svg aria-hidden="true" data-prefix="fal" data-icon="check-circle" class="svg-inline--fa fa-check-circle fa-w-16 rooms-options" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="rooms-options" fill="currentColor" d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"></path></svg>
-            </span>
-            {{room.sala}}
-          </span>
-          <span class="option disabled" *ngIf="foundRooms.length === 0"><em>Sala não encontrada.</em></span>
-        </div>
-
-        <select #selectedRooms multiple>
-          <option *ngFor="let room of rooms" [value]="room.id" [selected]="inArray(room, selectedRoomsList)">{{room.sala}}</option>
-        </select>
-      </div>
-      <div class="custom-multiselect__selection" *ngIf="selectedRoomsList.length > 0">
-        <span class="tag" *ngFor="let room of selectedRoomsList">
-          {{room.sala}}
-          <app-close-button [color]="'white'" (click)="unselectRoom(room.id)"></app-close-button>
-        </span>
-      </div>
+      <app-multiselect [list]="rooms" [selectedItems]="selectedRoomsList" [prop]="'sala'" [placeholder]="'Salas'"></app-multiselect>
     </div>
-    
+
     <div class="course__form__w50">
-      <input #start [value]="selectedCourse.inicio">      
+      <input #start [value]="selectedCourse.inicio">
     </div>
     <div class="course__form__w50">
       <input #end [value]="selectedCourse.fim">
     </div>
 
     <div class="course__form__w100">
-      <app-button [text]="'Salvar'" (click)="editCourse(id.value, name.value, selectedTeachers.selectedOptions, selectedRooms.selectedOptions, start.value, end.value)"></app-button>
+      <app-button [text]="'Salvar'" (click)="editCourse(id.value, name.value, selectedTeachersList, selectedRoomsList, start.value, end.value)"></app-button>
     </div>
 
     <app-close-button [color]="'white'" (click)="closeModal()"></app-close-button>
