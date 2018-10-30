@@ -39,19 +39,16 @@ export class EditModalComponent implements OnInit {
     this.selectedRoomsList = this.selectedCourse.salas;
   }
 
-  editCourse(id: string, name: string, selectedTeachers: HTMLOptionElement[], selectedRooms: HTMLOptionElement[], start: string, end: string): void {
+  editCourse(id: string, name: string, selectedTeachers: Teacher[], selectedRooms: Room[], start: string, end: string): void {
     event.preventDefault();
-
-    const teachers = this.teacherService.mapTeacher(selectedTeachers, this.teachers);
-    const rooms = this.roomService.mapRoom(selectedRooms, this.rooms);
 
     const editedCourse = {
       id: id,
       nome: name,
       inicio: start,
       fim: end,
-      salas: rooms,
-      professores: teachers
+      salas: selectedRooms,
+      professores: selectedTeachers
     } as Course;
 
     this.courses = this.courses.map(course => (editedCourse.id === course.id) ? editedCourse : course);
@@ -138,6 +135,14 @@ export class EditModalComponent implements OnInit {
         this.foundRooms = null;
       }
     }
+  }
+
+  onUpdateTeachers(list: Teacher[]): void {
+    this.selectedTeachersList = list;
+  }
+
+  onUpdateRooms(list: Room[]): void {
+    this.selectedRoomsList = list;
   }
 
 }

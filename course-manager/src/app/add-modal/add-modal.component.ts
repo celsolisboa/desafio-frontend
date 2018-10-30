@@ -41,11 +41,8 @@ export class AddModalComponent implements OnInit {
     return this.courses.length === 0 ? 1 : Math.max(...this.courses.map(course => parseInt(course.id))) + 1;
   }
 
-  addCourse(name: string, selectedTeachers: HTMLOptionElement[], selectedRooms: HTMLOptionElement[], start: string, end: string): void {
+  addCourse(name: string, selectedTeachers: Teacher[], selectedRooms: Room[], start: string, end: string): void {
     event.preventDefault();
-
-    const teachers = this.teacherService.mapTeacher(selectedTeachers, this.teachers);
-    const rooms = this.roomService.mapRoom(selectedRooms, this.rooms);
 
     const newId = this.createId();
     const newCourse = {
@@ -53,8 +50,8 @@ export class AddModalComponent implements OnInit {
       nome: name,
       inicio: start,
       fim: end,
-      salas: rooms,
-      professores: teachers
+      salas: selectedRooms,
+      professores: selectedTeachers
     } as Course;
 
     this.courses.push(newCourse);
@@ -82,22 +79,8 @@ export class AddModalComponent implements OnInit {
       });
   }
 
-  searchTeachers(searchTerm: string): void {
-    this.foundTeachers = this.searchListService.searchList(searchTerm, this.teachers, ['id', 'nome']);
-  }
-
   searchRooms(searchTerm: string): void {
     this.foundRooms = this.searchListService.searchList(searchTerm, this.rooms, ['id', 'sala']);
-  }
-
-  selectTeacher(id: string | number): void {
-    if (!this.selectedTeachersList.some(teacher => teacher.id.toString() === id.toString())) {
-      this.selectedTeachersList.push(this.teachers.find(teacher => teacher.id.toString() === id.toString()));
-    }
-  }
-
-  unselectTeacher(id: string | number): void {
-    this.selectedTeachersList = this.selectedTeachersList.filter(teacher => teacher.id.toString() !== id.toString());
   }
 
   selectRoom(id: string | number): void {
@@ -108,14 +91,6 @@ export class AddModalComponent implements OnInit {
 
   unselectRoom(id: string | number): void {
     this.selectedRoomsList = this.selectedRoomsList.filter(room => room.id.toString() !== id.toString());
-  }
-
-  toggleTeacher(id: string | number): void {
-    if (!this.selectedTeachersList.some(teacher => teacher.id.toString() === id.toString())) {
-      this.selectTeacher(id);
-    } else {
-      this.unselectTeacher(id);
-    }
   }
 
   toggleRoom(id: string | number): void {
@@ -133,14 +108,15 @@ export class AddModalComponent implements OnInit {
   clickTreatment(): void {
     if ((<HTMLDivElement>event.target).classList.contains('courses__modal')) {
       this.closeModal();
-    } else {
-      if (!(<HTMLDivElement>event.target).classList.contains('teachers-options')) {
-        this.foundTeachers = null;
-      }
-      if (!(<HTMLDivElement>event.target).classList.contains('rooms-options')) {
-        this.foundRooms = null;
-      }
     }
+  }
+
+  onUpdateTeachers(list: Teacher[]): void {
+    this.selectedTeachersList = list;
+  }
+
+  onUpdateRooms(list: Room[]): void {
+    this.selectedRoomsList = list;
   }
 
 }

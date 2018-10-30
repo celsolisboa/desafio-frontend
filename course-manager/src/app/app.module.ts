@@ -10,6 +10,7 @@ import { ButtonComponent } from './button/button.component';
 import { CloseButtonComponent } from './close-button/close-button.component';
 import { AddModalComponent } from './add-modal/add-modal.component';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { MultiselectComponent } from './multiselect/multiselect.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EditModalComponent } from './edit-modal/edit-modal.component';
     ButtonComponent,
     CloseButtonComponent,
     AddModalComponent,
-    EditModalComponent
+    EditModalComponent,
+    MultiselectComponent
   ],
   imports: [
     BrowserModule,
