@@ -4,4 +4,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+
+    @media screen and (max-width: 515px) {
+        background-position: 50.5% 57%;
+        background-size: auto;
+    }
 }

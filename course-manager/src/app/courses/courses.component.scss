@@ -1,7 +1,6 @@
 .app-wrapper {
     max-width: 1200px;
     margin: auto;
-    padding: 0.15px;
 }
 
 .courses {
@@ -13,6 +12,17 @@
     max-width: 900px;
     margin: auto;
     padding: 7.5em 0 5em;
+
+    &__title {
+        display: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1.25em;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+        line-height: 1;
+    }
 
     .course {
         flex: 0 0 50%;
@@ -87,17 +97,25 @@
             max-width: 40%;
             padding-left: 1em;
         }
+
+        @media screen and (max-width: 515px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding-top: 0.625em;
+            padding-bottom: 0.625em;
+        }
     }
 
     &__header {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 1.875em 0;    
+        padding: 1.875em 1.25em;    
 
         .side-wrapper {
             flex: 0 0 10%;
-            max-width: 20%;
+            max-width: 10%;
+            min-width: 120px;
 
             .btn {
                 max-width: 7.5em;
@@ -111,6 +129,35 @@
             font-weight: 400;
             color: #fff;
             margin: 0;
+        }
+
+        @media screen and (max-width: 515px) {
+            padding: 1.25em;
+            justify-content: space-between;
+
+            h1 {
+                display: none;
+            }
+
+            .logo-wrapper {    
+                img {
+                    max-width: 4.625em;
+                }
+            }
+
+            .side-wrapper {
+                flex: 1;
+                max-width: 120px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 515px) {
+        padding-top: 1em;
+        padding-bottom: 1em;
+
+        &__title {
+            display: block;
         }
     }
 }
