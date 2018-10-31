@@ -15,14 +15,16 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
     // }]
 
     $scope.loginProfile = function () {
-
-        if ($scope.accessEmail == "john@gmail.com" ||
-            $scope.accessEmail == "bill@gmail.com") {
-            authentication($scope.accessEmail, $scope.accessPassword);
+        if ($scope.form != undefined) {
+            console.log("enviou")
+            authentication($scope.form.accessEmail, $scope.form.accessPassword);
+        } else {
+            console.log("Complete todos os campos");
         }
     }
 
     function authentication(email, password) {
+        console.log("form:", $scope.form)
         if (email == "john@gmail.com" && password == "passwd" ||
             email == "bill@gmail.com" && password == "test123") {
             $http({
