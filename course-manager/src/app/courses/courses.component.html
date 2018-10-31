@@ -1,0 +1,48 @@
+<div class="app-wrapper">
+  <header class="courses__header">
+    <div class="side-wrapper logo-wrapper">
+      <img src="../../assets/images/logo_medium.png" alt="CELSO LISBOA">
+    </div>
+    <h1>Cursos</h1>
+    <div class="side-wrapper">
+      <app-button [buttonStyle]="'pill'" [text]="'Criar'" (click)="showAddCourse = true; selectedTeachersList = []; selectedRoomsList = [];"></app-button>
+    </div>
+  </header>
+  
+  <h1 class="courses__title">Cursos</h1>
+  
+  <div class="courses" *ngIf="courses">
+    <div class="course" *ngFor="let course of courses" (click)="selectCourse(course)">
+      <div class="course__card">
+        <span class="course__name" *ngIf="course.nome">{{course.nome}}</span>
+    
+        <span class="course__teachers" *ngIf="course.professores">
+          <span *ngFor="let professor of course.professores; let i = index">
+            Prof. {{professor.nome}}{{(i === course.professores.length - 1) ? '' : ' | '}}
+          </span>
+        </span>
+    
+        <div class="course__footer">
+          <span class="course__rooms" *ngIf="course.salas">
+            sala{{(course.salas.length > 1) ? 's ' : ' '}}
+            <span *ngFor="let sala of course.salas; let i = index">
+              {{sala.sala}}{{(i === course.salas.length - 1) ? '' : ' | '}}
+            </span>
+          </span>
+    
+          <span class="course__time" *ngIf="course.inicio && course.fim">{{course.inicio}} às {{course.fim}}</span>
+        </div>
+    
+        <app-close-button [color]="'grey'" (click)="deleteCourse(course.id)"></app-close-button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="course--none" *ngIf="!courses || courses.length === 0">
+    Não há cursos para exibir.
+  </div>
+
+  <app-add-modal *ngIf="showAddCourse" [courses]="courses" (close)="showAddCourse = false; getCourses();"></app-add-modal>
+  
+  <app-edit-modal *ngIf="selectedCourse" [courses]="courses" [selectedCourse]="selectedCourse" (close)="selectedCourse = null; getCourses();"></app-edit-modal>
+</div>
