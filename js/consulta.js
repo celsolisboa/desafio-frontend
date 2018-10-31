@@ -10,12 +10,12 @@ app.controller('consultaController', ['$scope', '$http', function ($scope, $http
         $http.get("http://localhost:3000/api/curso")
             .then(function (response) {
                 $scope.infoCurso = response.data;
-                console.log($scope.infoCurso.cursos);
+
+                $scope.t = $scope.infoCurso.cursos;
+                console.log("$scope.t", $scope.t);
                 $scope.infoCurso = $scope.infoCurso.cursos;
 
             }, function myError(response) {
-                console.log("teste");
-
                 detectedErro("Foi detectada um falha na conexão com a API (Cursos): ", response)
             });
     }

@@ -70,19 +70,17 @@
         </div>
 
         <div class="row">
-            <div class="col" ng-repeat="curso in infoCurso">
+            <div class="col" ng-repeat="curso in infoCurso track by $index">
                 <div class="card">
                     <div class="card-body">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <h5 class="card-title">{{curso.nome}}</h5>
-                        <!--VERIFICAR-->
-                        <p class="card-text">{{curso.professores}}</p>
-                        <!--VERIFICAR-->
+                        <p class="card-text" ng-repeat="professores in curso.professores">{{professores.nome}}</p>
                         <p class="card-text legenda">
-                            <comp class="text-left">{{curso.salas}}</comp>
-                            <comp class="text-left">{{curso.inicio}} às {{curso.fim}}</comp>
+                            <span class="text-left" ng-repeat="salas in curso.salas">sala {{salas.sala}} </span>
+                            <span class="text-right">{{curso.inicio}} às {{curso.fim}}</span>
                         </p>
                     </div>
                 </div>
