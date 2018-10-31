@@ -16,8 +16,5 @@
   </select>
 </div>
 <div class="custom-multiselect__selection" *ngIf="selectedItems && selectedItems.length > 0">
-  <span class="tag" *ngFor="let item of selectedItems">
-    {{item[prop]}}
-    <app-close-button [color]="'white'" (click)="unselectTeacher(item.id)"></app-close-button>
-  </span>
+  <app-tag [label]="item[prop]" [id]="item.id" *ngFor="let item of selectedItems" (closeTag)="unselectItem($event)"></app-tag>
 </div>

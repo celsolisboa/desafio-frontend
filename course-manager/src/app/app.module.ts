@@ -11,6 +11,7 @@ import { CloseButtonComponent } from './close-button/close-button.component';
 import { AddModalComponent } from './add-modal/add-modal.component';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { MultiselectComponent } from './multiselect/multiselect.component';
+import { TagComponent } from './tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MultiselectComponent } from './multiselect/multiselect.component';
     CloseButtonComponent,
     AddModalComponent,
     EditModalComponent,
-    MultiselectComponent
+    MultiselectComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,

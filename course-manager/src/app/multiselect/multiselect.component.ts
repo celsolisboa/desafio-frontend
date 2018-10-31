@@ -30,22 +30,21 @@ export class MultiselectComponent implements OnInit {
   }
 
   selectItem(id: string | number): void {
-    if (!this.selectedItems.some(item => item.id.toString() === id.toString())) {
-      this.selectedItems.push(this.list.find(item => item.id.toString() === id.toString()));
-    }
+    this.selectedItems.push(this.list.find(item => item.id.toString() === id.toString()));
+    this.updateSelection.emit(this.selectedItems);
   }
 
-  unselectTeacher(id: string | number): void {
+  unselectItem(id: string | number): void {
     this.selectedItems = this.selectedItems.filter(item => item.id.toString() !== id.toString());
+    this.updateSelection.emit(this.selectedItems);
   }
 
   toggleTeacher(id: string | number): void {
     if (!this.selectedItems.some(item => item.id.toString() === id.toString())) {
       this.selectItem(id);
     } else {
-      this.unselectTeacher(id);
+      this.unselectItem(id);
     }
-    this.updateSelection.emit(this.selectedItems);
   }
 
 }
