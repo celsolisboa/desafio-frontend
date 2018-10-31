@@ -54,6 +54,11 @@
       }
   }
 
+  app-close-button {
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
   &__selection {
       display: flex;
       justify-content: flex-start;

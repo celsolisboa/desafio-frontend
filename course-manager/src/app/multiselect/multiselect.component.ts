@@ -47,4 +47,8 @@ export class MultiselectComponent implements OnInit {
     }
   }
 
+  clearSearch(): void {
+    this.foundItems = null;
+  }
+
 }
