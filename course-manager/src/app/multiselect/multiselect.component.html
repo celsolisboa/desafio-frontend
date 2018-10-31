@@ -1,5 +1,5 @@
 <div class="custom-multiselect">
-  <input class="list-options" #teacherSearch [placeholder]="placeholder" (keyup)="searchList(teacherSearch.value)" (focus)="searchList(teacherSearch.value);">
+  <input class="list-options" #itemSearch [placeholder]="placeholder" (keyup)="searchList(itemSearch.value)" (focus)="searchList(itemSearch.value);">
 
   <div class="custom-multiselect__options list-options" *ngIf="foundItems">
     <span class="option list-options" *ngFor="let item of foundItems" data-id="{{item.id}}" (click)="toggleTeacher(item.id)" [class.selected]="inArray(item, selectedItems)">
@@ -8,8 +8,10 @@
       </span>
       {{item[prop]}}
     </span>
-    <span class="option disabled" *ngIf="foundItems.length === 0"><em>Zero {{placeholder | lowercase}} com esse nome ou id.</em></span>
+    <span class="option disabled" *ngIf="foundItems.length === 0"><em>Não há {{placeholder | lowercase}} com esse nome ou id.</em></span>
   </div>
+
+  <app-close-button [color]="'white'" (click)="clearSearch()" *ngIf="foundItems"></app-close-button>
 
   <select #selectedTeachers multiple>
     <option *ngFor="let item of teachers" [value]="item.id" [selected]="inArray(item, selectedItems)">{{item[prop]}}</option>
