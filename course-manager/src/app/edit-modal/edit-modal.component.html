@@ -11,11 +11,11 @@
     </div>
 
     <div class="course__form__w100">
-      <app-multiselect [list]="teachers" [selectedItems]="selectedTeachersList" [prop]="'nome'" [placeholder]="'Professores'"></app-multiselect>
+      <app-multiselect [list]="teachers" [selectedItems]="selectedTeachersList" [prop]="'nome'" [placeholder]="'Professores'" (updateSelection)="onUpdateTeachers($event)"></app-multiselect>
     </div>
 
     <div class="course__form__w100">
-      <app-multiselect [list]="rooms" [selectedItems]="selectedRoomsList" [prop]="'sala'" [placeholder]="'Salas'"></app-multiselect>
+      <app-multiselect [list]="rooms" [selectedItems]="selectedRoomsList" [prop]="'sala'" [placeholder]="'Salas'" (updateSelection)="onUpdateRooms($event)"></app-multiselect>
     </div>
 
     <div class="course__form__w50">

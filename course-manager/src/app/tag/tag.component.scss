@@ -1,0 +1,36 @@
+:host {
+  flex: 0 0 auto;
+  font-size: 0.75em;
+  padding: 0 0.875em;
+  margin-right: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  background-color: #444;
+  border-radius: 1em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 2em;
+
+  app-close-button {
+    position: static;
+    top: auto;
+    right: auto;
+
+    img {
+        width: 1em;
+    }
+
+    button {
+      font-size: 0.75em;
+      margin-left: 0.5em;
+      margin-right: -0.5em;
+
+      &:hover,
+      &:focus {
+        background-color: rgba(#ff0669, 0.7);
+        transform: none;
+      }
+    }
+  }
+}
