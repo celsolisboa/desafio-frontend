@@ -10,6 +10,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script src="js/angularjs/angular.min.js"></script>
+    <script src="js/consulta.js"></script>
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
@@ -19,7 +20,7 @@
     <title>R4S Recrutamento - Cursos</title>
 </head>
 
-<body class="tela-cursos">
+<body class="tela-cursos" ng-app="celsoLisboa" ng-controller="consultaController">
 
     <nav class="cursos row">
         <div class="caixa-logo col-md-4">
@@ -69,58 +70,24 @@
         </div>
 
         <div class="row">
-            <div class="col">
+            <div class="col" ng-repeat="curso in infoCurso">
                 <div class="card">
                     <div class="card-body">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h5 class="card-title">Biologia</h5>
-                        <p class="card-text">Prof. Lucas Anderson</p>
+                        <h5 class="card-title">{{curso.nome}}</h5>
+                        <!--VERIFICAR-->
+                        <p class="card-text">{{curso.professores}}</p>
+                        <!--VERIFICAR-->
                         <p class="card-text legenda">
-                            <comp class="text-left">sala 502</comp>
-                            <comp class="text-right">sala 502</comp>
+                            <comp class="text-left">{{curso.salas}}</comp>
+                            <comp class="text-left">{{curso.inicio}} às {{curso.fim}}</comp>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h5 class="card-title">Gestão</h5>
-                        <p class="card-text">Prof. Lucas Anderson</p>
-                        <p class="card-text text-sala">sala 502</p>
-                    </div>
-                </div>
-            </div>
             <div class="w-100"></div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h5 class="card-title">História</h5>
-                        <p class="card-text">Prof. Lucas Anderson</p>
-                        <p class="card-text text-sala">sala 502</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h5 class="card-title">Matemática</h5>
-                        <p class="card-text">Prof. Lucas Anderson</p>
-                        <p class="card-text text-sala">sala 502</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </nav>
