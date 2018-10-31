@@ -1,0 +1,34 @@
+<div class="courses__modal" (click)="clickTreatment()">
+  <div class="course__form">
+    <input #id [value]="selectedCourse.id" type="hidden">
+
+    <div class="course__form__w100">
+      <h1>Editar Curso</h1>
+    </div>
+
+    <div class="course__form__w100">
+      <input #name [value]="selectedCourse.nome">
+    </div>
+
+    <div class="course__form__w100">
+      <app-multiselect [list]="teachers" [selectedItems]="selectedTeachersList" [prop]="'nome'" [placeholder]="'Professores'" (updateSelection)="onUpdateTeachers($event)"></app-multiselect>
+    </div>
+
+    <div class="course__form__w100">
+      <app-multiselect [list]="rooms" [selectedItems]="selectedRoomsList" [prop]="'sala'" [placeholder]="'Salas'" (updateSelection)="onUpdateRooms($event)"></app-multiselect>
+    </div>
+
+    <div class="course__form__w50">
+      <input #start [value]="selectedCourse.inicio">
+    </div>
+    <div class="course__form__w50">
+      <input #end [value]="selectedCourse.fim">
+    </div>
+
+    <div class="course__form__w100">
+      <app-button [text]="'Salvar'" (click)="editCourse(id.value, name.value, selectedTeachersList, selectedRoomsList, start.value, end.value)"></app-button>
+    </div>
+
+    <app-close-button [color]="'white'" (click)="closeModal()"></app-close-button>
+  </div>
+</div>

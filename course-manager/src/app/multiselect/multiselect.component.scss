@@ -1,0 +1,69 @@
+.custom-multiselect {
+  position: relative;
+
+  select {
+      display: none;
+  }
+
+  &__options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-flow: row wrap;
+      background-color: rgba(#000, 0.85);
+      width: 100%;
+      padding: 0.5em 0;
+      z-index: 1;
+      border-radius: 0 0 0.625em 0.625em;
+
+      .option {
+          flex: 0 0 100%;
+          padding: 0 0.75em;
+          height: 2.5em;
+          cursor: pointer;
+          user-select: none;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          .icon {
+              margin-right: 0.75em;
+              width: 1.5em;
+              margin-bottom: -0.25em;
+              margin-top: 0.125em;
+          }
+
+          &.disabled {
+              cursor: not-allowed;
+          }
+
+          &:hover:not(.disabled) {
+              background-color: #ff0669;
+          }
+
+          &.selected {
+              color: #ff0669;
+
+              &:hover:not(.disabled) {
+                  color: #fff;
+              }
+          }
+      }
+  }
+
+  app-close-button {
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  &__selection {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-flow: row wrap;
+      padding: 0.25em 0;
+  }
+}
