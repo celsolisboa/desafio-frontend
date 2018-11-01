@@ -2,7 +2,12 @@
   <div class="nav">
     <img src="../../assets/img/logo_medium.png" alt="Celso Lisboa Logo">
     <p>Cursos</p>
-    <button class="btn btn-raised">CRIAR</button>
+    <button type="button"
+            class="btn btn-raised"
+            data-toggle="modal"
+            data-target="#modal"
+            id="criaCurso"
+            #criaCurso>CRIAR</button>
   </div>
   <div class="content">
     <div class="cursos" *ngFor="let curso of cursos">
@@ -13,8 +18,8 @@
         <div id="professores" *ngIf="curso.professores.length > 1">
           <p class="descricao">Prof
             <span *ngFor="let professor of curso.professores ; last as ultimo">
-          {{professor.nome}} <span *ngIf="!ultimo">e Prof.</span>
-          </span>
+            {{professor.nome}} <span *ngIf="!ultimo">e Prof.</span>
+            </span>
           </p>
         </div>
         <div id="professores" *ngIf="curso.professores.length <= 1">
@@ -24,7 +29,7 @@
           <p class="descricao">Salas
             <span *ngFor="let sala of curso.salas; last as ultima">
             {{sala.sala}} <span *ngIf="!ultima">e </span>
-          </span>
+            </span>
           </p>
         </div>
         <div id="salas" *ngIf="curso.salas.length <= 1">
@@ -44,12 +49,60 @@
   </div>
 </div>
 
-
-<!--
-{ "id": "1",
-"nome": "Biologia",
-"inicio": "9:00", "fim": "12:00",
-"salas": [ { "id": 1, "sala": "502" } ],
-"professores": [ { "id": 1, "nome": "Álvares de Azevedo" } ] }
-
--->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Criar Curso</h5>
+        <button class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input form-group">
+                <label for="nome" class="bmd-label-floating">Nome do Curso</label>
+                <input [value]="novoCurso.nome" (input)="novoCurso.nome = $event.target.value"  id="nome" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input form-group">
+                <label for="professor" class="bmd-label-floating">Professores</label>
+                <input [value]="novoCurso.professores" (input)="novoCurso.professores = $event.target.value.split(',')" id="professor" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input form-group">
+                <label for="sala" class="bmd-label-floating">Salas</label>
+                <input [value]="novoCurso.salas" (input)="novoCurso.salas = $event.target.value.trim().split(',')" id="sala" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input form-group">
+                <label for="inicio" class="bmd-label-floating">Inicio</label>
+                <input [value]="novoCurso.inicio" (input)="novoCurso.inicio = $event.target.value" id="inicio" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input form-group">
+                <label for="fim" class="bmd-label-floating">Fim</label>
+                <input [value]="novoCurso.fim" (input)="novoCurso.fim = $event.target.value" id="fim" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)="cadastraCurso()" type="button" class="btn btn-raised">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

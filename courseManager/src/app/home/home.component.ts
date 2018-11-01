@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from "rxjs/index";
+import {NgForm, NgModel} from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
@@ -10,6 +12,18 @@ import {Observable} from "rxjs/index";
 export class HomeComponent implements OnInit {
 
   cursos: any;
+  novoCurso = {
+    nome:'',
+    professores: [],
+    salas: [],
+    inicio: '',
+    fim:''
+  };
+  nome = '';
+  professores: [];
+  salas: [];
+  inicio: '';
+  fim:'';
   constructor(
     private http: HttpClient
   ) { }
@@ -23,6 +37,10 @@ export class HomeComponent implements OnInit {
       this.cursos = data.cursos
       console.log(this.cursos)
     })
+  }
+
+  cadastraCurso(){
+    console.log(this.novoCurso)
   }
 
 }

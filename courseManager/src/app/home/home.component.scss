@@ -1,4 +1,70 @@
 
+// -------   Modal -----------
+input{
+  width: 100%;
+}
+
+.modal-title{
+  width: 100%;
+  color: white;
+}
+
+.modal-content{
+  background-color: #979797;
+}
+
+.modal-header{
+  text-align: center;
+  button{
+    span{
+      color: white;
+    }
+  }
+}
+
+.input {
+  position: relative;
+  label{
+    margin-top: -25px;
+    padding: 5px 0 7px 10px;
+    color: white;
+  }
+  input{
+    margin-top: -25px;
+    border-radius: 5px;
+    height: 2.7em;
+  }
+  button{
+    width: -webkit-fill-available;
+    background-color: deeppink;
+    border-radius: 5px;
+    color: white;
+  }
+}
+
+.is-focused{
+  label{
+    top: 0.7rem;
+  }
+}
+
+.form-control {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.modal-footer{
+  button{
+    color: #ffffff;
+    background-color: deeppink;
+    border-radius: 0.4rem;
+    width: 100%;
+    margin: -10px 30px 14px 15px;
+  }
+}
+// -------   Modal -----------
+
 .nav{
   margin: 2rem 0 0 0;
   display: grid;
