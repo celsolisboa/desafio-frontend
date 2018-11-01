@@ -32,6 +32,7 @@ div{
   }
   input{
     margin-top: -25px;
+    padding-left: 10px;
     border-radius: 5px;
     height: 2.7em;
   }
@@ -47,4 +48,9 @@ div{
   label{
     top: 0.7rem;
   }
+}
+
+.alert{
+  text-align: center;
+  border-radius: 20px;
 }

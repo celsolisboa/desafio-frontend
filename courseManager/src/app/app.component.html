@@ -1,4 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<app-home *ngIf="logado"></app-home>
 <div *ngIf="!logado" class="container">
   <div class="row logo mx-auto">
     <img alt="Celso Lisboa Logo" src="../assets/img/logo_big.png">
@@ -6,20 +7,26 @@
   <div class="form mx-auto">
     <div>
       <p class="mx-auto">Login</p>
-      <div>
-        <div class="input form-group">
+      <div class="input form-group">
         <label for="email" class="bmd-label-floating">Email</label>
-        <input id="email" class="form-control" type="email">
+        <input  [value]="usuario.email" (input)="usuario.email = $event.target.value"
+                id="email"
+                class="form-control"
+                type="email">
       </div>
       <div class="input form-group">
         <label for="senha" class="bmd-label-floating">Senha</label>
-        <input id="senha" class="form-control" type="password">
+        <input  [value]="usuario.senha" (input)="usuario.senha = $event.target.value"
+                id="senha"
+                class="form-control"
+                type="password">
       </div>
       <div class="input">
         <button (click)="login()" class="btn btn-raised">acessar</button>
       </div>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{errorMessage}}
       </div>
     </div>
   </div>
 </div>
-<app-home *ngIf="logado"></app-home>
