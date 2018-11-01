@@ -80,6 +80,7 @@ export class HomeComponent implements OnInit {
         alert('Algo deu errado!')
       })
     }
+    this.limpaCampos()
   }
 
   atualizaCurso(id){
@@ -111,18 +112,18 @@ export class HomeComponent implements OnInit {
   }
 
   cadastraSalas(options){
-    this.novoCurso.salas = Object.assign(Array.apply(null, options)
+    let salas = Array.apply(null, options)
       .filter(options => options.selected)
-      .map(options => options.value))
-
+      .map(options => options.value)
+    this.novoCurso.salas = this.salas.filter( sala => salas.indexOf(sala.id.toString()) !== -1)
     console.log(this.novoCurso.salas)
   }
 
   cadastraProfs(options){
-    this.novoCurso.professores = Object.assign(Array.apply(null, options)
+    let professores = Array.apply(null, options)
       .filter(options => options.selected)
-      .map(options => options.value))
-
+      .map(options => options.value)
+    this.novoCurso.professores = this.professores.filter( prof => professores.indexOf(prof.id.toString() !== -1))
     console.log(this.novoCurso.professores)
   }
 

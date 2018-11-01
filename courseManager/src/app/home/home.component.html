@@ -67,7 +67,7 @@
             <div class="col-md-12 input form-group bmd-form-group">
               <label for="professor" class="bmd-label-floating">Professores</label>
               <select multiple (change)="cadastraProfs($event.target.options)" id="professor" class="form-control">
-                <option *ngFor="let prof of professores" [value]=prof>{{prof.nome}}</option>
+                <option *ngFor="let prof of professores" [value]=prof.id>{{prof.nome}}</option>
               </select>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <div class="col-md-12 input form-group bmd-form-group">
               <label for="sala" class="bmd-label-floating">Salas</label>
               <select multiple (change)="cadastraSalas($event.target.options)" id="sala" class="form-control">
-                <option *ngFor="let sala of salas" [value]=sala>{{sala.sala}}</option>
+                <option *ngFor="let sala of salas" [value]=sala.id>{{sala.sala}}</option>
               </select>
             </div>
           </div>
@@ -94,7 +94,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button (click)="cadastraCurso()" type="button" class="btn btn-raised">Salvar</button>
+        <button (click)="cadastraCurso()" type="button" class="btn btn-raised" data-dismiss="modal" aria-label="Close">Salvar</button>
       </div>
     </div>
   </div>
