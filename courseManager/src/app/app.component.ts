@@ -37,11 +37,9 @@ export class AppComponent implements OnInit{
       return this.errorMessage = "Senha obrigatória!"
     }
     this.postLogin(this.usuario).subscribe( data => {
-      console.log(data)
       this.logado = true;
     }, error => {
       this.errorMessage = 'Acesso negado!'
-      console.log(error)
     })
   }
 }

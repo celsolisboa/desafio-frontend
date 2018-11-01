@@ -5,7 +5,7 @@
     <img alt="Celso Lisboa Logo" src="../assets/img/logo_big.png">
   </div>
   <div class="form mx-auto">
-    <div>
+    <form (keyup.enter)="login()" (keydown.enter)="$event.preventDefault()">
       <p class="mx-auto">Login</p>
       <div class="input form-group">
         <label for="email" class="bmd-label-floating">Email</label>
@@ -27,6 +27,6 @@
       <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
         {{errorMessage}}
       </div>
-    </div>
+    </form>
   </div>
 </div>
