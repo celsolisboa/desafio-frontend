@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   cursos: any;
   novoCurso = {
+    id:'',
     nome:'',
     professores: [],
     salas: [],
@@ -64,6 +65,7 @@ export class HomeComponent implements OnInit {
   }
 
   cadastraCurso(){
+    this.novoCurso.id = this.cursos.length + 1
     if (!this.atualiza){
       this.postCurso(this.novoCurso).subscribe( data => {
         alert('Cadastrado com sucesso!')
