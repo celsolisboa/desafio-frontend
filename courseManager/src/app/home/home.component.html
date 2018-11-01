@@ -12,31 +12,24 @@
   <div class="content">
     <div class="cursos" *ngFor="let curso of cursos">
       <div class="jumbotron curso">
+        <p data-toggle="modal" data-target="#modal" (click)="atualizaCurso(curso.id)" id="titulo">{{curso.nome}}</p>
 
-        <p id="titulo">{{curso.nome}}</p>
-
-        <div id="professores" *ngIf="curso.professores.length > 1">
+        <div id="professores" data-toggle="modal" data-target="#modal" (click)="atualizaCurso(curso.id)">
           <p class="descricao">Prof
             <span *ngFor="let professor of curso.professores ; last as ultimo">
             {{professor.nome}} <span *ngIf="!ultimo">e Prof.</span>
             </span>
           </p>
         </div>
-        <div id="professores" *ngIf="curso.professores.length <= 1">
-          <p class="descricao">Prof. {{curso.professores[0].nome}}</p>
-        </div>
-        <div id="salas" *ngIf="curso.salas.length > 1">
+        <div id="salas" data-toggle="modal" data-target="#modal" (click)="atualizaCurso(curso.id)">
           <p class="descricao">Salas
             <span *ngFor="let sala of curso.salas; last as ultima">
             {{sala.sala}} <span *ngIf="!ultima">e </span>
             </span>
           </p>
         </div>
-        <div id="salas" *ngIf="curso.salas.length <= 1">
-          <p class="descricao">Sala {{curso.salas[0].sala}}</p>
-        </div>
 
-        <div id="horarios">
+        <div id="horarios" data-toggle="modal" data-target="#modal" (click)="atualizaCurso(curso.id)">
           <p>{{curso.inicio}} as {{curso.fim}}</p>
         </div>
 
@@ -54,14 +47,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Criar Curso</h5>
-        <button class="close" data-dismiss="modal" aria-label="Close">
+        <button (click)="limpaCampos()" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12 input form-group bmd-form-group">
+            <div class="col-md-12 input form-group bmd-form-group"
+                 [ngClass]="atualiza ? 'is-filled' : ''">
               <label for="nome" class="bmd-label-floating">Nome do Curso</label>
               <input [value]="novoCurso.nome" (input)="novoCurso.nome = $event.target.value"
                      id="nome"
@@ -72,21 +66,27 @@
           <div class="row">
             <div class="col-md-12 input form-group bmd-form-group">
               <label for="professor" class="bmd-label-floating">Professores</label>
-              <input [value]="novoCurso.professores" (input)="novoCurso.professores = $event.target.value.split(',')" id="professor" class="form-control" type="text">
+              <select multiple (change)="cadastraProfs($event.target.options)" id="professor" class="form-control">
+                <option *ngFor="let prof of professores" [value]=prof>{{prof.nome}}</option>
+              </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 input form-group bmd-form-group">
               <label for="sala" class="bmd-label-floating">Salas</label>
-              <input [value]="novoCurso.salas" (input)="novoCurso.salas = $event.target.value.trim().split(',')" id="sala" class="form-control" type="text">
+              <select multiple (change)="cadastraSalas($event.target.options)" id="sala" class="form-control">
+                <option *ngFor="let sala of salas" [value]=sala>{{sala.sala}}</option>
+              </select>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6 input form-group bmd-form-group">
+            <div class="col-md-6 input form-group bmd-form-group"
+                  [ngClass]="atualiza ? 'is-filled' : ''">
               <label for="inicio" class="bmd-label-floating">Inicio</label>
               <input [value]="novoCurso.inicio" (input)="novoCurso.inicio = $event.target.value" id="inicio" class="form-control" type="text">
             </div>
-            <div class="col-md-6 input form-group bmd-form-group">
+            <div class="col-md-6 input form-group bmd-form-group"
+                  [ngClass]="atualiza ? 'is-filled' : ''">
               <label for="fim" class="bmd-label-floating">Fim</label>
               <input [value]="novoCurso.fim" (input)="novoCurso.fim = $event.target.value" id="fim" class="form-control" type="text">
             </div>

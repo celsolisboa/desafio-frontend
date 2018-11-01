@@ -72,7 +72,7 @@ input{
   color: #fff;
   grid-template-columns: 14% auto 20%;
   grid-template-areas:
-      "image title button";
+    "image title button";
   img{
     grid-area: image;
   }
@@ -114,55 +114,55 @@ input{
     .descricao{
       font-size: 0.8em;
     }
+  }
+}
 
-    #titulo{
-      grid-area: titulo;
-      text-align: left;
-    }
-    #delete{
-      grid-area: delete;
-      text-align: right;
-      a{
-        cursor: pointer;
-      }
-    }
-    #professores{
-      grid-area: profs;
-      position: relative;
-      p {
-        margin-bottom: 0;
-        position: absolute;
-        bottom: 0;
-      }
-    }
-    #salas{
-      grid-area: salas;
-      margin-bottom: 0;
-      position: relative;
-      p{
-        margin-bottom: 0;
-        position: absolute;
-        bottom: 0;
-      }
-    }
-    #horarios{
-      grid-area: horarios;
-      margin-bottom: 0;
-      position: relative;
-      p{
-        width: 100%;
-        text-align: right;
-        margin-bottom: 0;
-        position: absolute;
-        bottom: 0;
-      }
-    }
+#titulo{
+  grid-area: titulo;
+  text-align: left;
+}
+#delete{
+  grid-area: delete;
+  text-align: right;
+  a{
+    cursor: pointer;
+  }
+}
+#professores{
+  grid-area: profs;
+  position: relative;
+  p {
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+  }
+}
+#salas{
+  grid-area: salas;
+  margin-bottom: 0;
+  position: relative;
+  p{
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+  }
+}
+#horarios{
+  grid-area: horarios;
+  margin-bottom: 0;
+  position: relative;
+  p{
+    width: 100%;
+    text-align: right;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
   }
 }
 
 @media (max-width: 600px){
   .nav{
-      grid-template-columns: 30% auto 30%;
+    grid-template-columns: 30% auto 30%;
   }
   .content{
     margin-top: 2rem;
