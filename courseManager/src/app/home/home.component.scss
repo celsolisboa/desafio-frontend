@@ -12,7 +12,6 @@ input{
 .modal-content{
   background-color: #979797;
 }
-
 .modal-header{
   text-align: center;
   button{
@@ -158,5 +157,15 @@ input{
       }
     }
   }
+}
 
+@media (max-width: 600px){
+  .content{
+    margin-top: 1rem;
+  }
+
+  .cursos{
+    width: 100%;
+    margin: 0;
+  }
 }
