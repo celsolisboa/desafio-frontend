@@ -30,6 +30,7 @@ input{
   }
   input{
     margin-top: -25px;
+    padding-left: 10px;
     border-radius: 5px;
     height: 2.7em;
   }
@@ -160,8 +161,11 @@ input{
 }
 
 @media (max-width: 600px){
+  .nav{
+      grid-template-columns: 30% auto 30%;
+  }
   .content{
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   .cursos{

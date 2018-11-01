@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit {
     return this.http.get<any>("http://localhost:3000/api/curso")
   }
 
+  delCursos(id){
+    return this.http.delete(`http://localhost:3000/api/curso/${id}`)
+  }
+
   ngOnInit() {
     this.getCursos().subscribe(data =>{
       this.cursos = data.cursos
@@ -41,6 +45,15 @@ export class HomeComponent implements OnInit {
 
   cadastraCurso(){
     console.log(this.novoCurso)
+  }
+
+  deletaCurso(id){
+    let curso = this.cursos.filter(x => x.id == id)
+    console.log(curso)
+    confirm(`Tem certeza que deseja deletar o curso ${curso[0].nome} ?`) ?
+    this.delCursos(id).subscribe( data => {
+      console.log(data)
+    }) : false
   }
 
 }

@@ -41,7 +41,7 @@
         </div>
 
         <div id="delete">
-          <a><img src="../../assets/img/close_grey.png" alt="Letra X"></a>
+          <a (click)="deletaCurso(curso.id)"><img src="../../assets/img/close_grey.png" alt="Letra X"></a>
         </div>
 
       </div>
@@ -61,41 +61,34 @@
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
-              <div class="input form-group">
-                <label for="nome" class="bmd-label-floating">Nome do Curso</label>
-                <input [value]="novoCurso.nome" (input)="novoCurso.nome = $event.target.value"  id="nome" class="form-control" type="text">
-              </div>
+            <div class="col-md-12 input form-group bmd-form-group">
+              <label for="nome" class="bmd-label-floating">Nome do Curso</label>
+              <input [value]="novoCurso.nome" (input)="novoCurso.nome = $event.target.value"
+                     id="nome"
+                     class="form-control"
+                     type="text">
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <div class="input form-group">
-                <label for="professor" class="bmd-label-floating">Professores</label>
-                <input [value]="novoCurso.professores" (input)="novoCurso.professores = $event.target.value.split(',')" id="professor" class="form-control" type="text">
-              </div>
+            <div class="col-md-12 input form-group bmd-form-group">
+              <label for="professor" class="bmd-label-floating">Professores</label>
+              <input [value]="novoCurso.professores" (input)="novoCurso.professores = $event.target.value.split(',')" id="professor" class="form-control" type="text">
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <div class="input form-group">
-                <label for="sala" class="bmd-label-floating">Salas</label>
-                <input [value]="novoCurso.salas" (input)="novoCurso.salas = $event.target.value.trim().split(',')" id="sala" class="form-control" type="text">
-              </div>
+            <div class="col-md-12 input form-group bmd-form-group">
+              <label for="sala" class="bmd-label-floating">Salas</label>
+              <input [value]="novoCurso.salas" (input)="novoCurso.salas = $event.target.value.trim().split(',')" id="sala" class="form-control" type="text">
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
-              <div class="input form-group">
-                <label for="inicio" class="bmd-label-floating">Inicio</label>
-                <input [value]="novoCurso.inicio" (input)="novoCurso.inicio = $event.target.value" id="inicio" class="form-control" type="text">
-              </div>
+            <div class="col-md-6 input form-group bmd-form-group">
+              <label for="inicio" class="bmd-label-floating">Inicio</label>
+              <input [value]="novoCurso.inicio" (input)="novoCurso.inicio = $event.target.value" id="inicio" class="form-control" type="text">
             </div>
-            <div class="col-md-6">
-              <div class="input form-group">
-                <label for="fim" class="bmd-label-floating">Fim</label>
-                <input [value]="novoCurso.fim" (input)="novoCurso.fim = $event.target.value" id="fim" class="form-control" type="text">
-              </div>
+            <div class="col-md-6 input form-group bmd-form-group">
+              <label for="fim" class="bmd-label-floating">Fim</label>
+              <input [value]="novoCurso.fim" (input)="novoCurso.fim = $event.target.value" id="fim" class="form-control" type="text">
             </div>
           </div>
         </div>
