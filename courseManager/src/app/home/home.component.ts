@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Observable} from "rxjs/index";
-import {NgForm, NgModel} from '@angular/forms';
-
 
 @Component({
   selector: 'app-home',
