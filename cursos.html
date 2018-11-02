@@ -45,24 +45,24 @@
                     </div>
                     <div class="modal-body">
                         <div class="col-md-12 offset-md-12 form-group curso-nome">
-                            <input type="password" class="form-control" placeholder="Nome do Curso">
+                            <input type="text" class="form-control" ng-model='novo.nomeCurso' placeholder="Nome do Curso">
                         </div>
                         <div class="col-md-12 offset-md-12 form-group professores-nome">
-                            <input type="password" class="form-control" placeholder="Professores">
+                            <input type="text" class="form-control" ng-model='novo.nomeProfessor' placeholder="Professores">
                         </div>
                         <div class="col-md-12 offset-md-12 form-group salas-nomes">
-                            <input type="password" class="form-control" placeholder="Salas">
+                            <input type="text" class="form-control" ng-model='novo.novaSala' placeholder="Salas">
                         </div>
                         <div class="row">
-                            <div class="col form-group salas-nomes">
-                                <input type="password" class="form-control" placeholder="Início">
+                            <div class="col form-group salas-nomes" maxlength="4">
+                                <input type="number" class="form-control" ng-model='novo.horarioInicio' placeholder="Início">
                             </div>
-                            <div class="col form-group salas-nomes">
-                                <input type="password" class="form-control" placeholder="Fim">
+                            <div class="col form-group salas-nomes" maxlength="4">
+                                <input type="number" class="form-control" ng-model='novo.horarioFinal' placeholder="Fim">
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" ng-click="addCurso(novo.nomeCurso, novo.nomeProfessor, novo.novaSala, novo.horarioInicio, novo.horarioFinal)">
                         <button type="button" class="btn btn-danger col-md-12">SALVAR</button>
                     </div>
                 </div>
