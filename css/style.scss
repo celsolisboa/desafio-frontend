@@ -1,10 +1,17 @@
-
 body{
     background-image: url(../../image/background.jpg);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
     height: -webkit-fill-available;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0; 
+    background: rgba(0,0,0,0.5);
+    pointer-events: none;
 }
 
 .tela-login {

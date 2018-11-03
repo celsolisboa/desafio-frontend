@@ -9,14 +9,13 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
     $scope.loginProfile = function (email, password) {
         if (email == undefined || password == undefined) {
             detectedErro("formulario");
-            var x = document.getElementById("login-empty");
+            let x = document.getElementById("login-empty");
             if (x.style.display === "block") {
                 x.style.display = "none";
             } else {
                 x.style.display = "block";
             }
         } else {
-
             authentication(email, password);
         }
     }
@@ -28,7 +27,6 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
             let info = { email: email, password: password }
             let urlAccess = 'http://localhost:3000/api/user/login';
             acessAPI(urlAccess, info);
-
         } else {
             detectedErro("senha/email");
             var x = document.getElementById("login-erro");
