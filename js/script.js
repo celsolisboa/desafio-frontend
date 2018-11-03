@@ -45,8 +45,6 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
         $http.get("http://localhost:3000/api/curso")
             .then(function (response) {
                 $scope.infoCurso = response.data;
-                console.log($scope.infoCurso);
-
             }, function myError(response) {
                 detectedErro("Foi detectada um falha na conexão com a API (Cursos): ", response)
             });

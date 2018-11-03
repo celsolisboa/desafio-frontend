@@ -1,0 +1,79 @@
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    section.tela-login.col-md-12.text-center {
+        text-align: left !important;
+        padding: 0px;
+    }
+
+    .tela-login img.logo-celso-lisboa {
+        margin-top: 5%;
+        height: 35px;
+        width: 75px;
+        margin: 5% 0 13% 1%
+    }
+
+    .tela-login .login-text {
+        text-align: center;
+        color: white;
+        font-size: 1.3em;
+        margin: 6%;
+    }
+
+    .tela-login .col-md-4.email {
+        margin-top: 1.8em;
+    }
+
+    .tela-login .col-md-4.email, .tela-login .col-md-4.senha {
+        padding: 0px;
+    }
+
+    .tela-login .col-md-4.senha {
+        margin-top: 1.3em;
+    }
+
+    .tela-login .btn{
+        width: 100%;
+        margin: 0 auto;
+        display: block; 
+    }
+}
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    section.tela-login.col-md-12.text-center {
+        text-align: left !important;
+        padding: 0px;
+    }
+
+    .tela-login img.logo-celso-lisboa {
+        margin-top: 5%;
+        height: 35px;
+        width: 75px;        
+        margin: 5% 0 13% 1%
+    }
+
+    .tela-login .login-text {
+        text-align: center;
+        color: white;
+        font-size: 1.3em;
+        margin: 6%;
+    }
+
+    .tela-login .col-md-4.email {
+        margin-top: 1.8em;
+    }
+
+    .tela-login .col-md-4.email, .tela-login .col-md-4.senha {
+        padding: 0px;
+    }
+
+    .tela-login .col-md-4.senha {
+        margin-top: 1.3em;
+    }
+
+    .tela-login .btn{
+       width: 100%;
+       margin: 0 auto;
+       display: block;
+    }
+}

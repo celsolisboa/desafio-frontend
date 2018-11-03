@@ -11,6 +11,7 @@ app.controller('consultaController', ['$scope', '$http', function ($scope, $http
             .then(function (response) {
                 $scope.infoCurso = response.data;
                 $scope.infoCurso = $scope.infoCurso.cursos;
+                console.log($scope.infoCurso)
             }, function myError(response) {
                 detectedErro("Foi detectada um falha na conexão com a API (Cursos): ", response)
             });
@@ -54,14 +55,14 @@ app.controller('consultaController', ['$scope', '$http', function ($scope, $http
             data: {
                 id: cursoInfo.novoID,
                 nome: cursoInfo.curso,
-                inicio: [
-                    cursoInfo.horarioInicio
-                ],
+                inicio: cursoInfo.horarioInicio,
                 fim: cursoInfo.horarioFinal,
-                salas: {
-                    id: cursoInfo.novoID,
-                    sala: cursoInfo.novaSala
-                },
+                salas: [
+                    {
+                        id: cursoInfo.novoID,
+                        sala: cursoInfo.novaSala
+                    }
+                ],
                 professores: [
                     {
                         id: cursoInfo.novoID,

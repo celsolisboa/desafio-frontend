@@ -55,10 +55,10 @@
                         </div>
                         <div class="row">
                             <div class="col form-group salas-nomes" maxlength="4">
-                                <input type="number" class="form-control" ng-model='novo.horarioInicio' placeholder="Início">
+                                <input type="text" class="form-control" ng-model='novo.horarioInicio' placeholder="Início">
                             </div>
                             <div class="col form-group salas-nomes" maxlength="4">
-                                <input type="number" class="form-control" ng-model='novo.horarioFinal' placeholder="Fim">
+                                <input type="text" class="form-control" ng-model='novo.horarioFinal' placeholder="Fim">
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <h5 class="card-title">{{curso.nome}}</h5>
-                        <span class="card-text" ng-repeat="professores in curso.professores">{{professores.nome}}</span>
+                        <span class="card-text" ng-repeat="professores in curso.professores track by $index">{{professores.nome}} </span>
                         <p class="card-text legenda">
                             <span class="text-left" ng-repeat="salas in curso.salas">sala {{salas.sala}} </span>
                             <span class="text-right">{{curso.inicio}} às {{curso.fim}}</span>
