@@ -6,12 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-    <script src="js/angularjs/angular.min.js"></script>
-    <script src="js/consulta.js"></script>
-
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/adaptacao-bootstrap.css">
@@ -19,10 +13,10 @@
     <link rel="stylesheet" href="css/media-queries.css">
 
 
-    <title>R4S Recrutamento - Cursos</title>
+    <title>Cursos - R4S Recrutamento</title>
 </head>
 
-<body class="tela-cursos" ng-app="celsoLisboa" ng-controller="consultaController">
+<body class="tela-cursos" ng-app="celsoLisboa" ng-controller="cursoController">
 
     <nav class="cursos row">
         <div class="caixa-logo col-md-4">
@@ -35,7 +29,6 @@
             <a href="cursos.html" class="btn-curso btn btn-sm btn-danger" data-toggle="modal" data-target="#largeModal">CRIAR</a>
         </div>
 
-        <!-- large modal -->
         <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -70,7 +63,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="row">
             <div class="col" ng-repeat="curso in infoCurso track by $index">
                 <div class="card">
@@ -89,10 +82,13 @@
             </div>
             <div class="w-100"></div>
         </div>
-
     </nav>
 
-
+    
+    <script src="js/bootstrap/jquery.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/angularjs/angular.min.js"></script>
+    <script src="js/cursoController.js"></script>
 </body>
 
 </html>

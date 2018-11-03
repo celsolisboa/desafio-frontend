@@ -1,6 +1,6 @@
 var app = angular.module('celsoLisboa', []);
 
-app.controller('consultaController', ['$scope', '$http', function ($scope, $http) {
+app.controller('cursoController', ['$scope', '$http', function ($scope, $http) {
 
     function detectedErro(e) {
         console.log("Erro encontrado:", e);
@@ -11,7 +11,6 @@ app.controller('consultaController', ['$scope', '$http', function ($scope, $http
             .then(function (response) {
                 $scope.infoCurso = response.data;
                 $scope.infoCurso = $scope.infoCurso.cursos;
-                console.log($scope.infoCurso)
             }, function myError(response) {
                 detectedErro("Foi detectada um falha na conexão com a API (Cursos): ", response)
             });
@@ -21,7 +20,6 @@ app.controller('consultaController', ['$scope', '$http', function ($scope, $http
     $scope.removeCurso = function (posicao) {
         $http.delete('http://localhost:3000/api/curso/' + posicao)
             .then(function () {
-                console.log("Curso Removido!");
                 getCurso();
 
             }, function (response) {
@@ -33,19 +31,16 @@ app.controller('consultaController', ['$scope', '$http', function ($scope, $http
         $http.get("http://localhost:3000/api/professor")
             .then(function (response) {
                 let novoID = $scope.infoCurso.length += 1;
-                console.log("response", response);
                 if (curso, professor, novaSala, horarioInicio, horarioFinal) {
                     $scope.newCurse = { curso, professor, novaSala, horarioInicio, horarioFinal, novoID }
                     postNewCurse($scope.newCurse);
                 } else {
-                    console.log("deu ruim")
+                    console.log("Não foi possivel adicionar o curso");
                 }
 
             }, function myError(response) {
                 detectedErro("Foi detectada um falha na conexão com a API (Professores): ", response)
             });
-
-
     }
 
     function postNewCurse(cursoInfo) {

@@ -23,3 +23,11 @@ body{
 nav.cursos{
     padding: 1.55% 19.5%;
 }
+
+#login-erro,
+#login-empty{
+    margin: 3%;
+    color: red;
+    display: none;
+    text-transform: uppercase;
+}

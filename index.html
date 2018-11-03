@@ -6,23 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/adaptacao-bootstrap.css">
     <link rel="stylesheet" href="css/media-queries.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>R4S Recrutamento - Login</title>
+    <title>Login - R4S Recrutamento</title>
 </head>
 
 <body class="container" ng-app="celsoLisboa" ng-controller="loginController">
     <section class="tela-login col-md-12 text-center">
         <img class="logo-celso-lisboa" src="image/logo_big.png" alt="logo-celso-lisboa">
         <p class="login-text">Login</p>
-
+        
         <div class="col-md-4 offset-md-4 form-group email">
             <input type="text" class="form-control" name="email" placeholder="Email" ng-model='form.accessEmail'>
         </div>
@@ -32,10 +29,15 @@
         </div>
 
         <a href="#" class="col-md-4 btn btn-lg btn-danger" ng-click="loginProfile(form.accessEmail, form.accessPassword)">ACESSAR</a>
+
+        <h5 id="login-empty">Preencha todos os campos para acessar</h5>
+        <h5 id="login-erro">Email/Senha inválido</h5>
     </section>
 
+    <script src="js/bootstrap/jquery.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="js/angularjs/angular.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/loginController.js"></script>
 </body>
 
 </html>

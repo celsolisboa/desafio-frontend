@@ -6,7 +6,14 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
     $scope.loginProfile = function (email, password) {
         if (email == undefined || password == undefined) {
             detectedErro("formulario");
+            var x = document.getElementById("login-empty");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
         } else {
+
             authentication(email, password);
         }
     }
@@ -17,23 +24,25 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
 
             let info = { email: email, password: password }
             let urlAccess = 'http://localhost:3000/api/user/login';
-            postAPI(urlAccess, info);
+            acessAPI(urlAccess, info);
 
         } else {
             detectedErro("senha/email");
+            var x = document.getElementById("login-erro");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
         }
     }
 
-    function detectedErro(e) {
-        console.log("e:", e);
-    }
-
-    function postAPI(urlAccess, info) {
+    function acessAPI(urlAccess, info) {
         $http({
             method: 'POST',
             url: urlAccess,
             data: { email: info.email, password: info.password }
-        }).then(function successCallback(response) {
+        }).then(function successCallback() {
             window.open("C:/Users/Anderson/Documents/Projetos/R4S Recrutamento/cursos.html", '_self');
             getAPI();
         }, function errorCallback(response) {
@@ -50,5 +59,9 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
             });
     }
     getAPI();
+
+    function detectedErro(e) {
+        console.log("Erro:", e);
+    }
 
 }]);

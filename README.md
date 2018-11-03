@@ -1,9 +1,12 @@
 # Desafio Celso Lisboa para FrontEnd 
 
-Lucas AnDesenv Lima 
+(Resultado) Desenvolvido por: Lucas 'AnDesenv' Lima 
 
-`Pixel Perfect (Utilizado):
+Pixel Perfect (Utilizado - Desktop):
 X=240 | Y=0 | Scale: 1.0 | 1920x1080p
+
+Pixel Perfect (Utilizado - Mobile):
+X=0 | Y=0 | Scale: 1.0 | Iphone 6/7/8
 
 ### Cenário
 
