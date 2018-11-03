@@ -101,6 +101,7 @@ nav.cursos.row {
 .tela-cursos .modal-content{
     background-color: rgb(136,136,136);
     border-radius: 0px;
+    border: none;
 }
 
 .tela-cursos .modal-header {
