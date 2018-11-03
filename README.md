@@ -6,7 +6,7 @@ Pixel Perfect (Utilizado - Desktop):
 X=240 | Y=0 | Scale: 1.0 | 1920x1080p
 
 Pixel Perfect (Utilizado - Mobile):
-X=0 | Y=0 | Scale: 1.0 | Iphone 6/7/8
+X=0 | Y=0 | Scale: 1.2 | Iphone 6/7/8
 
 ### Cenário
 

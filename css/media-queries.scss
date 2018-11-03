@@ -1,0 +1,179 @@
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) and (max-width: 600px){
+    body.tela-cursos{
+        background-size: auto;
+    }
+
+    section.tela-login.col-md-12.text-center {
+        text-align: left !important;
+        padding: 0px;
+    }
+
+    .tela-login {
+        img.logo-celso-lisboa {
+            margin-top: 5%;
+            height: 35px;
+            width: 75px;
+            margin: 5% 0 13% 1%
+        }
+
+        .login-text {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin: 6%;
+        }
+
+        .col-md-4.email {
+            margin-top: 1.8em;
+        }
+
+        .col-md-4.email, 
+        .tela-login .col-md-4.senha {
+            padding: 0px;
+        }
+
+        .col-md-4.senha {
+            margin-top: 1.3em;
+        }
+
+        .btn{
+            width: 100%;
+            margin: 0 auto;
+            display: block; 
+        }
+    }
+
+    .tela-cursos {
+        .cursos .row,
+        nav.cursos {
+            display: inline-block;
+            padding: 3%;
+            margin-top: 0em;
+        }
+
+        nav.cursos.row {
+            display: inline-block;
+            margin: 0px;
+            width: 100%;
+        }
+
+        .caixa-logo.col-md-4 {
+            padding: 0px;
+            margin: 3%;
+            display: block;
+        }
+
+        img.logo-celso-lisboa {
+            width: 27%;
+        }
+
+        p.login-text {
+            font-size: 1.7em;
+            color: white;
+            clear: both;
+            text-align: center;
+            display: inline-block;
+            width: -webkit-fill-available;
+            margin-top: 1.5%;
+            margin-left: 3.5em;
+            margin-bottom: 0em;
+        }
+
+        .col {
+            margin: 1rem 0.8rem 2.7rem;
+            padding: 0 0.5em;
+        }
+
+        .modal-dialog.modal-lg {
+            padding: 0px;
+            width: -webkit-fill-available;
+            margin: 0px;
+        }
+
+        .modal-header{
+            margin: 0 0 1em 0;
+        }
+
+        .modal-title {
+            margin: auto;
+            margin-top: 1.3em;
+            font-size: 1.7em;
+            display: inline-block;
+            width: 100%;
+            padding-left: 2em;
+        }
+
+        .modal-body {
+            padding: 0 1em;
+            margin: 0px;
+        }
+
+        .form-control {
+            padding: 2rem 2rem;
+            font-size: 1.3em;
+        }
+
+        .cursos .modal .row {
+            display: inline-flex;
+        }
+
+        .modal-footer {
+            padding: 0em 1em 26.4em 1em;
+            margin-top: 1em;
+        }
+
+        button.btn.btn-danger.col-md-12{
+            padding: 1em;
+        }
+
+        .caixa-criar-curso.col-md-4 {
+            position: absolute;
+            top: 1.5em;
+            left: 4em;
+            display: inline-block;
+        }
+
+        .btn-group-sm>.btn, .btn-sm {
+            padding: 0.5rem 3rem;
+        }
+    }
+
+    nav.cursos.row {
+        display: inline-block;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .col-md-12.offset-md-12.form-group.curso-nome {
+        margin-top: .6em;
+        margin-bottom: 1.55rem;
+        padding: 0px;
+    }
+
+    .col-md-12.offset-md-12.form-group.professores-nome {
+        margin-bottom: 1.5rem;
+        padding: 0px;
+    }
+
+    .col-md-12.offset-md-12.form-group.salas-nomes {
+        margin-bottom: .5rem;
+        padding: 0px;
+    }
+
+    .col.form-group.salas-nomes {
+        margin: 0px;
+        padding: 1em 0em;
+    }
+
+    .col.form-group.salas-nomes:nth-child(1) {
+        padding-right: 5%;
+    }
+    
+}
+
+@media screen and (max-width: 1100px){
+    nav.cursos {
+        padding: 2.55% 5.5%;
+    }
+}

@@ -1,0 +1,165 @@
+.form-control{
+    background-color: #fff0;
+    border: 1px solid #ffffff;
+
+    &::placeholder{
+        color: #ffffff;;
+    }
+}
+
+.tela-login{
+    .col-md-4.email{
+        margin-top: 2em;
+    }
+
+    .col-md-4.senha {
+        margin-top: 1.1em;
+    }
+
+    .col-md-4.email,
+    .col-md-4.senha{	
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .form-control{
+        padding: 1.475rem 1.10rem;
+        font-size: 1.1em;
+    }
+
+    .btn{
+        width: 31.5%;
+        margin-top: .4em; 
+        padding: .65rem 1rem;
+        font-size: 1.09rem;     
+    }
+}
+
+.tela-cursos{
+    img.logo-celso-lisboa {
+        width: 19.0%;
+    }
+
+    p.login-text {
+        text-align: center;
+        font-size: 1.35em;
+        color: white;
+    }
+
+    .caixa-logo.col-md-4 {
+        padding: 0px;
+    }
+
+    .caixa-criar-curso.col-md-4 {
+        text-align: right;
+        padding: 0 .15em;
+    }
+
+    .btn-group-sm>.btn, 
+    .btn-sm {
+        padding: .3rem 2.5rem;
+        border-radius: 2em;
+        background-color: rgb(255,6,105);
+    }
+
+    .cursos .row {
+        margin-top: 5em;
+        padding: 6% 12%;
+    }   
+
+    .modal .row {
+        margin-top: 0em;
+        padding: 0em 1em;
+    }
+
+    .col {
+        margin: 1rem .4rem;
+        padding: 0 .5em;
+
+        .card {
+            width: 26em;
+            padding: 1em 1em;
+            border-radius: 0.5em;
+        }
+
+        .card-body {
+            padding: 0;
+        }
+
+        h5.card-title {
+            font-size: 1.1em;
+            margin-bottom: 1.1rem;
+        }
+
+        p.card-text {
+            font-size: .9em;
+            margin-bottom: 0px;
+
+            &.text-sala {
+                font-size: .9em;
+            }
+        }
+    }
+
+    .modal-content{
+        background-color: rgb(136,136,136);
+        border-radius: 0px;
+        border: none;
+    }
+
+    .modal-header {
+        border-bottom: none;
+        margin-top: .6em;
+        color: white;
+        text-align: center;
+
+        .close {
+            margin: -2rem -.3rem -1rem auto;
+        }
+    }
+
+    .modal-body {
+        padding: .8rem 4.3em 0 4.3em;
+    }
+
+    .modal-footer {
+        border-top: none;
+        padding: 0em 5.4em 4.4em 5.4em;
+    }
+
+    .modal-dialog.modal-lg {
+        padding: 11rem 9em;
+    }
+
+    .form-control{
+        padding: 1.5rem 1rem;
+    }
+
+    .modal-title {
+        margin-bottom: 0;
+        line-height: 1.5;
+        margin-top: 0.7em;
+        font-size: 1.3em;
+        padding: 0 0 0 9em;
+    }
+
+    .form-group {
+        margin-bottom: 1.25rem;
+        margin-top: 0em;
+    }
+
+    button.btn.btn-danger.col-md-12 {
+        padding: .75em;
+        background: rgb(255,6,105);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
+    }
+
+    .modal-backdrop.show {
+        opacity: 0.75;
+    }
+
+}
+
+nav.cursos.row {
+    margin: 0px;
+}

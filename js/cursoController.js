@@ -6,17 +6,6 @@ app.controller('cursoController', ['$scope', '$http', function ($scope, $http) {
         console.log("Erro encontrado:", e);
     }
 
-    function getCurso() {
-        $http.get("http://localhost:3000/api/curso")
-            .then(function (response) {
-                $scope.infoCurso = response.data;
-                $scope.infoCurso = $scope.infoCurso.cursos;
-            }, function myError(response) {
-                detectedErro("Foi detectada um falha na conexão com a API (Cursos): ", response)
-            });
-    }
-    getCurso();
-
     $scope.removeCurso = function (posicao) {
         $http.delete('http://localhost:3000/api/curso/' + posicao)
             .then(function () {
@@ -71,5 +60,16 @@ app.controller('cursoController', ['$scope', '$http', function ($scope, $http) {
             console.log("Foi detectada uma falha na conexão com a API (Login)", response)
         });
     }
+
+    function getCurso() {
+        $http.get("http://localhost:3000/api/curso")
+            .then(function (response) {
+                $scope.infoCurso = response.data;
+                $scope.infoCurso = $scope.infoCurso.cursos;
+            }, function myError(response) {
+                detectedErro("Foi detectada um falha na conexão com a API (Cursos): ", response)
+            });
+    }
+    getCurso();
 
 }]);

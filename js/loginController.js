@@ -1,7 +1,10 @@
 var app = angular.module('celsoLisboa', []);
 
 app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
-    $scope.users;
+
+    function detectedErro(e) {
+        console.log("Erro:", e);
+    }
 
     $scope.loginProfile = function (email, password) {
         if (email == undefined || password == undefined) {
@@ -44,13 +47,13 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
             data: { email: info.email, password: info.password }
         }).then(function successCallback() {
             window.open("C:/Users/Anderson/Documents/Projetos/R4S Recrutamento/cursos.html", '_self');
-            getAPI();
+            getCursos();
         }, function errorCallback(response) {
             console.log("Foi detectada uma falha na conexão com a API (Login)", response)
         });
     }
 
-    function getAPI() {
+    function getCursos() {
         $http.get("http://localhost:3000/api/curso")
             .then(function (response) {
                 $scope.infoCurso = response.data;
@@ -58,10 +61,6 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
                 detectedErro("Foi detectada um falha na conexão com a API (Cursos): ", response)
             });
     }
-    getAPI();
-
-    function detectedErro(e) {
-        console.log("Erro:", e);
-    }
+    getCursos();
 
 }]);
