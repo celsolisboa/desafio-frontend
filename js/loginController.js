@@ -46,7 +46,7 @@ app.controller('loginController', ['$scope', '$http', function ($scope, $http) {
             url: urlAccess,
             data: { email: info.email, password: info.password }
         }).then(function successCallback() {
-            window.open("C:/Users/Anderson/Documents/Projetos/R4S Recrutamento/cursos.html", '_self');
+            window.open("cursos.html", '_self');
             getCursos();
         }, function errorCallback(response) {
             console.log("Foi detectada uma falha na conexão com a API (Login)", response)
