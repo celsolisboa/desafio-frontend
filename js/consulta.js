@@ -54,19 +54,23 @@ app.controller('consultaController', ['$scope', '$http', function ($scope, $http
             data: {
                 id: cursoInfo.novoID,
                 nome: cursoInfo.curso,
-                inicio: cursoInfo.horarioInicio,
+                inicio: [
+                    cursoInfo.horarioInicio
+                ],
                 fim: cursoInfo.horarioFinal,
-                salas: {    
+                salas: {
                     id: cursoInfo.novoID,
                     sala: cursoInfo.novaSala
                 },
-                professores: {
-                    id: cursoInfo.novoID,
-                    nome: cursoInfo.professor,
-                }
+                professores: [
+                    {
+                        id: cursoInfo.novoID,
+                        nome: cursoInfo.professor
+                    }
+                ]
             }
         }).then(function successCallback() {
-            console.log("foi")
+            location.reload();
         }, function errorCallback(response) {
             console.log("Foi detectada uma falha na conexão com a API (Login)", response)
         });
