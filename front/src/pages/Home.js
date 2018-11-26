@@ -146,7 +146,7 @@ class Home extends React.Component{
 		        <div className="modal">
 		        	<div className="modal-content">
 		        	<MuiThemeProvider theme={theme}>
-		        	  <button className="close-button">
+		        	  <button className="close-button close-button--modal">
 		        	  </button>
 		        	  <h3 className="modal-title">Criar Curso</h3>
 			          <TextField

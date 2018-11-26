@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -12,9 +12,43 @@ import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from '../images/logo_medium.png';
 
 const styles = theme => ({
-  margin: {
-    margin: theme.spacing.unit,
+  
+});
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiFormControl: {
+      root: {
+        width: '100%',
+      }
+    },
+    MuiInputBase: {
+      root:{
+        border: '1px solid #fff',
+        marginBottom: '20px',
+        color:'#fff',
+        borderRadius: '4px',
+        "&$focused": {
+              borderColor: "transparent"
+            }
+      }
+    },
+    MuiFormLabel: {
+      root: {
+        color:'#fff',
+        }
+      },
+      MuiButtonBase: {
+        root: {
+          width: '100%'
+        }
+      }
   },
+  palette: {
+    primary: { main: '#ffffff' },
+    secondary: { main: '#ff0669' },
+  },
+  typography: { useNextVariants: true },
 });
 
 class Login extends React.Component{
@@ -32,52 +66,40 @@ class Login extends React.Component{
 	render(){
 		const { classes } = this.props;
 		return(
-			<div>
-        <main className="login">
-          <h2 className="page-title">Login</h2>
+      <main className="login">
+        <MuiThemeProvider theme={theme}>
+          <h2 className="page-title login-title">Login</h2>
           <TextField
             className={classes.margin}
-            InputLabelProps={{
-              classes: {
-                root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
-            }}
-            InputProps={{
-              classes: {
-                root: classes.cssOutlinedInput,
-                focused: classes.cssFocused,
-                notchedOutline: classes.notchedOutline,
-              },
-            }}
             label="Email"
             variant="outlined"
             id="email"
           />
-          <FormControl className={classes.margin}>
-            <InputLabel htmlFor="password">Senha</InputLabel>
-            <Input
-              id="password"
-              type={this.state.showPassword ? 'text' : 'password'}
-              value={this.state.password}
-              onChange={() => this.handleChange('password')}
-              endAdornment={
+          <TextField
+            id="outlined-adornment-password"
+            variant="outlined"
+            type={this.state.showPassword ? 'text' : 'password'}
+            label="Senha"
+            value={this.state.password}
+            onChange={this.handleChange('password')}
+            InputProps={{
+              endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="Toggle password visibility"
                     onClick={this.handleClickShowPassword}
                   >
-                    {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
+                    {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
-              }
-            />
-          </FormControl>
+              ),
+            }}
+          />
           <Button variant="contained" color="secondary">
             ACESSAR
           </Button>
-        </main>
-      </div>
+        </MuiThemeProvider>
+      </main>
     )
 	}
 }
