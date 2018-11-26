@@ -1,20 +1,15 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputBase from '@material-ui/core/InputBase';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import InputLabel from '@material-ui/core/InputLabel';
-import IconButton from '@material-ui/core/IconButton';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
-import green from '@material-ui/core/colors/green';
 import mediumLogo from '../images/logo_medium.png';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 const styles = theme => ({
   container: {
@@ -78,10 +73,6 @@ const theme = createMuiTheme({
   typography: { useNextVariants: true },
 });
 
-const whiteBorder = {
-	borderColor: 'white'
-}
-
 const classrooms = [101, 102, 103, 104, 105, 106, 201, 202, 203, 204];
 
 const ITEM_HEIGHT = 48;
@@ -110,11 +101,13 @@ class Home extends React.Component{
 		classroom: [],
     	showPassword: false,
 	}
+	componentDidMount(){
+
+	}
 	handleChange = prop => event => {
 		console.log(prop, event.target.value)
 	    this.setState({ [prop]: event.target.value });
-	  };
-
+	};
 	handleClickShowPassword = () => {
 		this.setState(state => ({ showPassword: !state.showPassword }));
 	};
@@ -123,14 +116,38 @@ class Home extends React.Component{
 		const { classes } = this.props;
 		return(
 			<div className="container">
-		 		<header>
+		 		<header className="header">
 		          <h1 className="logo">
-		            <img src={mediumLogo} />
+		            <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
 		          </h1>
+		          <Button variant="contained" color="secondary">
+		            CRIAR
+		          </Button>
 		        </header>
 		        <main className="home">
 		          <div className="courses">
 		            <h2 className="page-title">Cursos</h2>
+		            <Card>
+				      <CardContent style={{padding: '20px 15px'}}>
+				        <button className="close-button close-button--card">
+		        	    </button>
+				        <h3 className="card-title">
+				          Biologia
+				        </h3>
+				        <p style={{margin: 0}}>
+				          Prof. Álvares de Azevedo
+				        </p>
+				        <div style={{'display': 'flex', 'justify-content': 'space-between'}}>
+				          <p style={{margin: 0}}>
+				            sala 502
+				        </p>
+				          <p style={{margin: 0}}>
+				            9:00 às 12:00
+				        </p>
+				        </div>
+				        
+				      </CardContent>
+				    </Card>
 		          </div>
 		        </main>
 		        <div className="modal">
@@ -138,12 +155,18 @@ class Home extends React.Component{
 		        	<MuiThemeProvider theme={theme}>
 		        	  <button className="close-button">
 		        	  </button>
-		        	  <h3 className="page-title">Criar Curso</h3>
+		        	  <h3 className="modal-title">Criar Curso</h3>
 			          <TextField
 			            className={classes.margin}
 			            label="Nome do Curso"
 			            variant="outlined"
 			            id="course-name"
+			            InputLabelProps={{
+				          classes: {
+				            root: classes.cssLabel,
+				            focused: classes.cssFocused,
+				          },
+				        }}
 			          />
 			          <TextField
 				        InputProps={{
@@ -152,12 +175,19 @@ class Home extends React.Component{
 			                	focused: classes.cssFocused
 			                }
 			            }}
+			            InputLabelProps={{
+				          classes: {
+				            root: classes.cssLabel,
+				            focused: classes.cssFocused,
+				          },
+				        }}
 			            label="Professores"
 			            variant="outlined"
 			            id="teachers"
 			          />
 			          <FormControl variant="outlined" className={classes.formControl}>
 			            <InputLabel
+					      style={{width: 'auto'}}
 			              ref={ref => {
 			                this.InputLabelRef = ref;
 			              }}
@@ -167,6 +197,8 @@ class Home extends React.Component{
 			            </InputLabel>
 			            <Select
 			              multiple
+			              autoWidth={true}
+			              labelWidth={0}
 			              variant="outlined"
 			              value={this.state.classroom}
 			              onChange={this.handleChange('classroom')}

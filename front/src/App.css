@@ -3,16 +3,26 @@
   background: url('./images/background.jpg');
 }
 .container{
-
+	padding: 20px;
 }
 .logo{
 	margin: 0;
+}
+.header{
+	display: flex;
+	justify-content: space-between;
+}
+.modal-title{
+	color: #fff;
+	font-weight: 400;
+	text-align: center;
+	margin: 15px auto 35px;
 }
 .page-title{
 	color: #fff;
 	font-weight: 400;
 	text-align: center;
-	margin: 15px auto 35px;
+	margin: 20px auto 20px;
 }
 .login{
 
@@ -20,6 +30,7 @@
 .modal{
 	width: 100vw;
 	height: 100vh;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -31,20 +42,34 @@
 	height: calc(100% - 40px);
 	padding: 20px;
 }
+.card-title{
+	margin: -25px 0 20px 0;
+}
 .close-button{
-	cursor: pointer;
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	background: url('./images/close_white.png') no-repeat;
+	cursor: pointer;	
 	width: 20px;
 	height: 20px;
 	border: none;
 	outline: none;
 }
-.close-button:hover,
-.close-button:focus{
+.close-button--modal{
+	background: url('./images/close_white.png') no-repeat;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+.close-button--modal:hover,
+.close-button--modal:focus{
 	background: url('./images/close_grey.png') no-repeat;
+}
+.close-button--card{
+	position: relative;
+	left: calc(100% - 20px);
+	background: url('./images/close_grey.png') no-repeat;
+}
+.close-button--card:hover,
+.close-button--card:focus{
+	background: url('./images/close_white.png') no-repeat;
 }
 .grid{
 	display: grid;

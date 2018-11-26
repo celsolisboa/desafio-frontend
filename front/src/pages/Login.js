@@ -1,33 +1,20 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
-import InputBase from '@material-ui/core/InputBase';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import InputLabel from '@material-ui/core/InputLabel';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import FilledInput from '@material-ui/core/FilledInput';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
 import mediumLogo from '../images/logo_medium.png';
 
 const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
   },
-});
-
-const theme = createMuiTheme({
-  palette: {
-    primary: green,
-  },
-  typography: { useNextVariants: true },
 });
 
 class Login extends React.Component{
@@ -48,7 +35,7 @@ class Login extends React.Component{
 			<div className="container">
         <header>
           <h1 className="logo">
-            <img src={mediumLogo} />
+            <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
           </h1>
         </header>
         <main className="login">
