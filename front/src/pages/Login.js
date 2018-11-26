@@ -15,88 +15,11 @@ import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
+import mediumLogo from '../images/logo_medium.png';
 
 const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formControl: {
-    margin: theme.spacing.unit,
-    minWidth: 120,
-    maxWidth: 300,
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
-  },
-  chips: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  chip: {
-    margin: theme.spacing.unit / 4,
-  },
-  noLabel: {
-    marginTop: theme.spacing.unit * 3,
-  },
   margin: {
     margin: theme.spacing.unit,
-  },
-  cssLabel: {
-    '&$cssFocused': {
-      color: purple[500],
-    },
-  },
-  cssFocused: {},
-  cssUnderline: {
-    '&:after': {
-      borderBottomColor: purple[500],
-    },
-  },
-  cssOutlinedInput: {
-    '&$cssFocused $notchedOutline': {
-      borderColor: purple[500],
-    },
-  },
-  notchedOutline: {},
-  bootstrapRoot: {
-    'label + &': {
-      marginTop: theme.spacing.unit * 3,
-    },
-  },
-  bootstrapInput: {
-    borderRadius: 4,
-    backgroundColor: theme.palette.common.white,
-    border: '1px solid #ced4da',
-    fontSize: 16,
-    padding: '10px 12px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:focus': {
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
-  },
-  bootstrapFormLabel: {
-    fontSize: 18,
   },
 });
 
@@ -107,37 +30,13 @@ const theme = createMuiTheme({
   typography: { useNextVariants: true },
 });
 
-const classrooms = [101, 102, 103, 104, 105, 106, 201, 202, 203, 204];
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-function getStyles(classroom, that) {
-  return {
-    fontWeight:
-      that.state.classroom.indexOf(classroom) === -1
-        ? that.props.theme.typography.fontWeightRegular
-        : that.props.theme.typography.fontWeightMedium,
-  };
-}
-
-
 class Login extends React.Component{
 	state = {
-		classroom: [],
-    	showPassword: false,
+    showPassword: false,
 	}
 	handleChange = prop => event => {
-	    this.setState({ [prop]: event.target.value });
-	  };
+	  this.setState({ [prop]: event.target.value });
+	};
 
 	handleClickShowPassword = () => {
 		this.setState(state => ({ showPassword: !state.showPassword }));
@@ -146,11 +45,14 @@ class Login extends React.Component{
 	render(){
 		const { classes } = this.props;
 		return(
-			<div>
+			<div className="container">
         <header>
-        <h1>Logo</h1>
+          <h1 className="logo">
+            <img src={mediumLogo} />
+          </h1>
         </header>
         <main className="login">
+          <h2 className="page-title">Login</h2>
           <TextField
             className={classes.margin}
             InputLabelProps={{

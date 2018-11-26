@@ -1,32 +1,55 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  background: url('./images/background.jpg');
 }
+.container{
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo{
+	margin: 0;
 }
-
-.App-link {
-  color: #61dafb;
+.page-title{
+	color: #fff;
+	font-weight: 400;
+	text-align: center;
+	margin: 15px auto 35px;
 }
+.login{
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.modal{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.7);
+}
+.modal-content{
+	background-color: #888;
+	width: calc(100% - 40px);
+	height: calc(100% - 40px);
+	padding: 20px;
+}
+.close-button{
+	cursor: pointer;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background: url('./images/close_white.png') no-repeat;
+	width: 20px;
+	height: 20px;
+	border: none;
+	outline: none;
+}
+.close-button:hover,
+.close-button:focus{
+	background: url('./images/close_grey.png') no-repeat;
+}
+.grid{
+	display: grid;
+}
+.grid--time-inputs{
+	grid-template-columns: minmax(90px, 45%) minmax(90px, 45%);
+	grid-column-gap: 10%;
 }
