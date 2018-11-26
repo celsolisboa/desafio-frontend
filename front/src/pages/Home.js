@@ -115,15 +115,8 @@ class Home extends React.Component{
 	render(){
 		const { classes } = this.props;
 		return(
-			<div className="container">
-		 		<header className="header">
-		          <h1 className="logo">
-		            <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
-		          </h1>
-		          <Button variant="contained" color="secondary">
-		            CRIAR
-		          </Button>
-		        </header>
+			<div>
+		 		
 		        <main className="home">
 		          <div className="courses">
 		            <h2 className="page-title">Cursos</h2>

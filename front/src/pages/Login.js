@@ -32,12 +32,7 @@ class Login extends React.Component{
 	render(){
 		const { classes } = this.props;
 		return(
-			<div className="container">
-        <header>
-          <h1 className="logo">
-            <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
-          </h1>
-        </header>
+			<div>
         <main className="login">
           <h2 className="page-title">Login</h2>
           <TextField
