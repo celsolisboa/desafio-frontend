@@ -14,7 +14,7 @@ import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from './images/logo_medium.png';
 class App extends React.Component {
   state = {
-    authorization: false
+    authorization: true
   }
 
   render(){

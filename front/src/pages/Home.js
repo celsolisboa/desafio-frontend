@@ -99,17 +99,16 @@ function getStyles(classroom, that) {
 class Home extends React.Component{
 	state = {
 		classroom: [],
-    	showPassword: false,
+    	courses: []
 	}
 	componentDidMount(){
-
+		fetch('http://localhost:3000/api/curso')
+		.then(res => res.json())
+		.then(data => this.setState({courses:data.cursos}))
 	}
 	handleChange = prop => event => {
 		console.log(prop, event.target.value)
 	    this.setState({ [prop]: event.target.value });
-	};
-	handleClickShowPassword = () => {
-		this.setState(state => ({ showPassword: !state.showPassword }));
 	};
 
 	render(){
@@ -120,27 +119,31 @@ class Home extends React.Component{
 		        <main className="home">
 		          <div className="courses">
 		            <h2 className="page-title">Cursos</h2>
-		            <Card>
-				      <CardContent style={{padding: '20px 15px'}}>
-				        <button className="close-button close-button--card">
-		        	    </button>
-				        <h3 className="card-title">
-				          Biologia
-				        </h3>
-				        <p style={{margin: 0}}>
-				          Prof. Álvares de Azevedo
-				        </p>
-				        <div style={{'display': 'flex', 'justify-content': 'space-between'}}>
-				          <p style={{margin: 0}}>
-				            sala 502
-				        </p>
-				          <p style={{margin: 0}}>
-				            9:00 às 12:00
-				        </p>
-				        </div>
-				        
-				      </CardContent>
-				    </Card>
+		            {this.state.courses.map(
+		            	(course) =>
+		            	<Card>
+					      <CardContent style={{padding: '20px 15px'}}>
+					        <button className="close-button close-button--card">
+			        	    </button>
+					        <h3 className="card-title">
+					          {course.nome}
+					        </h3>
+					        <p style={{margin: 0}}>
+					          {course.professores.map(prof => prof.nome).join(', ')}
+					        </p>
+					        <div style={{'display': 'flex', 'justify-content': 'space-between'}}>
+					          <p style={{margin: 0}}>
+					          {course.salas.map(sala => sala.sala).join(', ')}
+					        </p>
+					          <p style={{margin: 0}}>
+					            {course.inicio} às {course.fim}
+					        </p>
+					        </div>
+					        
+					      </CardContent>
+					    </Card>
+		            	)
+				}
 		          </div>
 		        </main>
 		        <div className="modal">
