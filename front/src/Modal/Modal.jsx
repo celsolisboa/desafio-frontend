@@ -70,8 +70,8 @@ const theme = createMuiTheme({
   typography: { useNextVariants: true },
 });
 
-const classrooms = [101, 102, 103, 104, 105, 106, 201, 202, 203, 204];
-
+let classrooms = [];
+let teachers = [];
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -94,7 +94,16 @@ function getStyles(classroom, that) {
 
 class Modal extends React.Component{
 	state = {
-		classroom: []
+		classroom: [],
+		teacher: []
+	}
+	componentDidMount(){
+		fetch('http://localhost:3000/api/sala')
+		.then(res => res.json())
+		.then(data => {classrooms = data; console.log(classrooms);})
+		fetch('http://localhost:3000/api/professor')
+		.then(res => res.json())
+		.then(data => {teachers = data; console.log(teachers);})
 	}
 	handleChange = prop => event => {
 		console.log(prop, event.target.value)
@@ -121,23 +130,37 @@ class Modal extends React.Component{
 				          },
 				        }}
 			          />
-			          <TextField
-				        InputProps={{
-			                classes: {
-			                	input: classes.cssNotched,
-			                	focused: classes.cssFocused
-			                }
-			            }}
-			            InputLabelProps={{
-				          classes: {
-				            root: classes.cssLabel,
-				            focused: classes.cssFocused,
-				          },
-				        }}
-			            label="Professores"
-			            variant="outlined"
-			            id="teachers"
-			          />
+			          <FormControl variant="outlined" className={classes.formControl}>
+			            <InputLabel
+					      style={{width: 'auto'}}
+			              ref={ref => {
+			                this.InputLabelRef = ref;
+			              }}
+			              htmlFor="teachers"
+			            >
+			              Professores
+			            </InputLabel>
+			            <Select
+			              multiple
+			              autoWidth={true}
+			              labelWidth={0}
+			              variant="outlined"
+			              value={this.state.teacher}
+			              onChange={this.handleChange('teacher')}
+			              input={<OutlinedInput id="teacher" />}
+			              MenuProps={MenuProps}
+			            >
+			              {teachers.map(teacher => (
+			                <MenuItem 
+			                	key={teacher.id} 
+			                	value={teacher.id} 
+			                	style={getStyles(teacher.nome, this)}
+			                >
+			                  {teacher.nome}
+			                </MenuItem>
+			              ))}
+			            </Select>
+			          </FormControl>
 			          <FormControl variant="outlined" className={classes.formControl}>
 			            <InputLabel
 					      style={{width: 'auto'}}
@@ -160,11 +183,11 @@ class Modal extends React.Component{
 			            >
 			              {classrooms.map(classroom => (
 			                <MenuItem 
-			                	key={classroom} 
-			                	value={classroom} 
-			                	style={getStyles(classroom, this)}
+			                	key={classroom.id} 
+			                	value={classroom.id} 
+			                	style={getStyles(classroom.sala, this)}
 			                >
-			                  {classroom}
+			                  {classroom.sala}
 			                </MenuItem>
 			              ))}
 			            </Select>
