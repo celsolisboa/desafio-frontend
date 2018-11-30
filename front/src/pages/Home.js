@@ -8,8 +8,8 @@ import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from '../images/logo_medium.png';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import CourseCard from '../CourseCard/CourseCard';
+
 
 const styles = theme => ({
   container: {
@@ -121,125 +121,12 @@ class Home extends React.Component{
 		            <h2 className="page-title">Cursos</h2>
 		            {this.state.courses.map(
 		            	(course) =>
-		            	<Card>
-					      <CardContent style={{padding: '20px 15px'}}>
-					        <button className="close-button close-button--card">
-			        	    </button>
-					        <h3 className="card-title">
-					          {course.nome}
-					        </h3>
-					        <p style={{margin: 0}}>
-					          {course.professores.map(prof => prof.nome).join(', ')}
-					        </p>
-					        <div style={{'display': 'flex', 'justify-content': 'space-between'}}>
-					          <p style={{margin: 0}}>
-					          {course.salas.map(sala => sala.sala).join(', ')}
-					        </p>
-					          <p style={{margin: 0}}>
-					            {course.inicio} às {course.fim}
-					        </p>
-					        </div>
-					        
-					      </CardContent>
-					    </Card>
+		            		<CourseCard course={course} />
 		            	)
-				}
+					}
 		          </div>
 		        </main>
-		        <div className="modal">
-		        	<div className="modal-content">
-		        	<MuiThemeProvider theme={theme}>
-		        	  <button className="close-button close-button--modal">
-		        	  </button>
-		        	  <h3 className="modal-title">Criar Curso</h3>
-			          <TextField
-			            className={classes.margin}
-			            label="Nome do Curso"
-			            variant="outlined"
-			            id="course-name"
-			            InputLabelProps={{
-				          classes: {
-				            root: classes.cssLabel,
-				            focused: classes.cssFocused,
-				          },
-				        }}
-			          />
-			          <TextField
-				        InputProps={{
-			                classes: {
-			                	input: classes.cssNotched,
-			                	focused: classes.cssFocused
-			                }
-			            }}
-			            InputLabelProps={{
-				          classes: {
-				            root: classes.cssLabel,
-				            focused: classes.cssFocused,
-				          },
-				        }}
-			            label="Professores"
-			            variant="outlined"
-			            id="teachers"
-			          />
-			          <FormControl variant="outlined" className={classes.formControl}>
-			            <InputLabel
-					      style={{width: 'auto'}}
-			              ref={ref => {
-			                this.InputLabelRef = ref;
-			              }}
-			              htmlFor="classroom"
-			            >
-			              Salas
-			            </InputLabel>
-			            <Select
-			              multiple
-			              autoWidth={true}
-			              labelWidth={0}
-			              variant="outlined"
-			              value={this.state.classroom}
-			              onChange={this.handleChange('classroom')}
-			              input={<OutlinedInput id="classroom" />}
-			              MenuProps={MenuProps}
-			            >
-			              {classrooms.map(classroom => (
-			                <MenuItem 
-			                	key={classroom} 
-			                	value={classroom} 
-			                	style={getStyles(classroom, this)}
-			                >
-			                  {classroom}
-			                </MenuItem>
-			              ))}
-			            </Select>
-			          </FormControl>
-			          <div className="grid grid--time-inputs">
-				          <TextField
-				            id="start"
-				            label="Início"
-				            type="time"
-				            defaultValue="07:30"
-				            variant="outlined"
-				            inputProps={{
-				            	step: 300,
-				            }}
-				          />
-				          <TextField
-				            id="end"
-				            label="Fim"
-				            type="time"
-				            defaultValue="08:30"
-				            variant="outlined"
-				            inputProps={{
-				            	step: 300,
-				            }}
-				          />
-			          </div>
-			          <Button variant="contained" color="secondary">
-			            SALVAR
-			          </Button>
-			         </MuiThemeProvider>
-			        </div>
-		        </div>
+		        <Modal />
 	        </div>
 		)
 	}
