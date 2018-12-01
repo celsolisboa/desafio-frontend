@@ -13,6 +13,19 @@ class Home extends React.Component{
 		.then(res => res.json())
 		.then(data => this.setState({courses:data.cursos}))
 	}
+	deleteCourse(course){
+			const headers = {
+			  'Accept': 'application/json',
+			  'Content-Type': 'application/json'
+			}
+			fetch('http://localhost:3000/api/curso/'+course,
+				{
+					method: 'DELETE',
+					headers: headers
+				}
+			)
+			.then(res => {console.log(res.json())})
+	}
 	
 	render(){
 		return(
@@ -22,7 +35,7 @@ class Home extends React.Component{
 		            <h2 className="page-title">Cursos</h2>
 		            {this.state.courses.map(
 		            	(course) =>
-		            		<CourseCard course={course} key={course.id} />
+		            		<CourseCard deleteCourse={(course) => this.deleteCourse(course)} course={course} key={course.id} />
 		            	)
 								}
 		          </div>

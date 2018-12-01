@@ -16,7 +16,10 @@ class App extends React.Component {
   state = {
     authorization: true
   }
-
+//apply in button:
+    // border-radius: 2em;
+    // padding: 0 2.5em;
+    // height: 30px;
   render(){
     return (
       <div className="App container">

@@ -1,5 +1,7 @@
 .App {
-  height: 100vh;
+  max-height: 100vh;
+  min-height: 100vh;
+  overflow-x: scroll;
   background: url('./images/background.jpg');
 }
 .container{
@@ -47,6 +49,13 @@
 }
 .card-title{
 	margin: -25px 0 20px 0;
+}
+.card-text{
+	margin: 0;
+}
+.card-row{
+	display: flex;
+	justify-content: space-between
 }
 .close-button{
 	cursor: pointer;	
