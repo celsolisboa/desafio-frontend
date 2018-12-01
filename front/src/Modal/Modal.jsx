@@ -181,14 +181,17 @@ class Modal extends React.Component{
 		return(
 			<div className="modal">
 	      <div className="modal-content">
+	      	<button 
+      	  	onClick={this.props.toggleModal} 
+      	  	className="close-button close-button--modal"
+      	  >
+      	  </button>
 	        <ValidatorForm
             ref="form"
             onSubmit={this.handleSubmit}
             onError={errors => console.log(errors)}
           >
 	        	<MuiThemeProvider theme={theme}>
-	        	  <button className="close-button close-button--modal">
-	        	  </button>
 	        	  <h3 className="modal-title">Criar Curso</h3>
 		          <TextValidator
 		            label="Nome do Curso *"
@@ -204,11 +207,6 @@ class Modal extends React.Component{
 		          	<FormHelperText>
 		          		{/*fixes style from Select Validator 
 		            	not accepting multiple values*/}
-		            	{
-		            		this.state.classroom.length > 1 
-		            		? this.state.classroom.join(', ')
-		            		: null
-		            	}
 		            	{
 		            		this.state.teacher.length > 1
 		            		? this.state.teacher.join(', ')

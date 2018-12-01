@@ -14,12 +14,16 @@ import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from './images/logo_medium.png';
 class App extends React.Component {
   state = {
-    authorization: true
+    authorization: true,
+    isModalOpen: false
   }
 //apply in button:
     // border-radius: 2em;
     // padding: 0 2.5em;
     // height: 30px;
+  toggleModal = () =>
+    this.setState({isModalOpen: !this.state.isModalOpen})
+
   render(){
     return (
       <div className="App container">
@@ -28,7 +32,7 @@ class App extends React.Component {
             <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
           </h1>
           {this.state.authorization &&
-            <Button variant="contained" color="secondary">
+            <Button variant="contained" onClick={this.toggleModal} color="secondary">
               CRIAR
             </Button>
           }
@@ -36,12 +40,16 @@ class App extends React.Component {
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route 
-              path="/"
-              render={this.state.authorization?(props)=><Home/>:() => <Login/>}
-            />
-            <Route 
-              path="/cursos/"
-              render={this.state.authorization?(props)=><Home/>:() => <Login/>}
+              path="(/|/cursos/)"
+              render={  
+                this.state.authorization 
+                ? (props)=>
+                  <Home 
+                    isModalOpen={this.state.isModalOpen} 
+                    toggleModal={this.toggleModal}
+                  />
+                : () => <Login/>
+              }
             />
           </Switch>
         </BrowserRouter>

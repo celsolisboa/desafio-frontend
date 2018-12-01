@@ -43,7 +43,12 @@ class Home extends React.Component{
 						}
           </div>
         </main>
-        <Modal highestID={this.state.courses.sort( (a,b) => b.id - a.id)[0]} />
+        { this.props.isModalOpen 
+        	&& <Modal 
+		        	toggleModal={this.props.toggleModal} 
+		        	highestID={this.state.courses.sort( (a,b) => b.id - a.id)[0]} 
+		        />
+        }
       </div>
 		)
 	}
