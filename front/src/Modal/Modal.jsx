@@ -9,6 +9,13 @@ import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import HomeIcon from '@material-ui/icons/Home';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const styles = theme => ({
   container: {
@@ -127,7 +134,11 @@ class Modal extends React.Component{
 		teacher: [],
 		name: '',
 		start: '07:30',
-		end: '08:30'
+		end: '08:30',
+		completed: 0,
+		awaitResponse: false,
+		hasResponse: false,
+		openAlert: false
 	}
 	componentDidMount(){
 		fetch('http://localhost:3000/api/sala')
@@ -152,13 +163,15 @@ class Modal extends React.Component{
 		 	this.setState({ [prop]: [...this.state[prop], event.target.value] });
 		}
 	};
-	handleSubmit = () => {
+	handleSubmit = (e) => {
+		e.preventDefault();
+		this.setState({awaitResponse: true});
+		this.timer = setInterval(this.progress, 10);
 		const headers = {
 		  'Accept': 'application/json',
 		  'Content-Type': 'application/json'
 		}
 		let generateID = String(parseInt(this.props.highestID.id)+1);
-		console.log(generateID);
 		const body = {
 			id: generateID,
 			nome: this.state.name, 
@@ -173,8 +186,38 @@ class Modal extends React.Component{
 				body: JSON.stringify(body)
 			}
 		)
-		.then(res => console.log(res.json()))
+		.then(res => {
+			this.setState({awaitResponse: false, hasResponse: true});
+			// if(res.ok){
+			// 	this.props.toggleModal();
+			// }else{
+			// 	//display error
+			// }
+		})
 	}
+
+	componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+	progress = () => {
+		const { completed } = this.state;
+    this.setState({ completed: completed >= 100 ? 0 : completed + 1 });
+  };
+
+  resetForm = () => {
+  	this.setState({
+			classroom: [],
+			teacher: [],
+			name: '',
+			start: '07:30',
+			end: '08:30',
+			completed: 0,
+			awaitResponse: false,
+			hasResponse: false,
+			openAlert: false
+		})
+  }
 
 	render(){
 		const {classes} = this.props;
@@ -187,6 +230,7 @@ class Modal extends React.Component{
       	  >
       	  </button>
 	        <ValidatorForm
+	        	id="form"
             ref="form"
             onSubmit={this.handleSubmit}
             onError={errors => console.log(errors)}
@@ -302,10 +346,37 @@ class Modal extends React.Component{
 		          </div>
 		          <Button variant="contained" type="submit" 
 		          color="secondary">
-		            SALVAR
+		            {this.state.awaitResponse
+		            	?
+			            <CircularProgress
+					          className={classes.progress}
+					          variant="determinate"
+					          value={this.state.completed}
+					        />
+					        : 'SALVAR'
+					      }
 		          </Button>
 		        </MuiThemeProvider>
 		      </ValidatorForm>
+		      <Dialog
+	          open={this.state.hasResponse}
+	          onClose={this.handleClose}
+	          aria-labelledby="alert-dialog-title"
+	          aria-describedby="alert-dialog-description"
+	        >
+	          <DialogTitle id="alert-dialog-title">
+	          	Novo curso adicionado!
+	          </DialogTitle>
+	          
+	          <DialogActions>
+	          	<Button onClick={this.resetForm} color="primary">
+	              Adicionar mais cursos
+	            </Button>
+	            <Button onClick={this.props.toggleModal} color="primary" autoFocus>
+	              Voltar para Home
+	            </Button>
+	          </DialogActions>
+	        </Dialog>
 		    </div>
 		   </div>
 		)
