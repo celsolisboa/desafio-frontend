@@ -35,7 +35,7 @@
 .modal{
 	width: 100vw;
 	height: 100vh;
-	display: none;
+	
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -46,6 +46,9 @@
 	width: calc(100% - 40px);
 	height: calc(100% - 40px);
 	padding: 20px;
+}
+.card{
+	margin: 10px 0px;
 }
 .card-title{
 	margin: -25px 0 20px 0;

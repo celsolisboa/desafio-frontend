@@ -157,7 +157,8 @@ class Modal extends React.Component{
 		  'Accept': 'application/json',
 		  'Content-Type': 'application/json'
 		}
-		let generateID = String(this.props.coursesLen + 1);
+		let generateID = String(parseInt(this.props.highestID.id)+1);
+		console.log(generateID);
 		const body = {
 			id: generateID,
 			nome: this.state.name, 
@@ -166,7 +167,6 @@ class Modal extends React.Component{
 			inicio: this.state.start,
 			fim: this.state.end
 		}
-		console.log(body)
 		fetch('http://localhost:3000/api/curso', 
 			{	method: 'POST', 
 				headers: headers,

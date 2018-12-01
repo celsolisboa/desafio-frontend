@@ -30,18 +30,21 @@ class Home extends React.Component{
 	render(){
 		return(
 			<div>	
-		        <main className="home">
-		          <div className="courses">
-		            <h2 className="page-title">Cursos</h2>
-		            {this.state.courses.map(
-		            	(course) =>
-		            		<CourseCard deleteCourse={(course) => this.deleteCourse(course)} course={course} key={course.id} />
-		            	)
-								}
-		          </div>
-		        </main>
-		        <Modal coursesLen={this.state.courses.length} />
-	        </div>
+        <main className="home">
+          <div className="courses">
+            <h2 className="page-title">Cursos</h2>
+            {this.state.courses.map(
+            	(course) =>
+            		<CourseCard 
+            			deleteCourse={(course) => this.deleteCourse(course)} 
+            			course={course} 
+            			key={course.id} />
+            	)
+						}
+          </div>
+        </main>
+        <Modal highestID={this.state.courses.sort( (a,b) => b.id - a.id)[0]} />
+      </div>
 		)
 	}
 }
