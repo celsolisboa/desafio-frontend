@@ -1,19 +1,21 @@
 <section class="default-page">
 	<div class="content">
-		<header>
-			<img src="./assets/logo_big.png" />
-		</header>
+		<div class="login">
+			<header>
+				<h1>Celso Lisboa</h1>
+			</header>
 
-		<article class="form">
-			<h1> Login </h1>
+			<article class="form">
+				<h3> Login </h3>
 
-			<form action="http://localhost:3000/api/user/login" method="post">
-				<input type="email" placeholder="E-mail" name="email" id="email">
-				<input type="password" placeholder="Senha" name="password" id="password">
+				<form>			
+					<input ngModel="usuario.email" type="email" placeholder="E-mail" name="email" id="email">
+					<input ngModel="usuario.senha" type="password" placeholder="Senha" name="senha" id="senha">
 
-				<button type="button">Acessar</button>
-			</form>	
+					<button type="submit" name="action" ng-click="fazerlogin()">Acessar</button>
+				</form>	
 
-		</article>
+			</article>
+		</div>	
 	</div>
 </section>	

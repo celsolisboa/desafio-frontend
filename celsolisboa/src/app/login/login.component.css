@@ -1,0 +1,106 @@
+.content .login{
+    max-width: 60%;
+    margin: 5% auto;
+}
+.login header{
+    display: block;
+    text-align: center;
+}
+.login header h1{
+    background: url("/assets/logo_big.png") no-repeat 0 0;
+    text-indent: -9999em;
+    display: block;
+    width: 109px;
+    height: 50px;
+    margin: 0 auto;
+}
+.login .form{
+    display: block;
+    text-align: center;
+}
+.form form{
+    margin: 0 auto;
+    max-width: 40%;
+    text-align: center;
+}
+.form h3{
+    font-size: 1.2em;
+    font-weight: 200;
+    color: #fff;
+    margin: 6% 0 2%;    
+}
+.form button{
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: #fff;
+    width: 86%; 
+    padding: 3% 0; 
+    margin: 3% 0 0;  
+    background: #ff0669;       
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 1px solid #ff0669;
+    box-shadow: -3px 1px 12px rgba(0, 0, 0, 0.5);   
+}
+.form button:hover{
+    background: #FFFF0B;
+    border-color: #FFFF0B;
+    color: #292D2D;
+}
+.form input{
+    width: 80%;
+    padding: 4% 3%;
+    margin: 4% 0 0;
+    background: transparent;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 1px solid #fff;
+    color: #fff;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #fff;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #fff;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #fff;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #fff;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    #fff;
+}
+
+@media (max-width: 980px){
+    .form form{
+        max-width: 100%;
+    }
+    .login header h1{
+        background: url("/assets/logo_medium.png") no-repeat 0 0;
+        width: 73px;
+        height: 33px;
+        margin: 7% 0 0 3%;
+    }
+    .content .login{
+        max-width: 98%;
+    }
+    .form input{
+        width: 89%;
+    }
+    .form button{
+        width: 96%;
+    }
+    .form h3{
+        margin-top: 3%;
+    }
+}
