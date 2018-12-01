@@ -14,13 +14,15 @@ import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from './images/logo_medium.png';
 class App extends React.Component {
   state = {
-    authorization: true,
+    authorization: false,
     isModalOpen: false
   }
 //apply in button:
     // border-radius: 2em;
     // padding: 0 2.5em;
     // height: 30px;
+
+    
   toggleModal = () =>
     this.setState({isModalOpen: !this.state.isModalOpen})
 
