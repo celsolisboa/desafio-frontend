@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import { ValidatorForm, TextValidator, SelectValidator} from 'react-material-ui-form-validator';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -121,6 +121,14 @@ class Modal extends React.Component{
 		fetch('http://localhost:3000/api/professor')
 		.then(res => res.json())
 		.then(data => {teachers = data;})
+		ValidatorForm.addValidationRule(
+			'isNotEmpty', (value) => {
+				if(value.length > 1){
+					return true
+				}
+				return false
+			}
+		)
 	}
 	handleChange = prop => event => {
 		console.log(event.currentTarget.form)
@@ -152,6 +160,7 @@ class Modal extends React.Component{
 		)
 		.then(res => console.log(res.json()))
 	}
+
 	render(){
 		const {classes} = this.props;
 		return(
@@ -179,7 +188,7 @@ class Modal extends React.Component{
 		          />
 		          <FormControl 
 		          	variant="outlined" 
-		          	error={this.state.attemptSubmit && this.state.teacher.length < 1} 
+		          	error={this.state.attemptSubmit && this.state.teacher.length < 1}
 		          	className={classes.formControl}
 		          >
 		            <InputLabel
@@ -187,14 +196,17 @@ class Modal extends React.Component{
 		              ref={ref => {
 		                this.InputLabelRef = ref;
 		              }}
-		              htmlFor="teachers"
+		              htmlFor="teacher"
 		            >
 		             Professores *
 		            </InputLabel>
-		            <Select
+		            <SelectValidator
 		              multiple	              
 		              labelWidth={0}
+		              name="teacher"
 		              variant="outlined"
+		              validators={['required']}
+		              errorMessages={['Campo Obrigatório']}
 		              value={this.state.teacher}
 		              onChange={this.handleChange('teacher')}
 		              input={<OutlinedInput id="teacher" />}
@@ -209,16 +221,10 @@ class Modal extends React.Component{
 		                  {teacher.nome}
 		                </MenuItem>
 		              ))}
-		            </Select>
-		            <FormHelperText 
-		            	hidden={!this.state.attemptSubmit && this.state.teacher.length < 1}
-		            	error>
-		          		Campo Obrigatório
-		          	</FormHelperText>
+		            </SelectValidator>
 		          </FormControl>
 		          <FormControl 
 		          	variant="outlined" 
-		          	error={this.filled} 
 		          	error={this.state.attemptSubmit && this.state.classroom.length < 1}
 		          	className={classes.formControl}
 		          >
@@ -229,12 +235,15 @@ class Modal extends React.Component{
 		              }}
 		              htmlFor="classroom"
 		            >
-		              Salas 
+		              Salas *
 		            </InputLabel>
-		            <Select
+		            <SelectValidator
 		              multiple
 		              labelWidth={0}
+		              name="classroom"
 		              variant="outlined"
+		              validators={['required']}
+		              errorMessages={['Campo Obrigatório']}
 		              value={this.state.classroom}
 		              onChange={this.handleChange('classroom')}
 		              input={<OutlinedInput id="classroom" />}
@@ -249,12 +258,7 @@ class Modal extends React.Component{
 		                  {classroom.sala}
 		                </MenuItem>
 		              ))}
-		            </Select>
-		            <FormHelperText 
-		            	hidden={!this.state.attemptSubmit && this.state.classroom.length < 1}
-		            	error>
-		          		Campo Obrigatório
-		          	</FormHelperText>
+		            </SelectValidator>
 		          </FormControl>
 		          <div className="grid grid--time-inputs">
 			          <TextValidator
