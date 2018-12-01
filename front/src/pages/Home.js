@@ -27,7 +27,7 @@ class Home extends React.Component{
 					}
 		          </div>
 		        </main>
-		        <Modal />
+		        <Modal coursesLen={this.state.courses.length} />
 	        </div>
 		)
 	}
