@@ -9,6 +9,9 @@ class Home extends React.Component{
     	courses: []
 	}
 	componentDidMount(){
+		this.getCourses();
+	}
+	getCourses = () => {
 		fetch('http://localhost:3000/api/curso')
 		.then(res => res.json())
 		.then(data => this.setState({courses:data.cursos}))
@@ -45,6 +48,7 @@ class Home extends React.Component{
         </main>
         { this.props.isModalOpen 
         	&& <Modal 
+        			getCourses={this.getCourses}
 		        	toggleModal={this.props.toggleModal} 
 		        	highestID={this.state.courses.sort( (a,b) => b.id - a.id)[0]} 
 		        />

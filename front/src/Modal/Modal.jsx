@@ -188,8 +188,9 @@ class Modal extends React.Component{
 		)
 		.then(res => {
 			this.setState({awaitResponse: false, hasResponse: true});
+
 			// if(res.ok){
-			// 	this.props.toggleModal();
+			// 	
 			// }else{
 			// 	//display error
 			// }
@@ -372,7 +373,10 @@ class Modal extends React.Component{
 	          	<Button onClick={this.resetForm} color="primary">
 	              Adicionar mais cursos
 	            </Button>
-	            <Button onClick={this.props.toggleModal} color="primary" autoFocus>
+	            <Button 
+	            	onClick={() => {this.props.getCourses();this.props.toggleModal()} }
+	            	color="primary" 
+	            	autoFocus>
 	              Voltar para Home
 	            </Button>
 	          </DialogActions>
