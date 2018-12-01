@@ -31,7 +31,7 @@ const styles = theme => ({
     },
   },
   selectMargin: {
-  	marginTop: '-1em',
+  	marginTop: '-2em',//to compensate for the formHelperText height
   },
   bootstrapFormLabel: {
     fontSize: 18,
@@ -64,11 +64,19 @@ const theme = createMuiTheme({
 			    minHeight: '1em',
 			    position: 'relative',
 			    left: '1em',
-			    top: '1.5em',
+			    top: '0.5em',
 			    height: '1em',
 			    overflow: 'hidden',
 			    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
 			    lineHeight: '1em',
+			    width: '85%',
+			    textOverflow: 'ellipsis',
+			    whiteSpace: 'nowrap'
+			},
+			contained: {
+				  top: '-1em',
+    			left: '.3em',
+    			margin: 0
 			}
 		},
 	 	MuiFormLabel: {
@@ -104,15 +112,22 @@ const MenuProps = {
   },
 };
 
+function getStyles(arr, val, that) {
+  return {
+    backgroundColor:
+      that.state[arr].indexOf(val) === -1
+        ? 'transparent'
+        : 'rgba(0, 0, 0, 0.14)'
+  };
+}
+
 class Modal extends React.Component{
 	state = {
 		classroom: [],
 		teacher: [],
 		name: '',
 		start: '07:30',
-		end: '08:30',
-		isTeachersEmpty: true,
-		attemptSubmit: false
+		end: '08:30'
 	}
 	componentDidMount(){
 		fetch('http://localhost:3000/api/sala')
@@ -121,20 +136,23 @@ class Modal extends React.Component{
 		fetch('http://localhost:3000/api/professor')
 		.then(res => res.json())
 		.then(data => {teachers = data;})
+		ValidatorForm.addValidationRule('isAfterStart', (value) => {
+			if(value > this.state.start){
+				return true
+			}
+			return false
+		})
 	}
 	handleChange = prop => event => {
 		console.log(prop, event.target.value)
 	  this.setState({ [prop]: event.target.value });
 	};
 	handleSelectChange = prop => event => {
-		console.log(prop, event.target.value)
-	  this.setState({ [prop]: [...this.state[prop], event.target.value] });
+		if(!this.state[prop].find(item => item === event.target.value)){
+		 	this.setState({ [prop]: [...this.state[prop], event.target.value] });
+		}
 	};
 	handleSubmit = () => {
-		this.setState({attemptSubmit: true})
-		
-	}
-	sendNewCourse = () => {
 		const headers = {
 		  'Accept': 'application/json',
 		  'Content-Type': 'application/json'
@@ -143,11 +161,12 @@ class Modal extends React.Component{
 		const body = {
 			id: generateID,
 			nome: this.state.name, 
-			professores: this.state.teacher,
-			salas: this.state.classroom,
+			professores: teachers.filter(tc => this.state.teacher.includes(tc.nome)),
+			salas: classrooms.filter(cl => this.state.classroom.includes(cl.sala)),
 			inicio: this.state.start,
 			fim: this.state.end
 		}
+		console.log(body)
 		fetch('http://localhost:3000/api/curso', 
 			{	method: 'POST', 
 				headers: headers,
@@ -164,7 +183,7 @@ class Modal extends React.Component{
 	      <div className="modal-content">
 	        <ValidatorForm
             ref="form"
-            onSubmit={this.sendNewCourse}
+            onSubmit={this.handleSubmit}
             onError={errors => console.log(errors)}
           >
 	        	<MuiThemeProvider theme={theme}>
@@ -183,7 +202,18 @@ class Modal extends React.Component{
 		          />
 		          <FormControl>
 		          	<FormHelperText>
-		            	{this.state.teacher.map(tc => tc.nome).join(', ')}
+		          		{/*fixes style from Select Validator 
+		            	not accepting multiple values*/}
+		            	{
+		            		this.state.classroom.length > 1 
+		            		? this.state.classroom.join(', ')
+		            		: null
+		            	}
+		            	{
+		            		this.state.teacher.length > 1
+		            		? this.state.teacher.join(', ')
+		            		: null
+		            	}
 		            </FormHelperText>
 		            <SelectValidator	  
 		            	className={classes.selectMargin}            
@@ -199,8 +229,9 @@ class Modal extends React.Component{
 		            >
 		              {teachers.map(teacher => (
 		                <MenuItem 
+		                	style={getStyles('teacher', teacher.nome, this)}
 		                	key={teacher.id} 
-		                	value={teacher} 
+		                	value={teacher.nome} 
 		                >
 		                  {teacher.nome}
 		                </MenuItem>
@@ -209,7 +240,13 @@ class Modal extends React.Component{
 		            </FormControl>
 		            <FormControl>
 		            <FormHelperText>
-		            	{this.state.classroom.map(cl => cl.sala).join(', ')}
+		            	{/*fixes style from Select Validator 
+		            	not accepting multiple values*/}
+		            	{
+		            		this.state.classroom.length > 1 
+		            		? this.state.classroom.join(', ')
+		            		: null
+		            	}
 		            </FormHelperText>
 		            <SelectValidator
 		            	className={classes.selectMargin}
@@ -220,18 +257,14 @@ class Modal extends React.Component{
 		              errorMessages={['Campo Obrigatório']}
 		              value={this.state.classroom}
 		              onChange={this.handleSelectChange('classroom')}
-		              input={
-		              	<OutlinedInput 
-		              		 
-		              		id="classroom" 
-		              		/>
-		              	}
+		              input={<OutlinedInput id="classroom" />}
 		              menuprops={MenuProps}
 		            >
 		              {classrooms.map(classroom => (
 		                <MenuItem 
+		                	style={getStyles('classroom', classroom.sala, this)}
 		                	key={classroom.sala} 
-		                	value={classroom} 
+		                	value={classroom.sala} 
 		                >
 		                  {classroom.sala}
 		                </MenuItem>
@@ -259,9 +292,9 @@ class Modal extends React.Component{
 			            type="time"
 			            name="end"
 			            variant="outlined"
-			            validators={['required']}
+			            validators={['required'],['isAfterStart']}
 			            value={this.state.end}
-			            errorMessages={['Campo Obrigatório']}
+			            errorMessages={['Campo Obrigatório'],['Deve ser maior que início']}
 			            onChange={this.handleChange('end')}
 			            inputProps={{
 			            	step: 300,
@@ -269,7 +302,8 @@ class Modal extends React.Component{
 			          />
 			          
 		          </div>
-		          <Button variant="contained" type="submit" onClick={this.handleSubmit} color="secondary">
+		          <Button variant="contained" type="submit" 
+		          color="secondary">
 		            SALVAR
 		          </Button>
 		        </MuiThemeProvider>
