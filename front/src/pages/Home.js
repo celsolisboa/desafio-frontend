@@ -22,9 +22,9 @@ class Home extends React.Component{
 		            <h2 className="page-title">Cursos</h2>
 		            {this.state.courses.map(
 		            	(course) =>
-		            		<CourseCard course={course} />
+		            		<CourseCard course={course} key={course.id} />
 		            	)
-					}
+								}
 		          </div>
 		        </main>
 		        <Modal coursesLen={this.state.courses.length} />

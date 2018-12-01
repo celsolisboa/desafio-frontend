@@ -30,6 +30,9 @@ const styles = theme => ({
       marginTop: theme.spacing.unit * 3,
     },
   },
+  selectMargin: {
+  	marginTop: '-1em',
+  },
   bootstrapFormLabel: {
     fontSize: 18,
   },
@@ -55,11 +58,17 @@ const theme = createMuiTheme({
 		},
 		MuiFormHelperText: {
 			root: {
-				fontSize: '1em',
-			},
-			contained: {
-				marginTop: '-10px',
-		    marginBottom: '12px'
+				  color: '#fff',
+			    fontSize: '1em',
+			    textAlign: 'left',
+			    minHeight: '1em',
+			    position: 'relative',
+			    left: '1em',
+			    top: '1.5em',
+			    height: '1em',
+			    overflow: 'hidden',
+			    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+			    lineHeight: '1em',
 			}
 		},
 	 	MuiFormLabel: {
@@ -95,15 +104,6 @@ const MenuProps = {
   },
 };
 
-function getStyles(classroom, that) {
-  return {
-    fontWeight:
-      that.state.classroom.indexOf(classroom) === -1
-        ? that.props.theme.typography.fontWeightRegular
-        : that.props.theme.typography.fontWeightMedium,
-  };
-}
-
 class Modal extends React.Component{
 	state = {
 		classroom: [],
@@ -121,18 +121,14 @@ class Modal extends React.Component{
 		fetch('http://localhost:3000/api/professor')
 		.then(res => res.json())
 		.then(data => {teachers = data;})
-		ValidatorForm.addValidationRule(
-			'isNotEmpty', (value) => {
-				if(value.length > 1){
-					return true
-				}
-				return false
-			}
-		)
 	}
 	handleChange = prop => event => {
-		console.log(event.currentTarget.form)
-	    this.setState({ [prop]: event.target.value });
+		console.log(prop, event.target.value)
+	  this.setState({ [prop]: event.target.value });
+	};
+	handleSelectChange = prop => event => {
+		console.log(prop, event.target.value)
+	  this.setState({ [prop]: [...this.state[prop], event.target.value] });
 	};
 	handleSubmit = () => {
 		this.setState({attemptSubmit: true})
@@ -176,7 +172,6 @@ class Modal extends React.Component{
 	        	  </button>
 	        	  <h3 className="modal-title">Criar Curso</h3>
 		          <TextValidator
-		            className={classes.margin}
 		            label="Nome do Curso *"
 		            variant="outlined"
 		            id="name"
@@ -186,87 +181,69 @@ class Modal extends React.Component{
 		            onChange={this.handleChange('name')}
 		            name="name"
 		          />
-		          <FormControl 
-		          	variant="outlined" 
-		          	error={this.state.attemptSubmit && this.state.teacher.length < 1}
-		          	className={classes.formControl}
-		          >
-		            <InputLabel
-					      	style={{width: 'auto'}}
-		              ref={ref => {
-		                this.InputLabelRef = ref;
-		              }}
-		              htmlFor="teacher"
-		            >
-		             Professores *
-		            </InputLabel>
-		            <SelectValidator
-		              multiple	              
-		              labelWidth={0}
+		          <FormControl>
+		          	<FormHelperText>
+		            	{this.state.teacher.map(tc => tc.nome).join(', ')}
+		            </FormHelperText>
+		            <SelectValidator	  
+		            	className={classes.selectMargin}            
+		              label="Professores *"
 		              name="teacher"
 		              variant="outlined"
 		              validators={['required']}
 		              errorMessages={['Campo Obrigatório']}
 		              value={this.state.teacher}
-		              onChange={this.handleChange('teacher')}
+		              onChange={this.handleSelectChange('teacher')}
 		              input={<OutlinedInput id="teacher" />}
-		              MenuProps={MenuProps}
+		              menuprops={MenuProps}
 		            >
 		              {teachers.map(teacher => (
 		                <MenuItem 
 		                	key={teacher.id} 
 		                	value={teacher} 
-		                	style={getStyles(teacher.nome, this)}
 		                >
 		                  {teacher.nome}
 		                </MenuItem>
 		              ))}
 		            </SelectValidator>
-		          </FormControl>
-		          <FormControl 
-		          	variant="outlined" 
-		          	error={this.state.attemptSubmit && this.state.classroom.length < 1}
-		          	className={classes.formControl}
-		          >
-		            <InputLabel
-				      		style={{width: 'auto'}}
-		              ref={ref => {
-		                this.InputLabelRef = ref;
-		              }}
-		              htmlFor="classroom"
-		            >
-		              Salas *
-		            </InputLabel>
+		            </FormControl>
+		            <FormControl>
+		            <FormHelperText>
+		            	{this.state.classroom.map(cl => cl.sala).join(', ')}
+		            </FormHelperText>
 		            <SelectValidator
-		              multiple
-		              labelWidth={0}
+		            	className={classes.selectMargin}
+		              label="Salas *"
 		              name="classroom"
 		              variant="outlined"
 		              validators={['required']}
 		              errorMessages={['Campo Obrigatório']}
 		              value={this.state.classroom}
-		              onChange={this.handleChange('classroom')}
-		              input={<OutlinedInput id="classroom" />}
-		              MenuProps={MenuProps}
+		              onChange={this.handleSelectChange('classroom')}
+		              input={
+		              	<OutlinedInput 
+		              		 
+		              		id="classroom" 
+		              		/>
+		              	}
+		              menuprops={MenuProps}
 		            >
 		              {classrooms.map(classroom => (
 		                <MenuItem 
-		                	key={classroom.id} 
+		                	key={classroom.sala} 
 		                	value={classroom} 
-		                	style={getStyles(classroom.sala, this)}
 		                >
 		                  {classroom.sala}
 		                </MenuItem>
 		              ))}
 		            </SelectValidator>
-		          </FormControl>
+		            </FormControl>
 		          <div className="grid grid--time-inputs">
 			          <TextValidator
 			            id="start"
 			            label="Início *"
 			            type="time"
 			            name="start"
-			            defaultValue="07:30"
 			            variant="outlined"
 			            validators={['required']}
 			            value={this.state.start}
@@ -281,7 +258,6 @@ class Modal extends React.Component{
 			            label="Fim *"
 			            type="time"
 			            name="end"
-			            defaultValue="08:30"
 			            variant="outlined"
 			            validators={['required']}
 			            value={this.state.end}
