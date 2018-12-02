@@ -15,14 +15,10 @@ import mediumLogo from './images/logo_medium.png';
 
 class App extends React.Component {
   state = {
-    auth: false,
-    isModalOpen: true,
+    auth: true,
+    isModalOpen: false,
     showLoginAlert: false
   }
-//apply in button:
-    // border-radius: 2em;
-    // padding: 0 2.5em;
-    // height: 30px;
 
   toggleModal = () =>
     this.setState({isModalOpen: !this.state.isModalOpen})

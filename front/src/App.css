@@ -14,6 +14,12 @@
 	display: flex;
 	justify-content: space-between;
 }
+.header button[class^="MuiButtonBase"]{
+	border-radius: 2em;
+	background-color: #ff0669;
+  padding: 0 2.5em;
+  height: 30px;
+}
 .modal-title{
 	color: #fff;
 	font-weight: 400;
