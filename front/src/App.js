@@ -12,19 +12,31 @@ import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from './images/logo_medium.png';
+
 class App extends React.Component {
   state = {
-    authorization: false,
-    isModalOpen: true
+    auth: false,
+    isModalOpen: true,
+    showLoginAlert: false
   }
 //apply in button:
     // border-radius: 2em;
     // padding: 0 2.5em;
     // height: 30px;
 
-
   toggleModal = () =>
     this.setState({isModalOpen: !this.state.isModalOpen})
+
+  changeAuth = (ok) => {
+    if(ok){
+      this.setState({auth: true})
+    }else{
+      this.setState({showLoginAlert: true});
+      setTimeout(
+        () => this.setState({showLoginAlert: false})
+        , 2000);
+    }
+  }
 
   render(){
     return (
@@ -33,7 +45,7 @@ class App extends React.Component {
           <h1 className="logo">
             <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
           </h1>
-          {this.state.authorization &&
+          {this.state.auth &&
             <Button variant="contained" onClick={this.toggleModal} color="secondary">
               CRIAR
             </Button>
@@ -44,13 +56,17 @@ class App extends React.Component {
             <Route 
               path="(/|/cursos/)"
               render={  
-                this.state.authorization 
-                ? (props)=>
+                this.state.auth 
+                ? () =>
                   <Home 
                     isModalOpen={this.state.isModalOpen} 
                     toggleModal={this.toggleModal}
                   />
-                : () => <Login/>
+                : () => 
+                  <Login 
+                    changeAuth={this.changeAuth}
+                    showLoginAlert={this.state.showLoginAlert}
+                  />
               }
             />
           </Switch>

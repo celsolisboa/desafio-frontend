@@ -12,6 +12,11 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from '../images/logo_medium.png';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 class Login extends React.Component{
 	state = {
@@ -19,7 +24,7 @@ class Login extends React.Component{
     password: '',
     email: ''
 	}
-  
+
 	handleChange = prop => event => {
 	  this.setState({ [prop]: event.target.value });
 	};
@@ -28,17 +33,8 @@ class Login extends React.Component{
 		this.setState(state => ({ showPassword: !state.showPassword }));
 	};
 
-  componentDidMount = () => {
-    ValidatorForm.addValidationRule('matchesPassword', (value) => {
-      //fetch here and compare to actual password
-        if (value !== this.state.user.password) {
-            return false;
-        }
-        return true;
-    });
-  }
-
   handleSubmit = () => {
+
     const headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -50,8 +46,7 @@ class Login extends React.Component{
     fetch('http://localhost:3000/api/user/login',
       {method: 'POST', headers: headers, body: JSON.stringify(body)}
     )
-    .then(res => res.ok)
-    
+    .then(res => {this.props.changeAuth(res.ok)})
   }
 
 	render(){
@@ -105,6 +100,15 @@ class Login extends React.Component{
           </Button>
         </MuiThemeProvider>
         </ValidatorForm>
+        <Dialog
+          open={this.props.showLoginAlert}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            O Login falhou. Confira sua conexão e seus dados de acesso.
+          </DialogTitle>
+        </Dialog>
       </main>
     )
 	}

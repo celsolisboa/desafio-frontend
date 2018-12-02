@@ -27,7 +27,7 @@ class Home extends React.Component{
 					headers: headers
 				}
 			)
-			.then(res => {console.log(res.json())})
+			.then(res => {console.log(res.ok)})
 	}
 	
 	render(){

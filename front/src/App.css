@@ -95,3 +95,9 @@
 .modal div[class^="MuiFormControl-root"] label{
 	background: #888
 }
+:-internal-input-suggested {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
