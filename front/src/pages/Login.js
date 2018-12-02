@@ -17,6 +17,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 class Login extends React.Component{
 	state = {
@@ -53,6 +54,7 @@ class Login extends React.Component{
 		const { classes } = this.props;
 		return(
       <main className="login">
+        <ClickAwayListener onClickAway={this.props.clickAway}>
         <ValidatorForm
           id="form"
           ref="form"
@@ -109,6 +111,7 @@ class Login extends React.Component{
             O Login falhou. Confira sua conexão e seus dados de acesso.
           </DialogTitle>
         </Dialog>
+        </ClickAwayListener>
       </main>
     )
 	}

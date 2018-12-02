@@ -15,7 +15,7 @@ import mediumLogo from './images/logo_medium.png';
 
 class App extends React.Component {
   state = {
-    auth: true,
+    auth: false,
     isModalOpen: false,
     showLoginAlert: false
   }
@@ -33,6 +33,9 @@ class App extends React.Component {
         , 2000);
     }
   }
+
+  clickAway = () => 
+    this.setState({showLoginAlert: false})
 
   render(){
     return (
@@ -60,6 +63,7 @@ class App extends React.Component {
                   />
                 : () => 
                   <Login 
+                    clickAway={this.clickAway}
                     changeAuth={this.changeAuth}
                     showLoginAlert={this.state.showLoginAlert}
                   />

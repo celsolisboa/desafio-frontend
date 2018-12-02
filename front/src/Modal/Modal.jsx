@@ -17,6 +17,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 let classrooms = [];
 let teachers = [];
@@ -90,6 +91,9 @@ class Modal extends React.Component{
 		})
 	}
 
+	handleClickAway = () =>
+		this.setState({awaitResponse: false, hasResponse: false});
+
 	componentWillUnmount() {
     clearInterval(this.timer);
   }
@@ -118,6 +122,7 @@ class Modal extends React.Component{
 		return(
 			<div className="modal">
 	      <div className="modal-content">
+	      <ClickAwayListener onClickAway={this.handleClickAway}>
 	      	<button 
       	  	onClick={this.props.toggleModal} 
       	  	className="close-button close-button--modal"
@@ -252,6 +257,7 @@ class Modal extends React.Component{
 		          </Button>
 		        </MuiThemeProvider>
 		      </ValidatorForm>
+		      
 		      <Dialog
 	          open={this.state.hasResponse}
 	          onClose={this.handleClose}
@@ -274,8 +280,9 @@ class Modal extends React.Component{
 	            </Button>
 	          </DialogActions>
 	        </Dialog>
+	        </ClickAwayListener>
 		    </div>
-		   </div>
+		  </div>
 		)
 	}
 }
