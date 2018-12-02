@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import {styles,theme,MenuProps,getStyles} from '../common/MuiTheme.js';
+import {styles,theme,MenuProps,getStyles} from '../../common/MuiTheme.js';
 import { ValidatorForm, TextValidator, SelectValidator} from 'react-material-ui-form-validator';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -18,6 +18,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import './Modal.css';
 
 let classrooms = [];
 let teachers = [];
@@ -87,9 +88,9 @@ class Modal extends React.Component{
 		)
 		.then(res => {
 			this.setState({awaitResponse: false, hasResponse: true});
-
 			// if(res.ok){
-			// 	
+			// 	we could do validation here, but since the response is always the same,
+			//  I'm currently not doing
 			// }else{
 			// 	//display error
 			// }
@@ -142,6 +143,19 @@ class Modal extends React.Component{
 
   cleanSuggestion = () => {
   	this.setState({suggestion: ''})
+  }
+
+  componentDidMount(){
+    document.addEventListener("keydown", this.escFunction, false);
+  }
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.escFunction, false);
+  }
+
+  escFunction = (event) => {
+    if(event.keyCode === 27) {
+      this.props.toggleModal()
+    }
   }
 
 	render(){

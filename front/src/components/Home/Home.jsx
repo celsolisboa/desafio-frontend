@@ -1,8 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import mediumLogo from '../images/logo_medium.png';
+import mediumLogo from '../../common/images/logo_medium.png';
 import CourseCard from '../CourseCard/CourseCard';
 import Modal from '../Modal/Modal';
+import './Home.css';
 
 class Home extends React.Component{
 	state = {

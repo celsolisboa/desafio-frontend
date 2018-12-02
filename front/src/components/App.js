@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import './App.css';
+import Home from './Home/Home';
+import Login from './Login/Login';
 import Button from '@material-ui/core/Button';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -11,12 +10,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
-import mediumLogo from './images/logo_medium.png';
-import largeLogo from './images/logo_big.png';
+import mediumLogo from '../common/images/logo_medium.png';
+import largeLogo from '../common/images/logo_big.png';
+import './App.css';
 
 class App extends React.Component {
   state = {
-    auth: false,
+    auth: true,
     isModalOpen: true,
     showLoginAlert: false
   }

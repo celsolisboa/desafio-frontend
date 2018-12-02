@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import {styles,theme,MenuProps,getStyles} from '../common/MuiTheme.js';
+import {styles,theme,MenuProps,getStyles} from '../../common/MuiTheme.js';
 import { ValidatorForm, TextValidator, SelectValidator} from 'react-material-ui-form-validator';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -11,13 +11,13 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
-import mediumLogo from '../images/logo_medium.png';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import './Login.css';
 
 class Login extends React.Component{
 	state = {
