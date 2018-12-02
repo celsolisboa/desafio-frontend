@@ -13,9 +13,9 @@ body{
     min-height: 568px;
     display: block;
     float: left;
-    background: url('/assets/background.jpg') no-repeat top left;
-    background-size: 100%;
-	font-family: 'Heebo', sans-serif;
+    background: url('/assets/background.jpg') no-repeat top center;
+    background-size: 100% 100%;
+    font-family: 'Heebo', sans-serif;
 }
 .default-page .content{
     background: rgba(35,31,32,0.5);

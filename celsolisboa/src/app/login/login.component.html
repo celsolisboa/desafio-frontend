@@ -2,17 +2,17 @@
 	<div class="content">
 		<div class="login">
 			<header>
-				<h1>Celso Lisboa</h1>
+				<h1><a alt="Celso Lisboa" title="Celso Lisboa" href="https://www.celsolisboa.edu.br/">Celso Lisboa</a> </h1>
 			</header>
 
 			<article class="form">
 				<h3> Login </h3>
 
 				<form>			
-					<input ngModel="usuario.email" type="email" placeholder="E-mail" name="email" id="email">
-					<input ngModel="usuario.senha" type="password" placeholder="Senha" name="senha" id="senha">
+					<input type="email" placeholder="E-mail" name="email" id="email">
+					<input type="password" placeholder="Senha" name="senha" id="senha">
 
-					<button type="submit" name="action" ng-click="fazerlogin()">Acessar</button>
+					<button type="submit" name="action" (click)='login()'>Acessar</button>
 				</form>	
 
 			</article>

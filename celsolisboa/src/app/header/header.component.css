@@ -1,0 +1,26 @@
+header{
+    display: block;
+    text-align: center;
+}
+header h1{
+    background: url("/assets/logo_big.png") no-repeat 0 0;
+    text-indent: -9999em;
+    display: block;
+    width: 109px;
+    height: 50px;
+    margin: 0 auto;
+}
+header h1 a{
+    cursor: pointer;
+    display: block;
+    height: 60px;
+}
+
+@media (max-width: 980px){
+    header h1{
+        background: url("/assets/logo_medium.png") no-repeat 0 0;
+        width: 73px;
+        height: 33px;
+        margin: 7% 0 0 3%;
+    }
+}

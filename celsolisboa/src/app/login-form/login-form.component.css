@@ -1,25 +1,4 @@
-.content .login{
-    max-width: 60%;
-    margin: 5% auto;
-}
-.login header{
-    display: block;
-    text-align: center;
-}
-.login header h1{
-    background: url("/assets/logo_big.png") no-repeat 0 0;
-    text-indent: -9999em;
-    display: block;
-    width: 109px;
-    height: 50px;
-    margin: 0 auto;
-}
-.login header h1 a{
-    cursor: pointer;
-    display: block;
-    height: 60px;
-}
-.login .form{
+.form{
     display: block;
     text-align: center;
 }
@@ -34,7 +13,7 @@
     color: #fff;
     margin: 6% 0 2%;    
 }
-.form button{
+.form input[type=submit]{
     text-transform: uppercase;
     font-size: 0.9em;
     color: #fff;
@@ -49,7 +28,7 @@
     box-shadow: -3px 1px 12px rgba(0, 0, 0, 0.5);  
     cursor: pointer; 
 }
-.form button:hover{
+.form input[type=submit]:hover{
     background: #FFFF0B;
     border-color: #FFFF0B;
     color: #292D2D;
@@ -91,20 +70,11 @@
     .form form{
         max-width: 100%;
     }
-    .login header h1{
-        background: url("/assets/logo_medium.png") no-repeat 0 0;
-        width: 73px;
-        height: 33px;
-        margin: 7% 0 0 3%;
-    }
-    .content .login{
-        max-width: 98%;
-    }
     .form input{
         width: 89%;
     }
-    .form button{
-        width: 96%;
+    .form input[type=submit]{
+        width: 95%;
     }
     .form h3{
         margin-top: 3%;

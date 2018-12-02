@@ -1,0 +1,16 @@
+:host{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content .login{
+    max-width: 60%;
+    margin: 5% auto;
+}
+
+@media (max-width: 980px){
+    .content .login{
+        max-width: 98%;
+    }
+}
