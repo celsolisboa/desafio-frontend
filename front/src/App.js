@@ -16,7 +16,7 @@ import mediumLogo from './images/logo_medium.png';
 class App extends React.Component {
   state = {
     auth: true,
-    isModalOpen: false,
+    isModalOpen: true,
     showLoginAlert: false
   }
 
@@ -44,6 +44,7 @@ class App extends React.Component {
           <h1 className="logo">
             <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
           </h1>
+          { this.state.auth && <h2 className="page-title desktop">Cursos</h2> }
           {this.state.auth &&
             <Button variant="contained" onClick={this.toggleModal} color="secondary">
               CRIAR
@@ -59,6 +60,7 @@ class App extends React.Component {
                 ? () =>
                   <Home 
                     isModalOpen={this.state.isModalOpen} 
+                    title="Cursos"
                     toggleModal={this.toggleModal}
                   />
                 : () => 

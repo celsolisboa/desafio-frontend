@@ -162,7 +162,7 @@ class Modal extends React.Component{
             onError={errors => console.log(errors)}
           >
 	        	<MuiThemeProvider theme={theme}>
-	        	  <h3 className="modal-title">Criar Curso</h3>
+	        	  <h2 className="modal-title">Criar Curso</h2>
 		          <TextValidator
 		            label="Nome do Curso *"
 		            variant="outlined"
