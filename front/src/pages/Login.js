@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {styles,theme,MenuProps,getStyles} from '../common/MuiTheme.js';
 import { ValidatorForm, TextValidator, SelectValidator} from 'react-material-ui-form-validator';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -12,52 +13,13 @@ import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from '../images/logo_medium.png';
 
-const styles = theme => ({
-  
-});
-
-const theme = createMuiTheme({
-  overrides: {
-    MuiFormControl: {
-      root: {
-        width: '100%',
-      }
-    },
-    MuiInputBase: {
-      root:{
-        border: '1px solid #fff',
-        marginBottom: '20px',
-        color:'#fff',
-        borderRadius: '4px',
-        "&$focused": {
-              borderColor: "transparent"
-            }
-      }
-    },
-    MuiFormLabel: {
-      root: {
-        color:'#fff',
-        }
-      },
-      MuiButtonBase: {
-        root: {
-          width: '100%'
-        }
-      }
-  },
-  palette: {
-    primary: { main: '#ffffff' },
-    secondary: { main: '#ff0669' },
-  },
-  typography: { useNextVariants: true },
-});
-
 class Login extends React.Component{
 	state = {
     showPassword: false,
     password: '',
     email: ''
 	}
+  
 	handleChange = prop => event => {
 	  this.setState({ [prop]: event.target.value });
 	};

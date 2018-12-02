@@ -92,3 +92,6 @@
 	grid-template-columns: minmax(90px, 45%) minmax(90px, 45%);
 	grid-column-gap: 10%;
 }
+.modal div[class^="MuiFormControl-root"] label{
+	background: #888
+}
