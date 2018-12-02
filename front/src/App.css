@@ -119,7 +119,7 @@ button{
 }
 .close-button--card:hover,
 .close-button--card:focus{
-	background: url('./images/close_white.png') no-repeat;
+	filter: opacity(.3);
 }
 .grid{
 	display: grid;
@@ -150,9 +150,14 @@ button{
 	.modal-content{
 		width: 515px;
     height: 500px;
-    padding: 45px 88px 60px;
+    padding: 20px 88px 60px;
     margin: 15vh auto 0;
     box-sizing: border-box;
+	}
+	.close-button--modal{
+		position: relative;
+    top: 3px;
+    left: 370px;
 	}
 	.modal-title{
 		margin-top: 0;
