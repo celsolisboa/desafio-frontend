@@ -7,6 +7,7 @@ h2{
 }
 h3, input{
 	font-size: 1.1428em;
+	font-weight: 500;
 }
 button{
 	font-size: 1.0714em;
@@ -47,7 +48,7 @@ button{
 	color: #fff;
 	font-weight: 400;
 	text-align: center;
-	margin: 15px auto 35px;
+	margin: 5vh auto 35px;
 }
 .page-title{
 	color: #fff;
@@ -56,7 +57,7 @@ button{
 	margin: 20px auto 20px;
 }
 .login-title{
-	margin: 50px auto 20px;
+	margin: 8vh auto 20px;
 }
 .login{
 	position: relative;
@@ -75,7 +76,7 @@ button{
 }
 .card-text{
 	margin: 0;
-	color: #223b25;
+	color: #777777;
 }
 .card-row{
 	display: flex;
@@ -135,12 +136,34 @@ button{
 	display: none;
 }
 @media screen and (min-width: 960px){
+	.logo:last-child {
+    width: 100%;
+	}
+	.logo .desktop{
+		margin: 10vh auto 7vh;
+	}
+	.page-title{
+		margin: 0 0 0 40px;
+	}
+	.logo img~img{
+		display: none
+	}
 	.header{
 		padding: 10px 10vw 0;
+	}
+	.login{
+		width: 340px;
+    margin: 0 auto;
+	}
+	.login-title {
+	  margin: 1vh auto 30px;
 	}
 	.home{
 		padding: 0 20vw;
 		margin: 0 auto;
+	}
+	.courses{
+		margin-top: 18vh;
 	}
 	.cards-grid{
 		display: grid;
@@ -149,7 +172,7 @@ button{
 	}
 	.modal-content{
 		width: 515px;
-    height: 500px;
+    height: 515px; /*larger than the original one to acommodate error messages*/
     padding: 20px 88px 60px;
     margin: 15vh auto 0;
     box-sizing: border-box;
@@ -165,9 +188,6 @@ button{
 	}
 	.courses-title{
 		display: none
-	}
-	.page-title{
-		margin: 0 0 0 40px;
 	}
 	.desktop{
 		display: block

@@ -12,10 +12,11 @@ import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import mediumLogo from './images/logo_medium.png';
+import largeLogo from './images/logo_big.png';
 
 class App extends React.Component {
   state = {
-    auth: true,
+    auth: false,
     isModalOpen: true,
     showLoginAlert: false
   }
@@ -30,7 +31,7 @@ class App extends React.Component {
       this.setState({showLoginAlert: true});
       setTimeout(
         () => this.setState({showLoginAlert: false})
-        , 2000);
+        , 5000);
     }
   }
 
@@ -42,6 +43,9 @@ class App extends React.Component {
       <div className="container">
         <header className="header">
           <h1 className="logo">
+            { !this.state.auth 
+              && <img src={largeLogo} class="desktop" alt="Logotipo Celso Lisboa" /> 
+            }
             <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
           </h1>
           { this.state.auth && <h2 className="page-title desktop">Cursos</h2> }
