@@ -1,0 +1,50 @@
+.layout {
+  min-height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../assets/background.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.theme-default {
+  color: #fff;
+  width: 60%;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+.input-default {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+  margin-bottom: 15px;
+  &::placeholder {
+    color: #fff;
+  }
+}
+
+.button-default {
+  font-size: 15px;
+  text-transform: uppercase;
+  border: none;
+  color: #fff;
+  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.5);
+
+  &.button-rounded {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-default {
+    width: 80%;
+  }
+}
+@media (max-width: 425px) {
+  .theme-default {
+    width: 100%;
+  }
+}
