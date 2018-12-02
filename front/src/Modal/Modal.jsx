@@ -122,17 +122,16 @@ class Modal extends React.Component{
 		})
   }
 
-  suggestVal = (e) => {
+  suggestVal = (e, arr, key) => {
   	if(e.keyCode > 64 && e.keyCode < 91){
   		let suggestion = String.fromCharCode(e.keyCode).toLowerCase()
   		suggestion = this.state.suggestion+suggestion;
 	  	this.setState({suggestion: suggestion})
-	  	console.log(suggestion)
-	  	let found = teachers.filter(
-	  			(tc) => tc.nome.toLowerCase().indexOf(suggestion) === 0
+	  	let found = arr.filter(
+	  			(item) => item[key].toLowerCase().indexOf(suggestion) === 0
 	  		)
 	  	if(found){
-	  		teachers = teachers.sort((a,b) => found.includes(b) - found.includes(a))
+	  		arr = arr.sort((a,b) => found.includes(b) - found.includes(a))
 	  	}else{
 	  		this.cleanSuggestion();
 	  	}
@@ -201,7 +200,9 @@ class Modal extends React.Component{
 		              {teachers
 		              	.map(teacher => (
 		                <MenuItem 
-		                	onKeyUp={this.suggestVal}
+		                	onKeyUp={
+		                		(e, teacher) => this.suggestVal(e, teachers, 'nome')
+		                	}
 		                	style={getStyles
 		                		('teacher', teacher.nome, this, this.state.suggestion)
 		                	}
@@ -235,7 +236,7 @@ class Modal extends React.Component{
 		              input={<OutlinedInput id="classroom" />}
 		              menuprops={MenuProps}
 		            >
-		              {classrooms.map(classroom => (
+		              {classrooms.sort((a,b)=>a.sala-b.sala).map(classroom => (
 		                <MenuItem 
 		                	style={getStyles('classroom', classroom.sala, this)}
 		                	key={classroom.sala} 
