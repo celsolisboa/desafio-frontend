@@ -32,7 +32,8 @@ class Modal extends React.Component{
 		completed: 0,
 		awaitResponse: false,
 		hasResponse: false,
-		openAlert: false
+		openAlert: false,
+		suggestion: ''
 	}
 	componentDidMount(){
 		fetch('http://localhost:3000/api/sala')
@@ -53,6 +54,7 @@ class Modal extends React.Component{
 	  this.setState({ [prop]: event.target.value });
 	};
 	handleSelectChange = prop => event => {
+		this.cleanSuggestion();
 		if(!this.state[prop].find(item => item === event.target.value)){
 		 	this.setState({ [prop]: [...this.state[prop], event.target.value] });
 		}else{
@@ -120,8 +122,27 @@ class Modal extends React.Component{
 		})
   }
 
-  menuItemClick = () => {
-  	console.log('clicking me')
+  suggestVal = (e) => {
+  	if(e.keyCode > 64 && e.keyCode < 91){
+  		let suggestion = String.fromCharCode(e.keyCode).toLowerCase()
+  		suggestion = this.state.suggestion+suggestion;
+	  	this.setState({suggestion: suggestion})
+	  	console.log(suggestion)
+	  	let found = teachers.filter(
+	  			(tc) => tc.nome.toLowerCase().indexOf(suggestion) === 0
+	  		)
+	  	if(found){
+	  		teachers = teachers.sort((a,b) => found.includes(b) - found.includes(a))
+	  	}else{
+	  		this.cleanSuggestion();
+	  	}
+		}else{
+  		this.cleanSuggestion();
+  	}
+  }
+
+  cleanSuggestion = () => {
+  	this.setState({suggestion: ''})
   }
 
 	render(){
@@ -167,7 +188,6 @@ class Modal extends React.Component{
 		            	className={classes.selectMargin} 
 		            	multiple={true}    
 		            	native={false}
-
 		              label="Professores *"
 		              name="teacher"
 		              variant="outlined"
@@ -178,10 +198,13 @@ class Modal extends React.Component{
 		              input={<OutlinedInput id="teacher" />}
 		              menuprops={MenuProps}
 		            >
-		              {teachers.map(teacher => (
+		              {teachers
+		              	.map(teacher => (
 		                <MenuItem 
-		                	onClick={this.menuItemClick}
-		                	style={getStyles('teacher', teacher.nome, this)}
+		                	onKeyUp={this.suggestVal}
+		                	style={getStyles
+		                		('teacher', teacher.nome, this, this.state.suggestion)
+		                	}
 		                	key={teacher.id} 
 		                	value={teacher.nome} 
 		                >

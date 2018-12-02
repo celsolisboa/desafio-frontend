@@ -102,11 +102,15 @@ export const MenuProps = {
   },
 };
 
-export function getStyles(arr, val, that) {
+export function getStyles(arr, val, that, sugg) {
   return {
     backgroundColor:
       that.state[arr].indexOf(val) === -1
         ? 'transparent'
-        : 'rgba(0, 0, 0, 0.14)'
+        : 'rgba(0, 0, 0, 0.14)',
+    fontWeight: 
+      sugg 
+      ? val.toLowerCase().indexOf(sugg.toLowerCase()) === 0 ? 'bold':'inherit' 
+      : 'inherit'
   };
 }
