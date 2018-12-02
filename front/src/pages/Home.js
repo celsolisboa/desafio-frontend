@@ -27,7 +27,12 @@ class Home extends React.Component{
 					headers: headers
 				}
 			)
-			.then(res => {console.log(res.ok)})
+			.then(res => {
+				if(res.ok){
+					const newArr = this.state.courses.filter(curr => curr.id !== course)
+					this.setState({courses: newArr})
+				}
+			})
 	}
 	
 	render(){
