@@ -1,16 +1,24 @@
-.App {
-  max-height: 100vh;
-  min-height: 100vh;
+.container {
+  height: calc(100vh - 40px);
   overflow-x: scroll;
-  background: url('./images/background.jpg');
+  background-image: url('./images/background.jpg');
+  background-position: center;
+  padding: 20px;
 }
-.container{
-	padding: 20px;
+.container:before{
+	content: '';
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,.4)
 }
 .logo{
 	margin: 0;
 }
 .header{
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 }
@@ -36,7 +44,25 @@
 	margin: 50px auto 20px;
 }
 .login{
-
+	position: relative;
+}
+.home{
+	position: relative;
+	height: calc(100vh - 80px);
+  overflow-x: scroll;
+}
+.card{
+	margin: 20px 0px;
+}
+.card-title{
+	margin: -25px 0 20px 0;
+}
+.card-text{
+	margin: 0;
+}
+.card-row{
+	display: flex;
+	justify-content: space-between
 }
 .modal{
 	width: 100vw;
@@ -51,19 +77,6 @@
 	width: calc(100% - 40px);
 	height: calc(100% - 40px);
 	padding: 20px;
-}
-.card{
-	margin: 10px 0px;
-}
-.card-title{
-	margin: -25px 0 20px 0;
-}
-.card-text{
-	margin: 0;
-}
-.card-row{
-	display: flex;
-	justify-content: space-between
 }
 .close-button{
 	cursor: pointer;	

@@ -16,7 +16,7 @@ import mediumLogo from './images/logo_medium.png';
 class App extends React.Component {
   state = {
     auth: true,
-    isModalOpen: true,
+    isModalOpen: false,
     showLoginAlert: false
   }
 
@@ -39,7 +39,7 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="App container">
+      <div className="container">
         <header className="header">
           <h1 className="logo">
             <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
