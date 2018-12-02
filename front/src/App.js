@@ -16,7 +16,7 @@ import mediumLogo from './images/logo_medium.png';
 class App extends React.Component {
   state = {
     auth: true,
-    isModalOpen: false,
+    isModalOpen: true,
     showLoginAlert: false
   }
 

@@ -55,6 +55,9 @@ class Modal extends React.Component{
 	handleSelectChange = prop => event => {
 		if(!this.state[prop].find(item => item === event.target.value)){
 		 	this.setState({ [prop]: [...this.state[prop], event.target.value] });
+		}else{
+			const newArr = this.state[prop].filter(item => item !== event.target.value);
+			this.setState({ [prop]: newArr })
 		}
 	};
 	handleSubmit = (e) => {
@@ -117,6 +120,10 @@ class Modal extends React.Component{
 		})
   }
 
+  menuItemClick = () => {
+  	console.log('clicking me')
+  }
+
 	render(){
 		const {classes} = this.props;
 		return(
@@ -157,7 +164,10 @@ class Modal extends React.Component{
 		            	}
 		            </FormHelperText>
 		            <SelectValidator	  
-		            	className={classes.selectMargin}            
+		            	className={classes.selectMargin} 
+		            	multiple={true}    
+		            	native={false}
+
 		              label="Professores *"
 		              name="teacher"
 		              variant="outlined"
@@ -170,6 +180,7 @@ class Modal extends React.Component{
 		            >
 		              {teachers.map(teacher => (
 		                <MenuItem 
+		                	onClick={this.menuItemClick}
 		                	style={getStyles('teacher', teacher.nome, this)}
 		                	key={teacher.id} 
 		                	value={teacher.nome} 
