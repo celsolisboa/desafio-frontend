@@ -184,7 +184,7 @@ app.post('/api/user/login', function (req, res) {
 });
 
 app.get('/api/curso/', function (req, res) {
-    res.json({ cursos })
+    res.json(cursos);
 });
 
 app.get('/api/curso/:id', function (req, res) {

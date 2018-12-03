@@ -11,6 +11,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthguardGuard } from './authguard.guard';
 import { UserService } from './user.service';
 import { FormsModule } from '@angular/forms';
+import { CursosListagemComponent } from './cursos-listagem/cursos-listagem.component';
+import { CourseService } from './course.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes:Routes = [
@@ -32,13 +35,15 @@ const appRoutes:Routes = [
     LoginComponent,    
     LoginFormComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    CursosListagemComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [UserService, AuthguardGuard],
+  providers: [UserService, AuthguardGuard, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
