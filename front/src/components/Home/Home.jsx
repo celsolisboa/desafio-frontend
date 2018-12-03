@@ -1,6 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import mediumLogo from '../../common/images/logo_medium.png';
 import CourseCard from '../CourseCard/CourseCard';
 import Modal from '../Modal/Modal';
 import './Home.css';
