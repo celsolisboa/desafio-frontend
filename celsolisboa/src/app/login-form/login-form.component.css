@@ -1,3 +1,24 @@
+header{
+    display: block;
+    text-align: center;
+}
+header h1{
+    background: url("/assets/logo_big.png") no-repeat 0 0;
+    text-indent: -9999em;
+    display: block;
+    width: 109px;
+    height: 50px;
+    margin: 0 auto;
+}
+header h1 a{
+    cursor: pointer;
+    display: block;
+    height: 60px;
+}
+.login{
+    max-width: 60%;
+    margin: 5% auto;
+}
 .form{
     display: block;
     text-align: center;
@@ -9,7 +30,7 @@
 }
 .form h3{
     font-size: 1.2em;
-    font-weight: 200;
+    font-weight: 300;
     color: #fff;
     margin: 6% 0 2%;    
 }
@@ -67,6 +88,19 @@
 }
 
 @media (max-width: 980px){
+    header h1{
+        background: url("/assets/logo_medium.png") no-repeat 0 0;
+        width: 73px;
+        height: 33px;
+        margin: 7% 0 0 3%;
+    }
+    .login{
+        max-width: 98%;
+        margin: 5% auto;
+    }
+    .form{
+        margin: 17% 0;
+    }
     .form form{
         max-width: 100%;
     }

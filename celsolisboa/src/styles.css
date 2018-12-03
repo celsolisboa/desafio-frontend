@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800');
 *{
     margin: 0;
     padding: 0;
@@ -8,7 +9,6 @@
     justify-content: center;
     align-items: center;
 }
-@import url('https://fonts.googleapis.com/css?family=Heebo');
 body{
 	display: block;
     position: relative;
@@ -22,6 +22,7 @@ body{
     background: url('/assets/background.jpg') no-repeat top center;
     background-size: 100% 100%;
     font-family: 'Heebo', sans-serif;
+    font-weight: 300;
 }
 .default-page .content{
     background: rgba(35,31,32,0.5);

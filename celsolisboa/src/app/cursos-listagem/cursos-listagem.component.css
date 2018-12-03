@@ -1,0 +1,69 @@
+.courses{
+    margin-top: 2%;
+    width: 70%;
+    margin: 7% auto;
+}
+.course{
+    background: #fff;
+    box-shadow: -3px 1px 12px rgba(0, 0, 0, 0.5);
+    width: 42%;
+    margin: 2% 2%;
+    padding: 2%;
+    float: left;
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+    border: 0px solid transparent;
+}
+h3{
+    color: #494949;
+    font-size: 1.3em;
+    width: 97%;
+    float: left;
+}
+p{
+    color: #777777;
+    font-size: 0.9em;
+}
+article{
+    float: left;
+    display: block;
+    width: 100%;
+}
+.close{
+    width: 13px;
+    height: 13px;
+}
+.top{
+    margin-bottom: 9%;
+}
+.rooms{
+    width: 70%;
+    float: left;
+}
+.rooms p{
+    float: left;
+}
+.right{
+    float: right;
+    width: 30%;
+    text-align: right;
+}
+@media (max-width: 980px){
+    .btn-dashboard{
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+    .courses{
+        width: 93%;
+        margin-top: 23%;        
+    }
+    .course{
+        width: 90%;
+        margin: 3% 0;
+        padding: 5%;
+    }
+    h3{
+        width: 94%;
+    }
+}

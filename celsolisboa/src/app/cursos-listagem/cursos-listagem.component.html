@@ -3,14 +3,14 @@
     <div class="course" *ngFor="let curso of cursos">
       <div class="top">
           <h3>{{curso.nome}}</h3>
-          <span>x</span>
+          <span class="close"><a><img src="./assets/close_grey.png"></a></span>
       </div>
       <div class="bottom">
         <p>Endereço</p>
-        <div>
-          <p>sala</p><p *ngFor="let sala of curso.salas"> {{sala.sala}}</p> 
+        <div class="rooms">
+          <p>sala</p><p *ngFor="let sala of curso.salas"> &nbsp; {{sala.sala}} &nbsp;</p> 
         </div>          
-        <p>{{curso.inicio}} às {{curso.fim}}</p>
+        <p class="right">{{curso.inicio}} às {{curso.fim}}</p>
       </div>
       
     </div>

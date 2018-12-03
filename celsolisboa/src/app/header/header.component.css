@@ -1,5 +1,6 @@
 header{
     display: block;
+    float: left;
     text-align: center;
 }
 header h1{
@@ -8,7 +9,6 @@ header h1{
     display: block;
     width: 109px;
     height: 50px;
-    margin: 0 auto;
 }
 header h1 a{
     cursor: pointer;
