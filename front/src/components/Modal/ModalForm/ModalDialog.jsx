@@ -17,7 +17,7 @@ class ModalDialog extends React.Component{
 		    </DialogTitle>
 		    
 		    <DialogActions>
-		    	<Button onClick={this.resetForm} color="primary">
+		    	<Button onClick={this.props.resetForm} color="primary">
 		        Adicionar mais cursos
 		      </Button>
 		      <Button 

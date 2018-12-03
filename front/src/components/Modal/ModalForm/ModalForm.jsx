@@ -212,6 +212,7 @@ class ModalForm extends React.Component {
 			      <ModalDialog 
 			      	hasResponse={this.state.hasResponse}
 			      	getCourses={this.props.getCourses}
+			      	resetForm={this.resetForm}
 	      			toggleModal={this.props.toggleModal}
 			      />
 	        </section>
