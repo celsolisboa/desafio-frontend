@@ -2,13 +2,14 @@ import React from 'react';
 import { navigate } from 'gatsby';
 
 import Layout from '../components/layout';
-import Header from '../components/header';
 import CursosList from '../components/cursos-list';
 
 class CursosPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLoggedIn: false,
+    };
   }
 
   componentWillMount() {
@@ -27,7 +28,6 @@ class CursosPage extends React.Component {
 
     return (
       <Layout>
-        <Header />
         <CursosList />
       </Layout>
     );

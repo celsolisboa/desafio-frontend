@@ -41,6 +41,10 @@
 @media (max-width: 768px) {
   .theme-default {
     width: 80%;
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
   }
 }
 @media (max-width: 425px) {

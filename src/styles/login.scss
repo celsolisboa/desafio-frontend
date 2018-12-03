@@ -24,7 +24,14 @@
 }
 
 @media (max-width: 425px) {
+  .login-page {
+    align-items: normal;
+    .image {
+      margin-left: 1.4em;
+    }
+  }
   .login-itens {
     max-width: 90%;
+    margin: 0 auto;
   }
 }
