@@ -1,0 +1,21 @@
+.card{
+	margin: 20px 0px;
+}
+.card-title{
+	margin: -25px 0 20px 0;
+}
+.card-text{
+	margin: 0;
+	color: #777777;
+}
+.card-row{
+	display: flex;
+	justify-content: space-between
+}
+@media screen and (min-width: 960px){
+	.cards-grid{
+		display: grid;
+		grid-template-columns: minmax(90px, 48%) minmax(90px, 48%);
+    grid-column-gap: 5%;
+	}
+}

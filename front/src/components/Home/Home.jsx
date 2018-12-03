@@ -41,7 +41,7 @@ class Home extends React.Component{
 			<div>	
         <main className="home">
           <div className="courses">
-            <h2 className="page-title courses-title">Cursos</h2>
+            <h2 className="page-title home-title">Cursos</h2>
             <div className="cards-grid">
             {this.state.courses.map(
             	(course) =>

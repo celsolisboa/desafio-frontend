@@ -1,0 +1,36 @@
+.modal{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.7);
+}
+.modal-title{
+	color: #fff;
+	font-weight: 400;
+	text-align: center;
+	margin: 5vh auto 35px;
+}
+.modal-content{
+	background-color: #888;
+	width: calc(100% - 40px);
+	height: calc(100% - 40px);
+	padding: 20px;
+}
+.modal div[class^="MuiFormControl-root"] label{
+	background: #888
+}
+@media screen and (min-width: 960px){
+	.modal-title{
+		margin-top: 0;
+		margin-bottom: 25px;
+	}
+	.modal-content{
+		width: 515px;
+    height: 515px; /*larger than the original one to acommodate error messages*/
+    padding: 20px 88px 60px;
+    margin: 15vh auto 0;
+    box-sizing: border-box;
+	}
+}

@@ -1,0 +1,15 @@
+.login{
+	position: relative;
+}
+.login-title{
+	margin: 8vh auto 20px;
+}
+@media screen and (min-width: 960px){
+	.login{
+		width: 340px;
+    margin: 0 auto;
+	}
+	.login-title {
+	  margin: 1vh auto 30px;
+	}
+}

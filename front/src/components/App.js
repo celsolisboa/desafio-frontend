@@ -48,8 +48,10 @@ class App extends React.Component {
             }
             <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
           </h1>
-          { this.state.auth && <h2 className="page-title desktop">Cursos</h2> }
-          {this.state.auth &&
+          { this.state.auth 
+            && <h2 className="page-title courses-title desktop">Cursos</h2> }
+          {this.state.auth 
+            &&
             <Button variant="contained" onClick={this.toggleModal} color="secondary">
               CRIAR
             </Button>

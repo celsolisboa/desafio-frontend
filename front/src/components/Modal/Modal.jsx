@@ -44,11 +44,13 @@ class Modal extends React.Component{
 		.then(res => res.json())
 		.then(data => {teachers = data;})
 		ValidatorForm.addValidationRule('isAfterStart', (value) => {
+			/*currently comparing strings! must change if logic changes*/
 			if(value > this.state.start){
 				return true
 			}
 			return false
 		})
+		document.addEventListener("keydown", this.escFunction, false);
 	}
 	handleChange = prop => event => {
 		console.log(prop, event.target.value)
@@ -102,6 +104,7 @@ class Modal extends React.Component{
 
 	componentWillUnmount() {
     clearInterval(this.timer);
+    document.removeEventListener("keydown", this.escFunction, false);
   }
 
 	progress = () => {
@@ -143,13 +146,6 @@ class Modal extends React.Component{
 
   cleanSuggestion = () => {
   	this.setState({suggestion: ''})
-  }
-
-  componentDidMount(){
-    document.addEventListener("keydown", this.escFunction, false);
-  }
-  componentWillUnmount(){
-    document.removeEventListener("keydown", this.escFunction, false);
   }
 
   escFunction = (event) => {

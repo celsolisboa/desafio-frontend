@@ -12,7 +12,6 @@ h3, input{
 button{
 	font-size: 1.0714em;
 }
-
 .container {
   height: calc(100vh - 40px);
   background-image: url('../common/images/background.jpg');
@@ -44,57 +43,10 @@ button{
   padding: 0 2.5em;
   height: 30px;
 }
-.modal-title{
-	color: #fff;
-	font-weight: 400;
-	text-align: center;
-	margin: 5vh auto 35px;
-}
 .page-title{
 	color: #fff;
 	font-weight: 400;
 	text-align: center;
-	margin: 20px auto 20px;
-}
-.login-title{
-	margin: 8vh auto 20px;
-}
-.login{
-	position: relative;
-}
-.home{
-	position: relative;
-	height: calc(100vh - 80px);
-  overflow-y: auto;
-}
-
-.card{
-	margin: 20px 0px;
-}
-.card-title{
-	margin: -25px 0 20px 0;
-}
-.card-text{
-	margin: 0;
-	color: #777777;
-}
-.card-row{
-	display: flex;
-	justify-content: space-between
-}
-.modal{
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0,0,0,.7);
-}
-.modal-content{
-	background-color: #888;
-	width: calc(100% - 40px);
-	height: calc(100% - 40px);
-	padding: 20px;
 }
 .close-button{
 	cursor: pointer;	
@@ -129,12 +81,11 @@ button{
 	grid-template-columns: minmax(90px, 45%) minmax(90px, 45%);
 	grid-column-gap: 10%;
 }
-.modal div[class^="MuiFormControl-root"] label{
-	background: #888
-}
+
 .desktop{
 	display: none;
 }
+
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -153,64 +104,32 @@ button{
   background: rgba(255,6,105,.5); 
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
+
 ::-webkit-scrollbar-thumb:window-inactive {
 	background: #777; 
 }
 
 @media screen and (min-width: 960px){
+	.header{
+		padding: 10px 10vw 0;
+	}
 	.logo:last-child {
     width: 100%;
 	}
 	.logo .desktop{
 		margin: 10vh auto 7vh;
 	}
-	.page-title{
-		margin: 0 0 0 40px;
-	}
 	.logo img~img{
 		display: none
 	}
-	.header{
-		padding: 10px 10vw 0;
-	}
-	.login{
-		width: 340px;
-    margin: 0 auto;
-	}
-	.login-title {
-	  margin: 1vh auto 30px;
-	}
-	.home{
-		padding: 0 20vw;
-		margin: 0 auto;
-	}
-	.courses{
-		margin-top: 18vh;
-	}
-	.cards-grid{
-		display: grid;
-		grid-template-columns: minmax(90px, 48%) minmax(90px, 48%);
-    grid-column-gap: 5%;
-	}
-	.modal-content{
-		width: 515px;
-    height: 515px; /*larger than the original one to acommodate error messages*/
-    padding: 20px 88px 60px;
-    margin: 15vh auto 0;
-    box-sizing: border-box;
+	.courses-title{
+		margin: 0 0 0 40px;
 	}
 	.close-button--modal{
 		position: relative;
     top: 3px;
     left: 370px;
-	}
-	.modal-title{
-		margin-top: 0;
-		margin-bottom: 25px;
-	}
-	.courses-title{
-		display: none
-	}
+	}	
 	.desktop{
 		display: block
 	}
