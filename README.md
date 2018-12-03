@@ -1,16 +1,12 @@
 # Desafio Celso Lisboa para FrontEnd
 
-##App para criar e apagar cursos.
+### App para criar e apagar cursos.
 
-Instale dependências do servidor com o comando
-### `npm install`
-e rode com o comando
-### `npm start`
+- Instale dependências do servidor com o comando `npm install`
+- e rode com o comando `npm start`
 
-Na pasta front, instale dependências com
-### `yarn install`
-e rode com o comando
-### `yarn start`
+- Na pasta front, instale dependências com `yarn install`
+- e rode com o comando `yarn start`
 
 Se tudo der certo, você deve ver a página de login.
 
