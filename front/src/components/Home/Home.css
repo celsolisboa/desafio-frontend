@@ -1,0 +1,20 @@
+.home{
+	position: relative;
+	height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+.home-title{
+		margin: 20px auto 20px;
+}
+@media screen and (min-width: 960px){
+	.home{
+		padding: 0 20vw;
+		margin: 0 auto;
+	}
+	.home-title{
+		display: none
+	}
+	.courses{
+		margin-top: 18vh;
+	}
+}

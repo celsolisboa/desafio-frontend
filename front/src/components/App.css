@@ -1,0 +1,136 @@
+/*leave in app.css*/
+body{
+	font-size: 14px;
+}
+h2{
+	font-size: 1.4285em;
+}
+h3, input{
+	font-size: 1.1428em;
+	font-weight: 500;
+}
+button{
+	font-size: 1.0714em;
+}
+.container {
+  height: calc(100vh - 40px);
+  background-image: url('../common/images/background.jpg');
+  background-position: center;
+  background-size: cover;
+  padding: 20px;
+  font-size: 1em;
+}
+.container:before{
+	content: '';
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,.5)
+}
+.logo{
+	margin: 0;
+}
+.header{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+}
+.header button[class^="MuiButtonBase"]{
+	border-radius: 2em;
+	background-color: #ff0669;
+  padding: 0 2.5em;
+  height: 30px;
+}
+.page-title{
+	color: #fff;
+	font-weight: 400;
+	text-align: center;
+}
+.close-button{
+	cursor: pointer;	
+	width: 20px;
+	height: 20px;
+	border: none;
+	outline: none;
+}
+.close-button--modal{
+	background: url('../common/images/close_white.png') no-repeat;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+.close-button--modal:hover,
+.close-button--modal:focus{
+	background: url('../common/images/close_grey.png') no-repeat;
+}
+.close-button--card{
+	position: relative;
+	left: calc(100% - 20px);
+	background: url('../common/images/close_grey.png') no-repeat;
+}
+.close-button--card:hover,
+.close-button--card:focus{
+	filter: opacity(.3);
+}
+.grid{
+	display: grid;
+}
+.grid--time-inputs{
+	grid-template-columns: minmax(90px, 45%) minmax(90px, 45%);
+	grid-column-gap: 10%;
+}
+
+.desktop{
+	display: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255,6,105,.5); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: #777; 
+}
+
+@media screen and (min-width: 960px){
+	.header{
+		padding: 10px 10vw 0;
+	}
+	.logo:last-child {
+    width: 100%;
+	}
+	.logo .desktop{
+		margin: 10vh auto 7vh;
+	}
+	.logo img~img{
+		display: none
+	}
+	.courses-title{
+		margin: 0 0 0 40px;
+	}
+	.close-button--modal{
+		position: relative;
+    top: 3px;
+    left: 370px;
+	}	
+	.desktop{
+		display: block
+	}
+}
