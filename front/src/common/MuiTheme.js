@@ -48,20 +48,20 @@ export const theme = createMuiTheme({
 		},
 		MuiFormHelperText: {
 			root: {
-				  color: '#fff',
-			    fontSize: '1em',
-			    textAlign: 'left',
-			    minHeight: '1em',
-			    position: 'relative',
-			    left: '1em',
-			    top: '0.5em',
-			    height: '1em',
-			    overflow: 'hidden',
-			    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-			    lineHeight: '1em',
-			    width: '85%',
-			    textOverflow: 'ellipsis',
-			    whiteSpace: 'nowrap'
+			  color: '#fff',
+		    fontSize: '1em',
+		    textAlign: 'left',
+		    minHeight: '1em',
+		    position: 'relative',
+		    left: '1em',
+		    top: '0.5em',
+		    height: '1em',
+		    overflow: 'hidden',
+		    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+		    lineHeight: '1em',
+		    width: '85%',
+		    textOverflow: 'ellipsis',
+		    whiteSpace: 'nowrap'
 			},
 			contained: {
 				  top: '-1em',
@@ -115,7 +115,7 @@ export const MenuProps = {
 export function getStyles(arr, val, that, sugg) {
   return {
     backgroundColor:
-      that.state[arr].indexOf(val) === -1
+      that.props[arr].indexOf(val) === -1
         ? 'transparent'
         : 'rgba(0, 0, 0, 0.14)',
     fontWeight: 

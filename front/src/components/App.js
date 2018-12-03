@@ -9,8 +9,8 @@ import './App.css';
 
 class App extends React.Component {
   state = {
-    auth: true,
-    isModalOpen: true,
+    auth: false,
+    isModalOpen: false,
     showLoginAlert: false
   }
 

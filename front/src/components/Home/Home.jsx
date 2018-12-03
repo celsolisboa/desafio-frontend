@@ -57,7 +57,7 @@ class Home extends React.Component{
         	&& <Modal 
         			getCourses={this.getCourses}
 		        	toggleModal={this.props.toggleModal} 
-		        	highestID={this.state.courses.sort( (a,b) => b.id - a.id)[0]} 
+		        	highestID={this.state.courses.slice().sort( (a,b) => b.id - a.id)[0]} 
 		        />
         }
       </div>
