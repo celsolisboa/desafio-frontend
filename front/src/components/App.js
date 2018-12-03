@@ -37,7 +37,7 @@ class App extends React.Component {
         <header className="header">
           <h1 className="logo">
             { !this.state.auth 
-              && <img src={largeLogo} class="desktop" alt="Logotipo Celso Lisboa" /> 
+              && <img src={largeLogo} className="desktop" alt="Logotipo Celso Lisboa" /> 
             }
             <img src={mediumLogo} alt="Logotipo Celso Lisboa" />
           </h1>

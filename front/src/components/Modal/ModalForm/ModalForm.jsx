@@ -1,15 +1,11 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import ModalDialog from './ModalDialog';
 import ModalSelects from './ModalSelects';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import {styles,theme,MenuProps,getStyles} from '../../../common/MuiTheme.js';
+import { styles, theme} from '../../../common/MuiTheme.js';
 import { ValidatorForm, TextValidator} 
 	from 'react-material-ui-form-validator';
 

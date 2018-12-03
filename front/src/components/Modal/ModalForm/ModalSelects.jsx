@@ -4,8 +4,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { SelectValidator} from 'react-material-ui-form-validator';
-import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import {styles,theme,MenuProps,getStyles} from '../../../common/MuiTheme.js';
+import { withStyles } from '@material-ui/core/styles';
+import {styles,MenuProps,getStyles} from '../../../common/MuiTheme.js';
 
 class ModalSelects extends React.Component{
 	render(){

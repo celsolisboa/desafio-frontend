@@ -49,62 +49,64 @@ class Login extends React.Component{
 		return(
       <main className="login">
         <ClickAwayListener onClickAway={this.props.clickAway}>
-        <ValidatorForm
-          id="form"
-          ref="form"
-          onSubmit={this.handleSubmit}
-          onError={errors => console.log(errors)}
-        >
-        <MuiThemeProvider theme={theme}>
-          <h2 className="page-title login-title">Login</h2>
-          <TextValidator
-            className={classes.margin}
-            label="Email"
-            name="email"
-            validators={['required','isEmail']}
-            value={this.state.email}
-            variant="outlined"
-            errorMessages={['Campo Obrigatório','Email inválido']}
-            onChange={this.handleChange('email')}
-            id="email"
-          />
-          <TextValidator
-            id="outlined-adornment-password"
-            variant="outlined"
-            name="password"
-            type={this.state.showPassword ? 'text' : 'password'}
-            label="Senha"
-            validators={['required']}
-            errorMessages={['Campo Obrigatório']}
-            value={this.state.password}
-            onChange={this.handleChange('password')}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="Toggle password visibility"
-                    onClick={this.handleClickShowPassword}
-                  >
-                    {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-          <Button variant="contained" type="submit" color="secondary">
-            ACESSAR
-          </Button>
-        </MuiThemeProvider>
-        </ValidatorForm>
-        <Dialog
-          open={this.props.showLoginAlert}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">
-            O Login falhou. Confira sua conexão e seus dados de acesso.
-          </DialogTitle>
-        </Dialog>
+        <section>
+          <ValidatorForm
+            id="form"
+            ref="form"
+            onSubmit={this.handleSubmit}
+            onError={errors => console.log(errors)}
+          >
+            <MuiThemeProvider theme={theme}>
+              <h2 className="page-title login-title">Login</h2>
+              <TextValidator
+                className={classes.margin}
+                label="Email"
+                name="email"
+                validators={['required','isEmail']}
+                value={this.state.email}
+                variant="outlined"
+                errorMessages={['Campo Obrigatório','Email inválido']}
+                onChange={this.handleChange('email')}
+                id="email"
+              />
+              <TextValidator
+                id="outlined-adornment-password"
+                variant="outlined"
+                name="password"
+                type={this.state.showPassword ? 'text' : 'password'}
+                label="Senha"
+                validators={['required']}
+                errorMessages={['Campo Obrigatório']}
+                value={this.state.password}
+                onChange={this.handleChange('password')}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Toggle password visibility"
+                        onClick={this.handleClickShowPassword}
+                      >
+                        {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <Button variant="contained" type="submit" color="secondary">
+                ACESSAR
+              </Button>
+            </MuiThemeProvider>
+          </ValidatorForm>
+          <Dialog
+            open={this.props.showLoginAlert}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">
+              O Login falhou. Confira sua conexão e seus dados de acesso.
+            </DialogTitle>
+          </Dialog>
+        </section>
         </ClickAwayListener>
       </main>
     )
