@@ -9,7 +9,7 @@ export class AuthguardGuard implements CanActivate {
   constructor(private user: UserService, private router: Router){}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    this.router.navigate(['/']);
+    /*this.router.navigate(['/']);*/
     return this.user.getUserLoggedIn();
   }
 }

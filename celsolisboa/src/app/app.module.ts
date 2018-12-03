@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
@@ -11,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthguardGuard } from './authguard.guard';
 import { UserService } from './user.service';
+import { FormsModule } from '@angular/forms';
+
 
 const appRoutes:Routes = [
   {
@@ -19,16 +20,16 @@ const appRoutes:Routes = [
   },
   {
     path: 'dashboard',
-    canActivate: [AuthguardGuard],
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthguardGuard]    
   }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HeaderComponent,
+    LoginComponent,    
     LoginFormComponent,
     FooterComponent,
     DashboardComponent

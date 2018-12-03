@@ -12,7 +12,7 @@ export class UserService {
 
   setUserLoggedIn(){
     this.isUserLoggedIn = true;
-    this.email = 'admin';
+    this.email = 'admin@gmail.com';
   }
 
   getUserLoggedIn(){
