@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CourseCard from '../CourseCard/CourseCard';
 import Modal from '../Modal/Modal';
 import './Home.css';
@@ -63,4 +64,8 @@ class Home extends React.Component{
 		)
 	}
 }
+Home.propTypes = {
+	isModalOpen: PropTypes.bool.isRequired,
+ 	toggleModal: PropTypes.func.isRequired
+};
 export default Home

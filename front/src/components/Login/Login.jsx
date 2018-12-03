@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { styles, theme } from '../../common/MuiTheme.js';
@@ -109,4 +110,9 @@ class Login extends React.Component{
     )
 	}
 }
+Login.propTypes = {
+  changeAuth: PropTypes.func.isRequired,
+  clickAway: PropTypes.func.isRequired,
+  showLoginAlert: PropTypes.bool.isRequired
+};
 export default withStyles(styles, { withTheme: true })(Login);

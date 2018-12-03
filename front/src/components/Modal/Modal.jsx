@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import {styles,theme,MenuProps,getStyles} from '../../common/MuiTheme.js';
 import { ValidatorForm, TextValidator, SelectValidator} from 'react-material-ui-form-validator';
@@ -67,7 +68,8 @@ class Modal extends React.Component{
 		  'Accept': 'application/json',
 		  'Content-Type': 'application/json'
 		}
-		let generateID = String(parseInt(this.props.highestID.id)+1);
+		let beginFrom = this.props.highestID ? this.props.highestID.id : 0;
+		let generateID = String(parseInt(beginFrom)+1);
 		const body = {
 			id: generateID,
 			nome: this.state.name, 
@@ -325,4 +327,9 @@ class Modal extends React.Component{
 		)
 	}
 }
+Modal.propTypes = {
+  getCourses: PropTypes.func.isRequired,
+  highestID: PropTypes.object,
+  toggleModal: PropTypes.func.isRequired
+};
 export default withStyles(styles, { withTheme: true })(Modal);

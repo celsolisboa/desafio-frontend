@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import './CourseCard.css';
@@ -27,5 +28,8 @@ const CourseCard = props => (
       </CardContent>
 	  </Card>
 )
-
+CourseCard.propTypes = {
+  course: PropTypes.object.isRequired,
+  deleteCourse: PropTypes.func.isRequired
+};
 export default CourseCard
