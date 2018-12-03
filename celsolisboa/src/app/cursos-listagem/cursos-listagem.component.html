@@ -7,7 +7,10 @@
       </div>
       <div class="bottom">
         <p>Endereço</p>
-        <p>Horário</p>
+        <div>
+          <p>sala</p><p *ngFor="let sala of curso.salas"> {{sala.sala}}</p> 
+        </div>          
+        <p>{{curso.inicio}} às {{curso.fim}}</p>
       </div>
       
     </div>
