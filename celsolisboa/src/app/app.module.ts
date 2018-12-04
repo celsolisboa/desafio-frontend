@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { CursosListagemComponent } from './cursos-listagem/cursos-listagem.component';
 import { CourseService } from './course.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationService } from './app.service';
 
 
 const appRoutes:Routes = [
@@ -43,7 +44,7 @@ const appRoutes:Routes = [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [UserService, AuthguardGuard, CourseService],
+  providers: [UserService, AuthguardGuard, CourseService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
