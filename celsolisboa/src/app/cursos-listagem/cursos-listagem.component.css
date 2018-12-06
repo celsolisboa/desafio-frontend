@@ -34,6 +34,9 @@ article{
     width: 13px;
     height: 13px;
 }
+.close a{
+    cursor: pointer;
+}
 .top{
     margin-bottom: 9%;
 }
@@ -41,7 +44,7 @@ article{
     width: 70%;
     float: left;
 }
-.rooms p{
+.rooms p, .bottom > p{
     float: left;
 }
 .right{

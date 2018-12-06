@@ -24,6 +24,7 @@ h2{
     -moz-border-radius: 162px 162px 162px 162px;
     -webkit-border-radius: 162px 162px 162px 162px;
     border: 0px solid #000000;
+    cursor: pointer;
 }
 .btn-dashboard:hover{
     background: #FFFF0B;

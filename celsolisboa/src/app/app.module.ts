@@ -15,6 +15,9 @@ import { CursosListagemComponent } from './cursos-listagem/cursos-listagem.compo
 import { CourseService } from './course.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './app.service';
+import { DelCourseService } from './del-course.service';
+import { ModalComponent } from './modal/modal.component';
+import { ModalService } from './modal.service';
 
 
 const appRoutes:Routes = [
@@ -37,14 +40,15 @@ const appRoutes:Routes = [
     LoginFormComponent,
     FooterComponent,
     DashboardComponent,
-    CursosListagemComponent
+    CursosListagemComponent,
+    ModalComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpClientModule
   ],
-  providers: [UserService, AuthguardGuard, CourseService, AuthenticationService],
+  providers: [UserService, AuthguardGuard, CourseService, AuthenticationService, DelCourseService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
