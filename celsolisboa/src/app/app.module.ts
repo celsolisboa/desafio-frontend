@@ -19,7 +19,6 @@ import { DelCourseService } from './del-course.service';
 import { ModalComponent } from './modal/modal.component';
 import { ModalService } from './modal.service';
 
-
 const appRoutes:Routes = [
   {
     path: '',

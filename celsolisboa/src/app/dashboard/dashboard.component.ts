@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   closeModal(id: string) {
-      this.modalService.close(id);
+    this.modalService.close(id);
   }
 
 }
