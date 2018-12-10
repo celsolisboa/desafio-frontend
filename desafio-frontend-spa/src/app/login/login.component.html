@@ -1,0 +1,33 @@
+<div class="login">
+    <div class="container-fluid login-card text-center">
+      <div class="logo"></div>
+
+        <h4 class="texto-login">Login</h4>
+
+        <form novalidate (ngSubmit)="login()" [formGroup]="formLogin" >    
+            <div class="form-group">
+              <input type="email" class="form-control p-4" id="email" name="email" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group ">
+              <input type="password" class="form-control p-4" id="password" name="password" formControlName="password" placeholder="Senha">
+            </div>
+            <button type="submit" [disabled]='!formLogin.valid' class="btn btn-pink btn-lg btn-block">
+              <div *ngIf="!loading; else elseLogin"> ACESSAR </div>
+              <ng-template #elseLogin>
+                  <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+                  <span class="sr-only">Loading...</span>
+                   Acessando
+                </ng-template>
+            </button>
+
+            <div class="alert alert-danger mt-3" *ngIf="errors != null">
+                <p id="msgRetorno"><b>Ops! Alguma coisa não deu certo:</b>
+                  <br>{{errors}}
+                </p>
+            </div>
+
+          </form>
+    </div>
+  </div>
+  
+

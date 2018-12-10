@@ -1,0 +1,44 @@
+.texto-login{
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+.login{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: initial;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .login-card{
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 55px 55px 37px 55px;
+  }
+  
+  .logo{
+    background-image: url('/src/assets/img/logo_big.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: block;
+    height: 70px;
+    width: 30%;
+    margin: 0 auto;
+  }
+  
+  .form-control{
+    border: 1px solid #fff;
+    color: #fff;
+    background-color:transparent !important;
+  }
+
+  .form-control::placeholder{
+      color: #fff;
+  }
+
+  

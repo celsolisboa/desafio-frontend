@@ -1,0 +1,67 @@
+.curso-modal .modal-content {
+  border-radius: 0;
+  color: #fff;
+}
+.curso-modal .modal-header {
+  background-color: #888888;
+  border-radius: 0;
+  border: 0;
+}
+
+.curso-modal .modal-body {
+  background-color: #888888;
+}
+
+.form-group input {
+  background-color: transparent !important;
+  border-color: #fff;
+  color: #fff;
+}
+
+input::-webkit-input-placeholder {
+  color: #fff !important;
+}
+
+input::-moz-placeholder {
+  color: #fff !important;
+}
+
+input:-ms-input-placeholder {
+  color: #fff !important;
+}
+
+input::placeholder {
+  color: #fff !important;
+}
+
+/* .multiselect{
+  color: #fff;
+}
+
+.multiselect > div.multiselect-dropdown > span.dropdown-btn{
+  padding: 10px;
+  border: 1px solid #fff !important;
+} */
+
+
+:host /deep/ .multiselect-dropdown .dropdown-btn {
+  color: #fff;
+  border: 1px solid #fff !important;
+  padding: 0.75rem !important;
+}
+
+:host /deep/ .multiselect-dropdown .dropdown-btn span {
+  margin-left: 10px;
+}
+
+
+:host /deep/ .multiselect-dropdown .dropdown-btn span.selected-item {
+  background-color: #ff0669 !important;
+  border: 1px solid #ff0669 !important;
+}
+
+
+:host /deep/ .multiselect-dropdown .dropdown-btn .selected-item .multiselect-item-checkbox[_ngcontent-c4] input[type=checkbox][_ngcontent-c4] + div{
+  border: 2px solid #ff0669 !important;
+  color: #ff0669 !important;
+}

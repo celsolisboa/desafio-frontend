@@ -1,0 +1,18 @@
+.btn-criar-curso{
+    width: 120px;
+    height: 30px;
+    color: #fff;
+    background-color: #ff0669;
+    -webkit-border-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 0px;
+    vertical-align: middle;
+}
+
+.texto-curso{
+    outline: none; 
+}

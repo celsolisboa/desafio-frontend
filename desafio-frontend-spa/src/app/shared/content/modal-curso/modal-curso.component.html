@@ -1,0 +1,61 @@
+<div class="curso-modal">
+
+  <div class="modal-header">
+    <a
+      class="close pull-right"
+      aria-label="Close"
+      (click)="bsModalRef.hide()">
+      <img src="/src/assets/img/close_white.png" alt="fecha modal">
+    </a>
+  </div>
+  
+  <div class="modal-body ">
+    <h4 class="text-center text-white">Criar Curso</h4>
+    <form class="p-4" novalidate [formGroup]="cursoForm" (ngSubmit)="cadastrarCurso()" >
+      <div class="form-group">
+        <input type="text" class="form-control p-4" id="nome" formControlName="nome" placeholder="Nome do curso" />
+      </div>
+
+      <div class="form-group">
+        <ng-multiselect-dropdown
+              [ngClass]= "'multiselect'"
+              name="professores"
+              [placeholder]="'Professores'"
+              [data]="listaDeProfessor"
+              [(ngModel)]="selectedItemProfessores"
+              [settings]="dropdownSettingsProfessores"
+              (onSelect)="onItemSelect($event)"
+              formControlName="professores" 
+              >
+        </ng-multiselect-dropdown>
+      </div>
+      
+      <div class="form-group">
+          <ng-multiselect-dropdown
+                [ngClass]= "'multiselect'"
+                name="salas"
+                [placeholder]="'Salas'"
+                [data]="listaDeSalas"
+                [(ngModel)]="selectedItemSalas"
+                [settings]="dropdownSettingsSalas"
+                (onSelect)="onItemSelect($event)"
+                formControlName="salas" 
+                >
+          </ng-multiselect-dropdown>
+        </div>
+
+      <div class="form-row">
+
+        <div class="form-group col">
+          <input type="text" class="form-control p-4" id="inicio" formControlName="inicio" placeholder="Início"  />
+        </div>
+
+        <div class="form-group col">
+          <input type="text" class="form-control p-4" id="fim" formControlName="fim" placeholder="Fim"  />
+        </div>
+
+      </div>
+      <button type="submit" [disabled]='!cursoForm.valid' class="btn btn-pink btn-block btn-lg"> SALVAR </button>
+    </form>
+  </div>
+</div>

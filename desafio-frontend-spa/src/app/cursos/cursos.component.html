@@ -1,0 +1,39 @@
+<main class="main">
+  <app-nav-bar></app-nav-bar>
+  
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="justify-content-md-center text-white ">
+          <h5 class="mb-4 d-sm-block d-md-none">Cursos</h5>
+      </div>
+      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 mb-4" *ngFor="let curso of cursos; let index = index">
+        <div class="card-deck">
+          <div class="card shadow rounded p-2">
+
+              <p class="card-title text-secondary">
+                    {{ curso.nome }}
+                <span class="text-muted pull-right"> 
+                    <button class="btn btn-link" (click)="excluirCurso(curso.id)" > <img src="./assets/img/close_grey.png" alt=""></button>
+                </span>
+             </p>
+             
+              <p class="card-text" >
+                  <small class="text-muted" *ngFor="let professor of curso.professores; let isLast=last">
+                   Prof. {{ professor.nome}} {{isLast ? '' : 'e '}}
+                  </small>
+              </p>
+              
+              <p class="card-text">
+                <small class="text-muted" *ngFor="let sala of curso.salas; let isLast=last"> {{ sala.sala }} {{isLast ? '' : 'e '}} </small>
+                <small class="text-muted pull-right">
+                  {{ curso.inicio }} às {{ curso.fim }}
+                </small>
+              </p>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
