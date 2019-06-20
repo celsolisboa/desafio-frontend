@@ -1,27 +1,48 @@
-# Desafio
+# Desafio Celso Lisboa para FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+### Cenário
 
-## Development server
+**Como** Coordenador Acadêmico de uma Instituição de Ensino  
+**Eu preciso** realizar a gestão dos cursos oferecidos pela Instituição, com seus respectivos professores, salas e horários  
+**Para** que o setor de Marketing possa vender os cursos online.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Segue instruções para realizar o desafio
 
-## Code scaffolding
+1. Faça um fork deste repositório.
+2. Utilize o comando `npm start` para instanciar a API.
+3. Baseado nas imagens `layouts/mobile_login.png` e `layouts/desktop_login.png`, crie a tela de login da aplicação. 
+    * A autenticação é feita através de uma requisição `POST` para o endpoint `http://localhost:3000/api/user/login`.
+    * Você pode testar a autenticação com os seguintes usuários: 
+    ```
+    [{
+       'email': 'john@gmail.com',
+       'password': 'passwd'
+     },
+     {
+       'email': 'bill@gmail.com',
+       'password': 'test123'
+    }]
+    ```
+    * Os campos devem ser validados e falhas na autenticação devem ser tratadas, em ambos os casos com feedback para o usuário.
+3. Baseado nas imagens `layouts/mobile_cursos.png` e `layouts/desktop_cursos.png`, crie a tela de visualização e deleção de cursos. 
+    * Você pode conseguir o objeto de cursos através de uma requisição `GET` para o endpoint `http://localhost:3000/api/curso`.
+    * Você pode deletar um curso através de uma requisição `DELETE` para o endpoint `http://localhost:3000/api/curso/:id`.
+   
+4. Baseado nas imagens `layouts/mobile_criar_curso.png` e `layouts/desktop_criar_curso.png`, crie a tela de criação e alteração de cursos.
+    * Os campos de Professor e Sala deverão ser um multi-select.
+    * Você pode pegar a lista de professores através de uma requisição `GET` para o endpoint `http://localhost:3000/api/professor`
+    * Você pode pegar a lista de salas através de uma requisição `GET` para o endpoint `http://localhost:3000/api/sala`
+    * Para a criação considere:    
+        * Você pode salvar o curso através de uma requisição  `POST` para o endpoint `http://localhost:3000/api/curso`
+    * Para a alteração considere:
+        * Você pode salvar a alteração do curso através de uma requisição  `PATCH` para o endpoint `http://localhost:3000/api/curso/:id`
+6. Você tem acesso a todos os assets utilizados nos layouts no diretório `/assets`
+5. Realize um Pull Request para este repositório.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### O que será avaliado 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Fidelidade às instruções e ao cenário.
+2. Fidelidade com o layout.
+3. Clean Code e boas práticas.
+4. Boas práticas de versionamento.
