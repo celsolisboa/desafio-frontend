@@ -1,0 +1,29 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 align-self-start"></div>
+      <div class="col-xl-4 col-lg-4 col-sm-12 align-self-center text-center">
+        <div class="col left-mob">
+          <picture>
+            <source media="(max-width: 576px)" srcset="assets/img/logo_medium.png">
+            <img src="assets/img/logo_big.png" alt="logo" class="mt-5 pt-5 mb-4 pb-4 logo">
+          </picture>
+        </div>
+        <form #f="ngForm" class="mt-5">
+          <p class="mb-4">Login</p>
+          <div class="form-group">
+            <input [(ngModel)]="usuario.email" #email="ngModel" [class.is-invalid]="!email.valid && email.touched"
+              type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario.password" #password="ngModel"
+              [class.is-invalid]="!password.valid && password.touched" type="password" class="form-control"
+              id="password" name="password" placeholder="Senha" required>
+          </div>
+          <button type="submit" (click)="fazerLogin()" class="btn btn-login w-100 p-2">ACESSAR</button>
+        </form>
+      </div>
+      <div class="col-xl-4 col-lg-4 align-self-end"></div>
+    </div>
+  </div>
+</section>

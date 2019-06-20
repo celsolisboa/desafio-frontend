@@ -1,0 +1,88 @@
+.btn-criarCurso{
+    background: #FF0669;
+    border-radius: 20px;
+    padding: 5px 35px;
+    color: #fff;
+    font-size: 12px; 
+    border: none;
+    outline:none;
+}
+.navbar-light p {
+    color: #fff;
+    font-size: 18px;
+}
+.card-text {
+    font-size: 14px;
+    color: #777;
+}
+.card-text.float-right{
+    position: relative;
+    top: 5px;
+}
+.close{
+    font-weight: 100;
+}
+.close-modal{
+    color: #fff;
+    font-weight: 100;
+}
+.modal-body{
+    background: #888;
+    color: #fff;
+}
+input , input:focus{
+    background: transparent;
+    color: #fff;
+    height: 43px;
+}
+select, select:focus{
+    color: #fff !important;
+    background: transparent;
+    font-size: 14px;
+    height: 43px;
+}
+.opt{
+    color: #777;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #fff;
+    font-size: 14px;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+    font-size: 14px;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+    font-size: 14px;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+    font-size: 14px;
+  }
+  .titulo-modal{
+      font-size: 18px;
+  }
+  .btn-login{
+    background: #FF0669;
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.55)
+}
+
+@media screen and (max-width: 576px){
+    .p-m-0 {
+        margin: 0 !important;
+        margin-top: 20px !important;
+        padding: 5px !important;
+    }
+
+    .navbar-light p {
+        position: relative;
+        top: 56px;
+    }
+    .card{
+        margin-bottom:0 !important;
+    }
+}

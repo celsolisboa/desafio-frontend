@@ -1,0 +1,69 @@
+<div class="container">
+  <nav class="navbar navbar-light pt-3">
+    <a class="navbar-brand"><img src="assets/img/logo_medium.png"></a>
+    <p>Cursos</p>
+    <button class="nav-link btn-criarCurso" (click)="openModal(template)">CRIAR</button>
+  </nav>
+  <div class="container mt-5 p-5 p-m-0">
+    <div class="col-md-12 col-sm-12 p-5 p-m-0">
+      <div class="row">
+        <div class="col-md-6 col-sm-12" *ngFor="let c of cursos.cursos">
+          <div class="card w-100 mb-2">
+            <div class="card-body p-3">
+              <button type="button" class="close" aria-label="Close" (click)="deletaCurso(c.id)">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h6 class="card-title ">{{c.nome}}</h6>
+              <div class="d-block mt-4" style="line-height: 0.7">
+                <span *ngFor="let p of c.professores; let i = index" class="card-text d-inline-block m-0 p-0">
+                  {{ i == 0 ? 'prof. ' + p.nome + '&nbsp;' : 'e prof. ' + p.nome }}</span>
+              </div>
+              <div class="d-block">
+                <span class="card-text m-0 p-0">sala </span>
+                <p *ngFor="let s of c.salas;  let i = index" class="card-text d-inline-block m-0 p-0">
+                  {{ i == 0 ? s.sala + '&nbsp;' : 'e ' + s.sala }}</p>
+                  <p class="card-text float-right">{{c.inicio}} às {{c.fim}}</p>
+              </div>
+            </div>
+          </div><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!------------------ MODAL CRIAR CURSO------------------------>
+<ng-template #template>
+  <div class="modal-body text-center">
+    <button type="button" class="close close-modal pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <img src="assets/img/close_white.png" alt="close">
+    </button>
+    <div class="pl-4 pr-4 pb-4 pt-0 ml-5 mr-5 mob-0">
+      <p class="titulo-modal mt-3 mb-0 pb-0">Criar Curso</p>
+
+      <form class="mt-4">
+        <div class="form-group">
+          <input [(ngModel)]="curso.nome" type="text" class="form-control" id="nome" name="nome"
+            placeholder="Nome do Curso">
+        </div>
+        <div class="form-group">
+          <select [(ngModel)]="curso.professores" class="form-control" id="professores" name="professores">
+            <option [value]="p" selected> Professores</option>
+            <option class="opt" *ngFor="let p of professores">{{p.nome}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select [(ngModel)]="curso.salas" class="form-control" id="salas" name="salas">
+            <option [value]="s" selected>Salas</option>
+            <option class="opt" *ngFor="let s of salas">{{s.sala}}</option>
+          </select>
+        </div>
+        <div class="form-group d-flex">
+          <input [(ngModel)]="curso.inicio" type="text" class="form-control w-50 mr-3" id="inicio" name="inicio"
+            placeholder="Início">
+          <input [(ngModel)]="curso.fim" type="text" class="form-control w-50" id="fim" name="fim" placeholder="Fim">
+        </div>
+        <button type="submit" (click)="adicionaCurso()" class="btn btn-login w-100 p-2">SALVAR</button>
+      </form>
+    </div>
+  </div>
+</ng-template>
