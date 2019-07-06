@@ -22,7 +22,7 @@
                 <span class="card-text m-0 p-0">sala </span>
                 <p *ngFor="let s of c.salas;  let i = index" class="card-text d-inline-block m-0 p-0">
                   {{ i == 0 ? s.sala + '&nbsp;' : 'e ' + s.sala }}</p>
-                  <p class="card-text float-right">{{c.inicio}} às {{c.fim}}</p>
+                <p class="card-text float-right">{{c.inicio}} às {{c.fim}}</p>
               </div>
             </div>
           </div><br>
@@ -40,29 +40,37 @@
     <div class="pl-4 pr-4 pb-4 pt-0 ml-5 mr-5 mob-0">
       <p class="titulo-modal mt-3 mb-0 pb-0">Criar Curso</p>
 
-      <form class="mt-4">
+      <form (ngSubmit)="adicionaCurso()" [formGroup]="cursoForm" class="mt-4">
         <div class="form-group">
-          <input [(ngModel)]="curso.nome" type="text" class="form-control" id="nome" name="nome"
-            placeholder="Nome do Curso">
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Curso"
+            formControlName="nome">
         </div>
-        <div class="form-group">
-          <select [(ngModel)]="curso.professores" class="form-control" id="professores" name="professores">
-            <option [value]="p" selected> Professores</option>
-            <option class="opt" *ngFor="let p of professores">{{p.nome}}</option>
-          </select>
+        <div formArrayName="professores">
+          <ng-container *ngFor="let c of profs.controls; let i = index">
+            <div class="form-group" [formGroupName]="i">
+              <select class="form-control" id="professores" name="professores" formControlName="nome">
+                <option value="undefined" selected> Professores</option>
+                <option class="opt" *ngFor="let p of professores">{{p.nome}}</option>
+              </select>
+            </div>
+          </ng-container>
         </div>
-        <div class="form-group">
-          <select [(ngModel)]="curso.salas" class="form-control" id="salas" name="salas">
-            <option [value]="s" selected>Salas</option>
-            <option class="opt" *ngFor="let s of salas">{{s.sala}}</option>
-          </select>
+        <div formArrayName="salas">
+          <ng-container *ngFor="let c of sal.controls; let i = index">
+            <div class="form-group" [formGroupName]="i">
+              <select class="form-control" id="salas" name="salas" formControlName="sala">
+                <option [value]="s" selected>Salas</option>
+                <option class="opt" *ngFor="let s of salas">{{s.sala}}</option>
+              </select>
+            </div>
+          </ng-container>
         </div>
         <div class="form-group d-flex">
-          <input [(ngModel)]="curso.inicio" type="text" class="form-control w-50 mr-3" id="inicio" name="inicio"
-            placeholder="Início">
-          <input [(ngModel)]="curso.fim" type="text" class="form-control w-50" id="fim" name="fim" placeholder="Fim">
+          <input type="text" class="form-control w-50 mr-3" id="inicio" name="inicio" placeholder="Início"
+            formControlName="inicio">
+          <input type="text" class="form-control w-50" id="fim" name="fim" placeholder="Fim" formControlName="fim">
         </div>
-        <button type="submit" (click)="adicionaCurso()" class="btn btn-login w-100 p-2">SALVAR</button>
+        <button class="btn btn-login w-100 p-2">SALVAR</button>
       </form>
     </div>
   </div>
