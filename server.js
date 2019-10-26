@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -178,6 +179,7 @@ app.post('/api/user/login', function (req, res) {
 
     if(auth[payload.email] && auth[payload.email] === payload.password) {
         res.status(200).json(users[payload.email]);
+        console.log('foi')
     } else {
         res.sendStatus(401);
     }
