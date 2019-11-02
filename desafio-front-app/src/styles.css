@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+
+body, html {
+    background-image: url("assets/background.jpg");
+    height: 100%; 
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(95%);
+    margin: 0;
+}
+
+.bg {
+    filter: none;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}   
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.pt-30 {
+    padding-top: 30px;
+}
+
+.title {
+    color: #f3f106;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1 {
+    line-height: 80%;
+}
+
+.form {
+    margin-top: 70px;
+    color: white;
+}
+
+.btn-primary {
+    background: #ff0669;
+}
+
+input[type="email"]
+{
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+input[type="password"]
+{
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.white {
+    color: white;
+}
+
+.f-right {
+    float: right;
+}
+
+.mr-50 {
+    margin-right: 50px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.w-100-p {
+    width: 100% !important;
+}
+
+.w-80-p {
+    width: 80% !important;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.item {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    flex-grow: 1000;
+    height: auto;
+    width: 49% !important;
+    display: inline-block;
+    padding: 10px;
+    background: white;
+}
+
+@media (max-width: 600px) 
+{
+    .item {
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 5px;
+        flex-grow: 1000;
+        height: auto;
+        width: 100% !important;
+        display: inline-block;
+        padding: 10px;
+        background: white;
+    }
+}
+
+

@@ -1,0 +1,32 @@
+
+<div class="container">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-4 col-sm-12">
+            
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <div class="mt-50 title">
+              <h1>Celso <br/>Lisboa</h1>
+            </div>
+            <div class="form">
+              <h4>Login</h4>
+              <form [formGroup]="formGroup" (ngSubmit)="login()">
+
+                  <div class="form-group mt-40">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" formControlName="senha" placeholder="Senha">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block">ACESSAR</button>
+
+              </form>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            
+          </div>
+        </div>
+  <div>
+</div>
