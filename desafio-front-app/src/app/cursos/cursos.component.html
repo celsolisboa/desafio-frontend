@@ -1,0 +1,70 @@
+
+<div class="row">
+  <div class="col-md-4 col-sm-6 mt-40">
+      <div class="title">
+        <h1>Celso <br/>Lisboa</h1>
+      </div>
+  </div>
+  <div class="col-md-4 col-sm-12 mt-40">    
+    <h3 class="text-center white">Cursos</h3>
+  </div>
+  <div class="col-md-4 col-sm-6 mt-40">
+    <button class="btn btn-primary f-right mr-50" data-toggle="modal" data-target="#criar">CRIAR</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-fluid">
+    
+      <div class="mt-40">
+
+          <div class="item" *ngFor="let item of items.cursos; let i = index">
+            <div class="flex-row mt-20">
+              <div class="flex-column w-80-p ml-10">
+                  <h5 class="text-left mt-10">{{item.nome}}</h5>
+              </div>
+              <div class="flex-column w-100-p mr-10">
+                <div class="text-right"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
+              </div>   
+            </div>
+    
+            <div class="flex-row mt-20">
+              <div class="flex-column w-80-p ml-10">
+                <div class="text-left mt-10">
+                  <div class="inline text-left" *ngFor="let professor of item.professores; let i = index"> {{ sizeProfessores(item.professores, i)  }} {{ professor.nome }} &nbsp;</div>  
+                  <br>sala <div class="inline text-left" *ngFor="let sala of item.salas; let i = index"> {{ sizeSalas(item.salas, i)  }} {{ sala.sala }} &nbsp;</div>
+                </div>
+                </div>
+           
+              <div class="flex-column w-100-p mr-10 pt-30">
+                <div class="text-right">{{item.inicio}} {{item.fim}}</div>
+              </div>   
+                  
+          </div>
+    
+        </div>
+      </div>
+
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal fade" id="criar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Criar Cursos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar mudanças</button>
+        </div>
+      </div>
+    </div>
+  </div>

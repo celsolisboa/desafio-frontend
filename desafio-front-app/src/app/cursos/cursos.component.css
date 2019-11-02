@@ -1,0 +1,20 @@
+.title {
+    color: #f3f106;
+    text-align: left;
+    text-transform: uppercase;
+    margin-left: 50px;
+}
+
+.btn {
+    border-radius: 20px;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    padding: 0px;
+    border: transparent;
+}
+
+.modal-content {
+    background: grey;
+    color: white;
+}
