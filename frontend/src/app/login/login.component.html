@@ -1,15 +1,51 @@
-<div class="card mt-5" style="margin:auto;width: 600px;">
-  <div class="card-body">
-    <h5 class="card-title">Login</h5>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" placeholder="Email Address" >
-    </div>
-    <div class="form-group">
-      <label for="email">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" >
-    </div>
-    <button type="submit" class="btn btn-primary" (click)="tryLogin()">Login</button>
+<div class="container center_div">
+<section class="content col-xs-10 " >
+  <div class="login-logo">
+   
   </div>
-</div>
+  <div class="col-xs-10 col-sm-offset-10 col-sm-6 center">
+    <div style="
+    padding: 10%;
+">
 
+      <span > <img src="/assets/logo_big.png"></span>
+    </div>
+    <div class="center">
+      <h5>Login</h5>
+    </div>
+    <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group ">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group ">
+        <input type="password" class="form-control" placeholder="Sanha" formControlName="password"> 
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group">
+
+        <div class="col-xs-offset-8 col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">ACESSAR</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</section>
+</div>
+<!-- <h2>Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username">email</label>
+        <input type="text" formControlName="email" placeholder="email" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" placeholder="password" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Login</button>
+         <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> 
+        <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+    </div>
+</form> -->

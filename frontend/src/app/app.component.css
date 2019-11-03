@@ -4,4 +4,22 @@ body{
 	background-image:url("/assets/background.jpg");
 	background-size:cover;
 	background-position:center;
+	
+	
+	
 }
+
+::placeholder {
+	color: #fff;
+	opacity: 1; 
+}
+  background-image{
+	-webkit-filter: brightness(30%); /* Safari 6.0 - 9.0 */
+	filter: brightness(30%);
+}
+
+
+body:after {
+	-webkit-filter: brightness(30%); /* Safari 6.0 - 9.0 */
+	filter: brightness(30%);
+  }

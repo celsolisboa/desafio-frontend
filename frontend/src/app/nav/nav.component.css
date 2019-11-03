@@ -1,0 +1,8 @@
+.logo{
+    
+    background-image: url('/assets/logo_big.png')
+}
+
+img{
+    src: url('/assets/logo_big.png')
+}
