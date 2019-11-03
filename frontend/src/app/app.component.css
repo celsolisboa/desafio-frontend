@@ -14,12 +14,20 @@ body{
 	opacity: 1; 
 }
   background-image{
-	-webkit-filter: brightness(30%); /* Safari 6.0 - 9.0 */
+	-webkit-filter: brightness(30%); 
 	filter: brightness(30%);
 }
 
 
 body:after {
-	-webkit-filter: brightness(30%); /* Safari 6.0 - 9.0 */
+	-webkit-filter: brightness(30%); 
 	filter: brightness(30%);
   }
+
+
+
+  button{
+
+    background-color: #ff006a !important;
+    border-color: #ff006a !important;
+}

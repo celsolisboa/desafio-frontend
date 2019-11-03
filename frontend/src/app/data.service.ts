@@ -18,7 +18,7 @@ export class DataService {
   }
 
   public sendGetListaCurso() {
-    return this.httpClient.get(this.REST_API_SERVER+'/api/curso');
+    return this.httpClient.get(this.REST_API_SERVER+'/api/curso/');
   }
 
   public sendGetCursoPorId(id: number) {

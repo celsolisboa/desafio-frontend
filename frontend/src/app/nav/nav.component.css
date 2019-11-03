@@ -5,4 +5,39 @@
 
 img{
     src: url('/assets/logo_big.png')
+}  
+
+
+/* 
+ */
+ @media (min-width: 768px) {
+    .nav-item
+    {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        margin:0 auto;
+    }
+    .navbar-toggle {
+        z-index:3;
+    }
+  }
+
+  button{
+
+    background-color: #ff006a !important;
+    border-color: #ff006a !important;
+    border-radius: 30px;
+    padding: 0px 31px;
+}
+
+#cursoLabe,h5 {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    #cursoLabe,h5 {
+        display: none;
+    }
 }

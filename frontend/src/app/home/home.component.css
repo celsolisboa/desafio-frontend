@@ -1,0 +1,57 @@
+@media (min-width: 767px) {
+    .card {
+        margin: auto;
+        min-width: 45%;
+      }
+  }
+  ::placeholder {
+    color: white;
+    opacity: 1; 
+  }
+
+  .center_div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+
+@media (max-width: 1169px) and (min-width: 768px){}
+.item-busca-card {
+    float: left!important;
+    height: unset!important;
+    margin: 15px!important;
+}
+
+.card {
+  margin: auto;  
+  min-width: 45%;
+}
+
+img {
+  vertical-align: inherit;
+  border-style: none;
+  width: fit-content;
+  cursor: pointer;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0rem !important;
+}
+.container{
+  margin-top: 5%;
+}
+
+@media (max-width: 767px) {
+  #cursoLabelhome,h5 {
+    display: block;
+    color: #fff;
+  }
+
+}
+@media (min-width: 768px) {
+  #cursoLabelhome,h5 {
+    color: #fff;
+    display: none; 
+  }
+}
