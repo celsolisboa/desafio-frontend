@@ -1,0 +1,33 @@
+body{
+	height:auto;
+	min-height:100vh;
+	background-image:url("/assets/background.jpg");
+	background-size:cover;
+	background-position:center;
+	
+	
+	
+}
+
+::placeholder {
+	color: #fff;
+	opacity: 1; 
+}
+  background-image{
+	-webkit-filter: brightness(30%); 
+	filter: brightness(30%);
+}
+
+
+body:after {
+	-webkit-filter: brightness(30%); 
+	filter: brightness(30%);
+  }
+
+
+
+  button{
+
+    background-color: #ff006a !important;
+    border-color: #ff006a !important;
+}

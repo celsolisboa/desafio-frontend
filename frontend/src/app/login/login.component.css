@@ -1,0 +1,48 @@
+/* .login-logo {
+    background-image: url('/assets/logo_big.png')
+} */
+
+input{
+    background-color: #ffffff00;
+    border-color: #ffffff;
+}
+
+
+
+.center_div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  
+
+  @media only screen and (min-width: 600px) {
+    .center {
+        margin: auto;
+        width: 35%;
+        padding: 10px;
+      }
+  }
+  ::placeholder {
+    color: white;
+    opacity: 1; 
+  }
+
+  h5 {
+    text-align: center;
+    color: #ffffff;
+  }
+
+
+  button{
+
+    background-color: #ff006a !important;
+    border-color: #ff006a !important;
+}

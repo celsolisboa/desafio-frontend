@@ -1,0 +1,29 @@
+<app-nav></app-nav>
+
+<div class="container col-lg-9">
+        <h5 id="cursoLabelhome" class=" text-center" >Cursos <span class="sr-only"></span></h5>
+      
+    <section class="content col-lg-12" >
+        <div class="card-group " >
+                <div class=" card item-busca-card " *ngFor="let item of teste.cursos">
+                        <div class="card-body">  
+                                <span> 
+                                        <a (click)="excluir(item)" ><img class="rounded float-right" src="/assets/close_grey.png" alt="Excluir curso"></a> 
+                                </span>
+                                <span>
+                                        <h6 class="rounded float-left">{{item.nome}}</h6>
+                                </span>
+                                                
+                                <br><br>
+                                <p  *ngFor="let professor of item.professores"  class=""><small class="text-muted"><span>Prof. </span>{{professor.nome}}</small>
+                                <p *ngFor="let sala of item.salas"  class="card-text"><small class="text-muted">sala {{sala.sala}}</small></p>
+                                <span>
+                                        <span class="card-text rounded float-right"><small class="text-muted">{{item.inicio}} <span> às </span>{{item.fim}}</small></span>
+                                </span>
+                        </div>
+                </div>
+        </div>
+</section>
+</div>
+
+
