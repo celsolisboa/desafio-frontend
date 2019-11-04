@@ -1,0 +1,44 @@
+#addbtn{
+
+    background-color: #ff006a !important;
+    border-color: #ff006a !important;
+    color: #fff;
+    border-radius: 30px;
+    padding: 0px 31px;
+    z-index: 10;
+    
+}
+
+input,select{
+    background-color: #ffffff00;
+    border-color: #ffffff;
+}
+
+form{
+    background-color: grey;
+}
+
+.modal-body{
+    background-color: grey;
+}
+
+::placeholder,h5 {
+    color: white;
+    opacity: 1; 
+  }
+
+
+  button{
+
+    background-color: #ff006a !important;
+    border-color: #ff006a !important;
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    color: #fff;
+    width: 22%;
+    margin-bottom: 4%;
+}

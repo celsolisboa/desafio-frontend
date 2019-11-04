@@ -23,5 +23,9 @@ teste: any = {};
 
   excluir(item:any){
     console.log(item.id);
+
+    this.dataService.sendDeleteCurso(item,item.id).subscribe();
   }
+
+  
 }

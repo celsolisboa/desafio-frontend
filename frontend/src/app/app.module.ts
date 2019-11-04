@@ -12,6 +12,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { NavComponent } from './nav/nav.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { AddCursoComponent } from './add-curso/add-curso.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AddCursoComponent } from './add-curso/add-curso.component';
     RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [HttpClient,
   FormBuilder],

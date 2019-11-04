@@ -24,13 +24,6 @@ img{
     }
   }
 
-  button{
-
-    background-color: #ff006a !important;
-    border-color: #ff006a !important;
-    border-radius: 30px;
-    padding: 0px 31px;
-}
 
 #cursoLabe,h5 {
     color: #fff;
@@ -41,3 +34,9 @@ img{
         display: none;
     }
 }
+
+app-add-curso,#btnCriar{
+    z-index: 10;
+    float: right;
+}
+

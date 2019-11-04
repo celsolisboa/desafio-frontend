@@ -1,3 +1,58 @@
-<p>
-  add-curso works!
-</p>
+<ng-template #content let-c="close" let-d="dismiss">
+  <!-- <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+ 
+  <div class="modal-body">
+      <span> 
+          <a><img class="rounded float-right" src="/assets/close_white.png" alt="Excluir curso" (click)="d('Cross click')"></a> 
+  </span>
+      <div class="center">
+          <h5>Criar Curso</h5>
+        </div>
+        <form  [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+          <div class="form-group ">
+            <input type="text" class="form-control" placeholder="Nome do Curso" formControlName="nome">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group">
+              <select class="form-control selectpicker " formControlName="professores" >
+                  <option *ngFor="let item of professores" [ngValue]="item">
+                    {{item.nome}}
+                  </option>
+                 
+            </select>
+          </div>
+          <div class="form-group">
+              <select class="form-control selectpicker " formControlName="salas" >
+                  <option  *ngFor="let item of salas" [ngValue]="item">
+                    {{item.sala}}
+                  </option>
+            </select>
+          </div>
+          <div class="form-group">
+
+          </div>
+          <div class="form-group " style="float: left; width: 49%;">
+            <input type="text" class="form-control col" placeholder="Início" formControlName="inicio"> 
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="form-group "style="float: right; width: 50%;" >
+              <input type="text" class="form-control" placeholder="Fim" formControlName="fim"> 
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+          <div class="form-group">
+    
+            <div id="btnSubimit" class="form-group">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">SALVAR</button>
+            </div>
+    
+          </div>
+        </form>
+  </div>
+</ng-template>
+
+<button id="addbtn" class="btn ml-auto right" (click)="open(content)">CRIAR</button>
