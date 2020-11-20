@@ -25,6 +25,7 @@ export class ClInputComponent implements OnInit, OnDestroy, ControlValueAccessor
   disabled: boolean;
 
   @Input() label: string;
+  @Input() type: string;
 
   constructor() { }
 
