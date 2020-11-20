@@ -1,16 +1,28 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, forwardRef, OnDestroy, OnInit} from '@angular/core';
 import {fromEvent, Subscription} from 'rxjs';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'ui-cl-input',
   templateUrl: './cl-input.component.html',
-  styleUrls: ['./cl-input.component.css']
+  styleUrls: ['./cl-input.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ClInputComponent),
+      multi: true
+    }
+  ]
 })
-export class ClInputComponent implements OnInit, OnDestroy {
+export class ClInputComponent implements OnInit, OnDestroy, ControlValueAccessor {
 
-  value: string;
   class = '';
   subscription: Subscription;
+
+  value: string;
+  onChange: (value: any) => void;
+  onTouched: () => void;
+  disabled: boolean;
 
   constructor() { }
 
@@ -26,6 +38,24 @@ export class ClInputComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  writeValue(value: any): void {
+    if (value) {
+      this.value = value;
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
 }
