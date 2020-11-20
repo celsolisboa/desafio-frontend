@@ -26,4 +26,12 @@ export class LoginComponent implements OnInit {
   clickTest(): void {
     console.log('test');
   }
+
+  isInvalid(controlName): boolean {
+    const control = this.formLogin.get(controlName);
+    if (!control.pristine) {
+      return this.formLogin.get(controlName).invalid;
+    }
+    return false;
+  }
 }

@@ -1,22 +1,32 @@
 <div class="img-home">
   <div class="dark-background">
-    <form [formGroup]="formLogin">
-      <ui-cl-input
-        formControlName="email"
-        label="Email"
-        type="text"
-      ></ui-cl-input>
+    <div class="container-center">
+      <img class="logo" src="../../../assets/logo_big.png" >
+      <h2>Login</h2>
+      <form [formGroup]="formLogin" >
+        <ui-cl-input
+          formControlName="email"
+          label="Email"
+          type="email"
+        ></ui-cl-input>
+        <span class="form-error-message" *ngIf="isInvalid('email')" >
+          E-mail inválido
+        </span>
 
-      <ui-cl-input
-        formControlName="password"
-        label="Senha"
-        type="text"
-      ></ui-cl-input>
+        <ui-cl-input
+          formControlName="password"
+          label="Senha"
+          type="password"
+        ></ui-cl-input>
+        <span class="form-error-message" *ngIf="isInvalid('password')" >
+          Preencha o campo
+        </span>
 
-      <ui-cl-button
-        label="acessar"
-        (btnClick)="clickTest()"
-      ></ui-cl-button>
-    </form>
+        <ui-cl-button
+          label="acessar"
+          (btnClick)="clickTest()"
+        ></ui-cl-button>
+      </form>
+    </div>
   </div>
 </div>
