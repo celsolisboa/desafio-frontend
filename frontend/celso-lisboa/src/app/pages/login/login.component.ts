@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   private buildResourceForm(): void {
     this.formLogin = this.fb.group({
-      email: [ null, [ Validators.email] ],
+      email: [ null, [ Validators.required, Validators.email] ],
     });
   }
 

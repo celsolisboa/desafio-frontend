@@ -1,6 +1,6 @@
-import {Component, forwardRef, OnDestroy, OnInit} from '@angular/core';
+import {Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {fromEvent, Subscription} from 'rxjs';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors, Validator} from '@angular/forms';
 
 @Component({
   selector: 'ui-cl-input',
@@ -23,6 +23,8 @@ export class ClInputComponent implements OnInit, OnDestroy, ControlValueAccessor
   onChange: (value: any) => void;
   onTouched: () => void;
   disabled: boolean;
+
+  @Input() label: string;
 
   constructor() { }
 
@@ -52,10 +54,6 @@ export class ClInputComponent implements OnInit, OnDestroy, ControlValueAccessor
 
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
-  }
-
-  setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
   }
 
 }

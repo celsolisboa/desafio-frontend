@@ -16,7 +16,6 @@ label {
   transform: translatey(-50%);
   transition: all .3s ease;
   color: gray;
-  text-transform: uppercase;
 }
 
 .form-input {
