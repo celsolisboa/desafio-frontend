@@ -3,9 +3,11 @@
 .input-group {
   position: relative;
   width: 100%;
+  font-family: 'roboto-regular', 'arial', sans-serif;
 }
 
 label {
+  font-family: 'roboto-regular', 'arial', sans-serif;
   position: absolute;
   display: inline-block;
   background: transparent;

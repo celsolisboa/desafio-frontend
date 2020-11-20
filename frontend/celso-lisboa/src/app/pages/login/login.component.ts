@@ -22,4 +22,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  clickTest(): void {
+    console.log('test');
+  }
 }
