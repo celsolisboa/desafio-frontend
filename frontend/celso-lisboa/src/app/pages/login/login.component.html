@@ -10,7 +10,7 @@
           type="email"
         ></ui-cl-input>
         <span class="form-error-message" *ngIf="isInvalid('email')" >
-          E-mail inválido
+          {{errorMessage.EMAIL}}
         </span>
 
         <ui-cl-input
@@ -19,7 +19,7 @@
           type="password"
         ></ui-cl-input>
         <span class="form-error-message" *ngIf="isInvalid('password')" >
-          Preencha o campo
+          {{errorMessage.EMPTY}}
         </span>
 
         <ui-cl-button
