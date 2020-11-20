@@ -1,12 +1,20 @@
-<form [formGroup]="formLogin">
-  <ui-cl-input
-    formControlName="email"
-    label="Email"
-  ></ui-cl-input>
+<div class="img-home">
+  <div class="dark-background">
+    <form [formGroup]="formLogin">
+      <ui-cl-input
+        formControlName="email"
+        label="Email"
+      ></ui-cl-input>
 
-  <ui-cl-button
-    label="acessar"
-    (btnClick)="clickTest()"
-  ></ui-cl-button>
-</form>
+      <ui-cl-input
+        formControlName="password"
+        label="Senha"
+      ></ui-cl-input>
 
+      <ui-cl-button
+        label="acessar"
+        (btnClick)="clickTest()"
+      ></ui-cl-button>
+    </form>
+  </div>
+</div>
