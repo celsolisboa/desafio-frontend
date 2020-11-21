@@ -1,3 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
 
 h1,h2,h3,h4,h5,h6{
   font-family: 'roboto-regular', 'arial', sans-serif;
@@ -26,10 +33,6 @@ input.ng-dirty.ng-invalid {
 }
 
 //GRID SYSTEM
-
-*{
-  box-sizing: border-box
-}
 
 .box{
   display: flex;
