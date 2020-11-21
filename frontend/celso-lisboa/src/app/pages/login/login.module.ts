@@ -6,6 +6,7 @@ import {ClInputModule} from '../../../../projects/ui/src/lib/form-controls/cl-in
 import {ReactiveFormsModule} from '@angular/forms';
 import {ClButtonModule} from '../../../../projects/ui/src/lib/layout/cl-button/cl-button.module';
 import {HttpClientModule} from '@angular/common/http';
+import {BackgroundModule} from '../../../../projects/ui/src/lib/layout/background/background.module';
 
 
 @NgModule({
@@ -15,8 +16,9 @@ import {HttpClientModule} from '@angular/common/http';
     LoginRoutingModule,
     ClInputModule,
     ClButtonModule,
+    BackgroundModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ]
 })
 export class LoginModule { }
