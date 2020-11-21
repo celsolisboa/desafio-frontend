@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorMessageEnum} from '../../../shared/enum/error-message.enum';
-import {LoginService} from '../service/login.service';
+import {LoginResourceService} from '../service/login.resource.service';
 import {Util} from '../../../shared/util/util';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginResourceService,
+    private router: Router
   ) {  }
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.formLogin.value).subscribe(
         (response => {
           this.userInvalid = false;
+          this.router.navigate(['/home']);
         }),
         (error => {
           this.userInvalid = true;
