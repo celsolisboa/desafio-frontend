@@ -220,3 +220,14 @@ app.get('/api/sala', (req, res) => {
 app.listen(port, function () {
     console.log(`Listening on http://localhost:${port}`)
 });
+
+const cors = require('cors')
+app.use(cors())
+
+const corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions));
+
+
