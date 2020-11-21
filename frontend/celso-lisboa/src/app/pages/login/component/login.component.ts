@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
   errorMessage = ErrorMessageEnum;
+  userInvalid = false;
+  fieldsEmpties = false;
 
   constructor(
     private fb: FormBuilder,
@@ -31,11 +33,17 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     if (this.formLogin.valid) {
-      this.loginService.login(this.formLogin.value);
+      this.fieldsEmpties = false;
+      this.loginService.login(this.formLogin.value).subscribe(
+        (response => {
+          this.userInvalid = false;
+        }),
+        (error => {
+          this.userInvalid = true;
+        })
+      );
     } else {
-      for (const property of Object.keys(this.formLogin.controls)){
-        this.formLogin.controls[property].pristine = false;
-      }
+      this.fieldsEmpties = true;
     }
   }
 

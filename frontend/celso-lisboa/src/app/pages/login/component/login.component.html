@@ -22,6 +22,12 @@
           {{errorMessage.EMPTY}}
         </span>
 
+        <span class="btn-error-message" *ngIf="userInvalid" >
+          {{errorMessage.LOGIN}}
+        </span>
+        <span class="btn-error-message" *ngIf="fieldsEmpties" >
+          {{errorMessage.EMPTIES}}
+        </span>
         <ui-cl-button
           label="acessar"
           (btnClick)="submitForm()"

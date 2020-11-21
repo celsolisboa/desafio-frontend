@@ -13,6 +13,14 @@ h1,h2,h3,h4,h5,h6{
   margin-top: -17px;
 }
 
+.btn-error-message {
+  font-family: 'roboto-regular', 'arial', sans-serif;
+  color: white;
+  display: block;
+  font-size: 12px;
+  margin-bottom: -14px;
+}
+
 input.ng-dirty.ng-invalid {
   color: red
 }
