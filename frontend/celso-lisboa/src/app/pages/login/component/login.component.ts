@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorMessageEnum} from '../../../shared/enum/error-message.enum';
-import {LoginResourceService} from '../service/login.resource.service';
+import {LoginResourceService} from '../services/login.resource.service';
 import {Util} from '../../../shared/util/util';
 import {Router} from '@angular/router';
 

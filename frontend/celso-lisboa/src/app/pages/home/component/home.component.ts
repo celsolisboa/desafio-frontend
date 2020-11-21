@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HomeResourceService} from '../services/home.resource.service';
+import {CoursesModel} from '../../../shared/models/courses.model';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private homeResourceService: HomeResourceService) { }
 
   ngOnInit(): void {
+    this.homeResourceService.getAllCourses().subscribe((courses: CoursesModel) => {
+      console.log(courses);
+    });
   }
 
 }
