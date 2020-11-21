@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorMessageEnum} from '../../../shared/enum/error-message.enum';
 import {LoginService} from '../service/login.service';
+import {Util} from '../../../shared/util/util';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   errorMessage = ErrorMessageEnum;
   userInvalid = false;
   fieldsEmpties = false;
+  util = new Util();
 
   constructor(
     private fb: FormBuilder,
@@ -48,10 +50,6 @@ export class LoginComponent implements OnInit {
   }
 
   isInvalid(controlName): boolean {
-    const control = this.formLogin.get(controlName);
-    if (!control.pristine) {
-      return this.formLogin.get(controlName).invalid;
-    }
-    return false;
+    return this.util.controlPristineIsInvalid(controlName, this.formLogin);
   }
 }
