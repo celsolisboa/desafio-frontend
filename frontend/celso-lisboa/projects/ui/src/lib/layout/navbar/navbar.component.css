@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
   height: 65px;
   width: 100%;
   background-color: transparent;
@@ -8,7 +8,7 @@
   justify-content: space-around;
 }
 
-.title-nav{
+.title-nav {
   display: none;
 }
 
@@ -18,7 +18,7 @@
 }
 
 @media (min-width: 768px) {
-  .title-nav{
+  .title-nav {
     display: inline;
   }
   .title-outside-nav {

@@ -1,0 +1,21 @@
+.container-home {
+  padding: 10px 40px 10px 40px;
+}
+
+@media (min-width: 768px) {
+  .container-home {
+    padding: 30px 100px 30px 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-home {
+    padding: 40px 120px 40px 120px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-home {
+    padding: 50px 160px 50px 160px;
+  }
+}
