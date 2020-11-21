@@ -4,7 +4,7 @@ import { LoginComponent } from './component/login.component';
 import {LoginRoutingModule} from './login.routing.module';
 import {ClInputModule} from '../../../../projects/ui/src/lib/form-controls/cl-input/cl-input.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {ClButtonModule} from '../../../../projects/ui/src/lib/layout/cl-button/cl-button.module';
+import {ClButtonModule} from '../../../../projects/ui/src/lib/layout/button/cl-button.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BackgroundModule} from '../../../../projects/ui/src/lib/layout/background/background.module';
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
-import {ClButtonModule} from '../cl-button/cl-button.module';
+import {ButtonRoundedModule} from '../button-rounded/button-rounded.module';
 
 
 
@@ -9,7 +9,7 @@ import {ClButtonModule} from '../cl-button/cl-button.module';
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
-    ClButtonModule
+    ButtonRoundedModule
   ],
   exports: [NavbarComponent]
 })
