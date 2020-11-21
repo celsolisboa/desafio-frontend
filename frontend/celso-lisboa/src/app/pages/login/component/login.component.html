@@ -1,9 +1,9 @@
 <div class="img-home">
   <div class="dark-background">
     <div class="container-center">
-      <img class="logo" src="../../../assets/logo_big.png" >
+      <img class="logo" src="../../../../assets/logo_big.png" >
       <h2>Login</h2>
-      <form [formGroup]="formLogin" >
+      <form [formGroup]="formLogin">
         <ui-cl-input
           formControlName="email"
           label="Email"
@@ -24,7 +24,7 @@
 
         <ui-cl-button
           label="acessar"
-          (btnClick)="clickTest()"
+          (btnClick)="submitForm()"
         ></ui-cl-button>
       </form>
     </div>
