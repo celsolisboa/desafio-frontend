@@ -12,4 +12,12 @@ export class Util {
     return false;
   }
 
+  transformListToString(list: any[], element: string): string {
+    const roomList = [];
+    list.forEach(room => {
+      roomList.push(room[element]);
+    });
+    return roomList.join(' e ');
+  }
+
 }

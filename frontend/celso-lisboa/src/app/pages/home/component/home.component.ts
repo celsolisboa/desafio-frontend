@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HomeResourceService} from '../services/home.resource.service';
-import {CoursesModel} from '../../../shared/models/courses.model';
+import {CourseModel, CoursesModel} from '../../../shared/models/courses.model';
+import {CourseResourceService} from '../../../shared/services/course.resource.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +9,13 @@ import {CoursesModel} from '../../../shared/models/courses.model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private homeResourceService: HomeResourceService) { }
+  courses: CourseModel[];
+
+  constructor(public courseService: CourseResourceService) { }
 
   ngOnInit(): void {
-    this.homeResourceService.getAllCourses().subscribe((courses: CoursesModel) => {
-      console.log(courses);
+    this.courseService.getAllCourses().subscribe((courses: CoursesModel) => {
+      this.courses = courses.cursos;
     });
   }
 
