@@ -8,7 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class ClButtonComponent implements OnInit {
 
   @Input() label: string;
-  @Output() btnClick = new EventEmitter<any>();
+  @Output() buttonEvent = new EventEmitter<any>();
 
   constructor() { }
 
