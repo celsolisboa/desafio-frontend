@@ -72,6 +72,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  deleteCourse(id: string): void {
+    this.courseFacadeService.deleteCourse(id).subscribe(data => {
+      console.log(data);
+    });
+  }
+
   isInvalid(controlName): boolean {
     return this.util.controlPristineIsInvalid(controlName, this.formCourse);
   }

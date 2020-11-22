@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CourseModel} from '../../../../../../src/app/shared/models/courses.model';
 import {Util} from '../../../../../../src/app/shared/util/util';
-import {Observable} from 'rxjs';
 import {CourseResourceService} from '../../../../../../src/app/shared/services/course.resource.service';
 
 @Component({
@@ -12,6 +11,7 @@ import {CourseResourceService} from '../../../../../../src/app/shared/services/c
 export class CardCourseComponent implements OnInit {
 
   @Input() course: CourseModel;
+  @Output() closeEvent = new EventEmitter<string>();
   rooms: string;
   teachers: string;
   util = new Util();
@@ -23,10 +23,8 @@ export class CardCourseComponent implements OnInit {
     this.teachers = this.util.transformListToString(this.course.professores, 'nome');
   }
 
-  deleteCourse(): void {
+  close(): void {
     const id = this.course.id;
-    this.courseService.deleteCourse(id).subscribe(data => {
-      console.log(data);
-    });
+    this.closeEvent.emit(id);
   }
 }
