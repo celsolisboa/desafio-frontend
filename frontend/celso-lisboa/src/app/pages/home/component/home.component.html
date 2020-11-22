@@ -74,11 +74,14 @@
           label="Fim"
           type="text"
         ></ui-cl-input>
-        <span class="btn-error-message" *ngIf="fieldsEmpties" >
-          {{errorMessage.EMPTIES}}
+        <span class="form-error-message" *ngIf="isInvalid('end')" >
+          {{errorMessage.EMPTY}}
         </span>
       </div>
     </div>
+    <span class="btn-error-message" *ngIf="fieldsEmpties" >
+      {{errorMessage.EMPTIES}}
+    </span>
     <ui-cl-button
       label="SALVAR"
       (buttonEvent)="addCourse()"

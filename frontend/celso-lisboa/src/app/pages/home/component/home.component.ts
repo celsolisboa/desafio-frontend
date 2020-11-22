@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.courseFacadeService.getAllCourses().subscribe((courses: CoursesModel) => {
       this.courses = courses.cursos;
-      console.log(courses);
     });
     this.buildResourceForm();
   }
