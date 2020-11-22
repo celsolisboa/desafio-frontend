@@ -5,6 +5,7 @@ import {CourseFacadeService} from '../../../shared/services/course.facade.servic
 import {SelectListModel} from '../../../../../projects/ui/src/lib/form-controls/models/select-list.model';
 import {Util} from '../../../shared/util/util';
 import {ErrorMessageEnum} from '../../../shared/enum/error-message.enum';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -63,9 +64,14 @@ export class HomeComponent implements OnInit {
     if (this.formCourse.valid) {
       this.fieldsEmpties = false;
       const dto = this.courseFacadeService.createDTO(this.formCourse.value);
-      this.courseFacadeService.createCourse(dto).subscribe(data => {
+      this.courseFacadeService.createCourse(dto).pipe(
+        switchMap(createData => {
+          return this.courseFacadeService.getAllCourses();
+        })
+      ).subscribe(allCourses => {
         this.formCourse.reset();
         this.closeModal();
+        this.courses = allCourses.cursos;
       });
     } else {
       this.fieldsEmpties = true;
@@ -73,8 +79,12 @@ export class HomeComponent implements OnInit {
   }
 
   deleteCourse(id: string): void {
-    this.courseFacadeService.deleteCourse(id).subscribe(data => {
-      console.log(data);
+    this.courseFacadeService.deleteCourse(id).pipe(
+      switchMap(deleteData => {
+        return this.courseFacadeService.getAllCourses();
+      })
+    ).subscribe(allCourses => {
+      this.courses = allCourses.cursos;
     });
   }
 
