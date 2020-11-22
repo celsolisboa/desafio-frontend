@@ -22,3 +22,7 @@ export * from './lib/layout/button-rounded/button-rounded.module';
 // card-course
 export * from './lib/layout/card-course/card-course.component';
 export * from './lib/layout/card-course/card-course.module';
+
+// modal
+export * from './lib/layout/modal/modal.component';
+export * from './lib/layout/modal/modal.module';

@@ -7,6 +7,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {ClButtonModule} from '../../../../projects/ui/src/lib/layout/button/cl-button.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BackgroundModule} from '../../../../projects/ui/src/lib/layout/background/background.module';
+import {ModalModule} from '../../../../projects/ui/src/lib/layout/modal/modal.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {BackgroundModule} from '../../../../projects/ui/src/lib/layout/backgroun
     ClInputModule,
     ClButtonModule,
     BackgroundModule,
+    ModalModule,
     ReactiveFormsModule,
     HttpClientModule,
   ]
