@@ -22,7 +22,7 @@ export class ClSelectComponent extends FormFieldBaseDirective {
   }
   adjustmentValue(value): void {
     const option = this.options.filter(element => element.value == value);
-    this.onChange(option);
+    this.onChange(option[0]);
     // this.onChange(value);
   }
 }

@@ -64,7 +64,6 @@ export class HomeComponent implements OnInit {
       this.fieldsEmpties = false;
       const dto = this.courseFacadeService.createDTO(this.formCourse.value);
       this.courseFacadeService.createCourse(dto).subscribe(data => {
-        console.log(data);
         this.formCourse.reset();
         this.closeModal();
       });
