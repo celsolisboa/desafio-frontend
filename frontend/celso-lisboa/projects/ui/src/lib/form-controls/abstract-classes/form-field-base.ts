@@ -6,6 +6,7 @@ import {fromEvent, Subscription} from 'rxjs';
 export abstract class FormFieldBaseDirective implements OnInit, OnDestroy, ControlValueAccessor {
   class = '';
   subscription: Subscription;
+  id: number;
 
   value: string;
   onChange: (value: any) => void;
@@ -22,6 +23,7 @@ export abstract class FormFieldBaseDirective implements OnInit, OnDestroy, Contr
         this.class = '';
       }
     });
+    this.createRandomId();
   }
 
   ngOnDestroy(): void {
@@ -40,5 +42,9 @@ export abstract class FormFieldBaseDirective implements OnInit, OnDestroy, Contr
 
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
+  }
+
+  createRandomId(): void {
+    this.id = Math.floor(Math.random() * 10000);
   }
 }
