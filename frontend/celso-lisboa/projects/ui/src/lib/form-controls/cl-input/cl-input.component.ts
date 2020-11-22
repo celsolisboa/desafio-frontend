@@ -1,6 +1,6 @@
-import {Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
-import {fromEvent, Subscription} from 'rxjs';
-import {AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors, Validator} from '@angular/forms';
+import {Component, forwardRef } from '@angular/core';
+import {NG_VALUE_ACCESSOR} from '@angular/forms';
+import {FormFieldBaseDirective} from '../abstract-classes/form-field-base';
 
 @Component({
   selector: 'ui-cl-input',
@@ -14,47 +14,8 @@ import {AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErro
     }
   ]
 })
-export class ClInputComponent implements OnInit, OnDestroy, ControlValueAccessor {
-
-  class = '';
-  subscription: Subscription;
-
-  value: string;
-  onChange: (value: any) => void;
-  onTouched: () => void;
-  disabled: boolean;
-
-  @Input() label: string;
-  @Input() type: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
-    this.subscription = fromEvent(document, 'focusout').subscribe( data => {
-      if (this.value) {
-        this.class = 'has-value';
-      } else {
-        this.class = '';
-      }
-    });
+export class ClInputComponent extends FormFieldBaseDirective {
+  constructor() {
+    super();
   }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
-  writeValue(value: any): void {
-    if (value) {
-      this.value = value;
-    }
-  }
-
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-
 }

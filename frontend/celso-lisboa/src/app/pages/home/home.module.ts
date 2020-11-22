@@ -8,6 +8,7 @@ import {CardCourseModule} from '../../../../projects/ui/src/lib/layout/card-cour
 import {ModalModule} from '../../../../projects/ui/src/lib/layout/modal/modal.module';
 import {ClInputModule} from '../../../../projects/ui/src/lib/form-controls/cl-input/cl-input.module';
 import {ClButtonModule} from '../../../../projects/ui/src/lib/layout/button/cl-button.module';
+import {ClSelectModule} from '../../../../projects/ui/src/lib/form-controls/cl-select/cl-select.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {ClButtonModule} from '../../../../projects/ui/src/lib/layout/button/cl-b
     NavbarModule,
     CardCourseModule,
     ModalModule,
+    ClSelectModule,
     ClInputModule,
     ClButtonModule,
     BackgroundModule
