@@ -13,6 +13,14 @@ export class CourseResourceService {
     return this.http.get('http://localhost:3000/api/curso');
   }
 
+  getTeachers(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/professor');
+  }
+
+  getRooms(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/sala');
+  }
+
   deleteCourse(id: string): Observable<any> {
     return this.http.delete(`http://localhost:3000/api/curso/${id}`);
   }
