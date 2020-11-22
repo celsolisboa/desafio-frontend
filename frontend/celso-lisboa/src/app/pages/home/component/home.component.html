@@ -27,6 +27,9 @@
           label="Nome do Curso"
           type="text"
         ></ui-cl-input>
+        <span class="form-error-message" *ngIf="isInvalid('courseName')" >
+          {{errorMessage.EMPTY}}
+        </span>
       </div>
     </div>
     <div class="row">
@@ -36,6 +39,9 @@
           label="Professores"
           [options]="teachers"
         ></ui-cl-select>
+        <span class="form-error-message" *ngIf="isInvalid('teacher')" >
+          {{errorMessage.EMPTY}}
+        </span>
       </div>
     </div>
     <div class="row">
@@ -45,6 +51,9 @@
           label="Salas"
           [options]="rooms"
         ></ui-cl-select>
+        <span class="form-error-message" *ngIf="isInvalid('rooms')" >
+          {{errorMessage.EMPTY}}
+        </span>
       </div>
     </div>
     <div class="row">
@@ -54,6 +63,9 @@
           label="Início"
           type="text"
         ></ui-cl-input>
+        <span class="form-error-message" *ngIf="isInvalid('start')" >
+          {{errorMessage.EMPTY}}
+        </span>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <ui-cl-input
@@ -61,6 +73,9 @@
           label="Fim"
           type="text"
         ></ui-cl-input>
+        <span class="btn-error-message" *ngIf="fieldsEmpties" >
+          {{errorMessage.EMPTIES}}
+        </span>
       </div>
     </div>
     <ui-cl-button

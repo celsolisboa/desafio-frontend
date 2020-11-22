@@ -3,6 +3,8 @@ import {CourseModel, CoursesModel} from '../../../shared/models/courses.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CourseFacadeService} from '../../../shared/services/course.facade.service';
 import {SelectListModel} from '../../../../../projects/ui/src/lib/form-controls/models/select-list.model';
+import {Util} from '../../../shared/util/util';
+import {ErrorMessageEnum} from '../../../shared/enum/error-message.enum';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +17,10 @@ export class HomeComponent implements OnInit {
   formCourse: FormGroup;
   rooms: SelectListModel[] = [];
   teachers: SelectListModel[] = [];
+  util = new Util();
+  errorMessage = ErrorMessageEnum;
   showModal = false;
+  fieldsEmpties = false;
 
   constructor(
     public courseFacadeService: CourseFacadeService,
@@ -54,8 +59,19 @@ export class HomeComponent implements OnInit {
   }
 
   addCourse(): void {
-    this.closeModal();
-    console.log('Salvou!');
+    console.log(this.formCourse.value);
+    if (this.formCourse.valid) {
+      this.fieldsEmpties = false;
+      console.log('salvou');
+      this.formCourse.reset();
+      this.closeModal();
+    } else {
+      this.fieldsEmpties = true;
+    }
+  }
+
+  isInvalid(controlName): boolean {
+    return this.util.controlPristineIsInvalid(controlName, this.formCourse);
   }
 
 }
