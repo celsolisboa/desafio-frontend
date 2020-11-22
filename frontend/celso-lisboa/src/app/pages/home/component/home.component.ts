@@ -10,6 +10,7 @@ import {CourseResourceService} from '../../../shared/services/course.resource.se
 export class HomeComponent implements OnInit {
 
   courses: CourseModel[];
+  showModal = false;
 
   constructor(public courseService: CourseResourceService) { }
 
@@ -20,7 +21,16 @@ export class HomeComponent implements OnInit {
   }
 
   openModal(): void {
-    console.log('Open modal!');
+    this.showModal = true;
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+  }
+
+  addCourse(): void {
+    this.closeModal();
+    console.log('Salvou!');
   }
 
 }

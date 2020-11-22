@@ -14,3 +14,46 @@
     </div>
   </div>
 </ui-cl-background>
+
+<ui-cl-modal *ngIf="showModal"
+  (closeModal)="closeModal()"
+>
+  <h3 class="text-center">Criar Curso</h3>
+  <form>
+    <ui-cl-input
+      formControlName="courseName"
+      label="Nome do Curso"
+      type="text"
+    ></ui-cl-input>
+    <ui-cl-input
+      formControlName="teacher"
+      label="Professores"
+      type="text"
+    ></ui-cl-input>
+    <ui-cl-input
+      formControlName="rooms"
+      label="Salas"
+      type="text"
+    ></ui-cl-input>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <ui-cl-input
+          formControlName="start"
+          label="Início"
+          type="text"
+        ></ui-cl-input>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <ui-cl-input
+          formControlName="end"
+          label="Fim"
+          type="text"
+        ></ui-cl-input>
+      </div>
+    </div>
+    <ui-cl-button
+      label="SALVAR"
+      (buttonEvent)="addCourse()"
+    ></ui-cl-button>
+  </form>
+</ui-cl-modal>
