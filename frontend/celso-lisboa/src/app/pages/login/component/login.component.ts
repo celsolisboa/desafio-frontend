@@ -4,6 +4,7 @@ import {ErrorMessageEnum} from '../../../shared/enum/error-message.enum';
 import {LoginResourceService} from '../services/login.resource.service';
 import {Util} from '../../../shared/util/util';
 import {Router} from '@angular/router';
+import {AuthGuardService} from '../../../core/auth/auth.guard.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginResourceService,
-    private router: Router
+    private router: Router,
+    private authGuardService: AuthGuardService
   ) {  }
 
   ngOnInit(): void {
@@ -41,9 +43,11 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.formLogin.value).subscribe(
         (response => {
           this.userInvalid = false;
+          this.authGuardService.saveAuth(true);
           this.router.navigate(['/home']);
         }),
         (error => {
+          this.authGuardService.saveAuth(false);
           this.userInvalid = true;
         })
       );
