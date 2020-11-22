@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.courseFacadeService.getAllCourses().subscribe((courses: CoursesModel) => {
       this.courses = courses.cursos;
+      console.log(courses);
     });
     this.buildResourceForm();
   }
@@ -59,12 +60,14 @@ export class HomeComponent implements OnInit {
   }
 
   addCourse(): void {
-    console.log(this.formCourse.value);
     if (this.formCourse.valid) {
       this.fieldsEmpties = false;
-      console.log('salvou');
-      this.formCourse.reset();
-      this.closeModal();
+      const dto = this.courseFacadeService.createDTO(this.formCourse.value);
+      this.courseFacadeService.createCourse(dto).subscribe(data => {
+        console.log(data);
+        this.formCourse.reset();
+        this.closeModal();
+      });
     } else {
       this.fieldsEmpties = true;
     }

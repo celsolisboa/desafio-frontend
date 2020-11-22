@@ -17,6 +17,10 @@ export class CourseFacadeService {
     return this.courseResourceService.getAllCourses();
   }
 
+  createCourse(courseValue): Observable<any> {
+    return this.courseResourceService.createCourse(courseValue);
+  }
+
   deleteCourse(id: string): Observable<any> {
     return this.courseResourceService.deleteCourse(id);
   }
@@ -31,6 +35,23 @@ export class CourseFacadeService {
     return this.courseResourceService.getTeachers().pipe(
       map(this.adjustmentSelectTeachers)
     );
+  }
+
+  createDTO(formValue): any {
+    const dto = {
+      nome: formValue.courseName,
+      inicio: formValue.start,
+      fim: formValue.end,
+      salas: [{
+        id: formValue.rooms.value,
+        sala: formValue.rooms.label,
+      }],
+      professores: [{
+        id: formValue.teacher.value,
+        nome: formValue.teacher.label
+      }]
+    };
+    return dto;
   }
 
   adjustmentSelectRooms(rooms): SelectListModel[] {

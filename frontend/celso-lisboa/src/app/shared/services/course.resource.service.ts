@@ -21,6 +21,10 @@ export class CourseResourceService {
     return this.http.get('http://localhost:3000/api/sala');
   }
 
+  createCourse(courseValue): Observable<any> {
+    return this.http.post('http://localhost:3000/api/curso', courseValue);
+  }
+
   deleteCourse(id: string): Observable<any> {
     return this.http.delete(`http://localhost:3000/api/curso/${id}`);
   }
