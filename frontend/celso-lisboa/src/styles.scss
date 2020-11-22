@@ -55,6 +55,7 @@ input.ng-dirty.ng-invalid {
   grid-template-columns: repeat(12, 1fr);
   margin: 1em 0em 1em 0em;
   grid-auto-flow: row;
+  width: 100%;
 }
 
 .text-center {
