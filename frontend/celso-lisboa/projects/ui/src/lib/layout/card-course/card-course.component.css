@@ -1,0 +1,43 @@
+.card-course {
+  background: #fff;
+  border-radius: 8px;
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  padding: 15px;
+}
+
+.card-box {
+  padding: 10px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.title-card-course {
+  font-family: 'roboto-regular', 'arial', sans-serif;
+  color: #565656;
+  font-size: larger;
+}
+
+.card-body {
+  font-family: 'roboto-regular', 'arial', sans-serif;
+  font-size: small;
+  color: #c0c0c0;
+  margin-bottom: -10px;
+}
+
+.btn-close {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.rooms-and-hours {
+  display: flex;
+  justify-content: space-between;
+}

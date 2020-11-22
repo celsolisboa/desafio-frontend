@@ -1,0 +1,68 @@
+.btn {
+  position: relative;
+  font-family: 'roboto-regular', 'arial', sans-serif;
+  width: 100%;
+  margin: 25px 0px 25px 0px;
+  padding: 10px 50px 10px 50px;
+  border-radius: 5px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  background-color: #FF0669;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #F40B6A;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}
+
+.btn:before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  width: 0;
+  padding-top: 0;
+
+  border-radius: 100%;
+
+  background-color: rgba(0, 0, 0, .1);
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+button:disabled,button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
+
+button[disabled].btn:hover{
+  background-color: #999999;
+}

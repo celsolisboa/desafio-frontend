@@ -1,0 +1,44 @@
+<ui-cl-background>
+  <div class="container-center">
+    <img class="logo" src="../../../../assets/logo_big.png" >
+    <h2>Login</h2>
+    <form [formGroup]="formLogin">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <ui-cl-input
+            formControlName="email"
+            label="Email"
+            type="email"
+          ></ui-cl-input>
+          <span class="form-error-message" *ngIf="isInvalid('email')" >
+            {{errorMessage.EMAIL}}
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <ui-cl-input
+            formControlName="password"
+            label="Senha"
+            type="password"
+          ></ui-cl-input>
+          <span class="form-error-message" *ngIf="isInvalid('password')" >
+            {{errorMessage.EMPTY}}
+          </span>
+        </div>
+      </div>
+
+      <span class="btn-error-message" *ngIf="userInvalid" >
+        {{errorMessage.LOGIN}}
+      </span>
+      <span class="btn-error-message" *ngIf="fieldsEmpties" >
+        {{errorMessage.EMPTIES}}
+      </span>
+      <ui-cl-button
+        label="acessar"
+        (buttonEvent)="submitForm()"
+      ></ui-cl-button>
+    </form>
+  </div>
+</ui-cl-background>

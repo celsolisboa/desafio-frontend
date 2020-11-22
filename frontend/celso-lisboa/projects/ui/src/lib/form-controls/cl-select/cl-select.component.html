@@ -1,0 +1,6 @@
+<div class="input-group">
+  <select id="select-{{id}}" class="form-input" [(ngModel)]="value" (change)="adjustmentValue(value)">
+    <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+  </select>
+  <label class="{{class}}" for="select-{{id}}">{{label}}</label>
+</div>

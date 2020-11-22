@@ -1,0 +1,27 @@
+.navbar {
+  height: 65px;
+  width: 100%;
+  background-color: transparent;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title-nav {
+  display: none;
+}
+
+.title-outside-nav {
+  display: block;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .title-nav {
+    display: inline;
+  }
+  .title-outside-nav {
+    display: none;
+  }
+}

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.input-group {
+  position: relative;
+  width: 100%;
+  font-family: 'roboto-regular', 'arial', sans-serif;
+  margin: 5px 0px 5px 0px;
+}
+
+label {
+  font-family: 'roboto-regular', 'arial', sans-serif;
+  position: absolute;
+  display: inline-block;
+  background: transparent;
+  left: 8px;
+  top: 50%;
+  padding: 0 4px;
+  font-size: 16px;
+  transform: translatey(-50%);
+  transition: all .3s ease;
+  color: white;
+}
+
+.form-input {
+  display: block;
+  padding: 12px;
+  font-size: 16px;
+  outline: none;
+  border: 1.5px solid white;
+  border-radius: 4px;
+  transition: all .3s ease;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.form-input:focus,
+.form-input:active {
+  border: 1.5px solid white;
+}
+
+.form-input:focus ~ label,
+.form-input:active ~ label {
+  color: white;
+  background: transparent;
+  top: -7px;
+  font-size: 14px;
+}
+
+.has-value {
+  color: white;
+  top: -7px;
+  font-size: 14px;
+}

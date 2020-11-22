@@ -1,0 +1,12 @@
+<div class="modal-background">
+  <div class="modal">
+    <div class="modal-header">
+      <button (click)="closeModal.emit()">
+        <img class="icon-closer" src="../../../../assets/close_white.png" alt="Atenção">
+      </button>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
