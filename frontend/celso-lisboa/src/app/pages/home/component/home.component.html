@@ -19,7 +19,7 @@
   (closeModal)="closeModal()"
 >
   <h3 class="text-center">Criar Curso</h3>
-  <form>
+  <form [formGroup]="formCourse">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <ui-cl-input
@@ -31,21 +31,20 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <ui-cl-input
+        <ui-cl-select
           formControlName="teacher"
           label="Professores"
-          type="text"
-        ></ui-cl-input>
+          [options]="[{label: 'josé', value: '1'}]"
+        ></ui-cl-select>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<!--        <ui-cl-input-->
-<!--          formControlName="rooms"-->
-<!--          label="Salas"-->
-<!--          type="text"-->
-<!--        ></ui-cl-input>-->
-        <ui-cl-select></ui-cl-select>
+        <ui-cl-select
+          formControlName="rooms"
+          label="Salas"
+          [options]="[{label: '501', value: '501'}]"
+        ></ui-cl-select>
       </div>
     </div>
     <div class="row">

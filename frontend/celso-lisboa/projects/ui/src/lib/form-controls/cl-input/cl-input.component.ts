@@ -1,4 +1,4 @@
-import {Component, forwardRef } from '@angular/core';
+import {Component, forwardRef, Input} from '@angular/core';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {FormFieldBaseDirective} from '../abstract-classes/form-field-base';
 
@@ -15,6 +15,7 @@ import {FormFieldBaseDirective} from '../abstract-classes/form-field-base';
   ]
 })
 export class ClInputComponent extends FormFieldBaseDirective {
+  @Input() type: string;
   constructor() {
     super();
   }

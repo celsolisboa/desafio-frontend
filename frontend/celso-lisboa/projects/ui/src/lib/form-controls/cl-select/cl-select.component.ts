@@ -1,6 +1,7 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {FormFieldBaseDirective} from '../abstract-classes/form-field-base';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
+import {SelectListModel} from '../models/select-list.model';
 
 @Component({
   selector: 'ui-cl-select',
@@ -15,6 +16,7 @@ import {NG_VALUE_ACCESSOR} from '@angular/forms';
   ]
 })
 export class ClSelectComponent extends FormFieldBaseDirective {
+  @Input() options: SelectListModel[];
   constructor() {
     super();
   }

@@ -13,7 +13,6 @@ export abstract class FormFieldBaseDirective implements OnInit, OnDestroy, Contr
   disabled: boolean;
 
   @Input() label: string;
-  @Input() type: string;
 
   ngOnInit(): void {
     this.subscription = fromEvent(document, 'focusout').subscribe( data => {

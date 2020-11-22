@@ -9,12 +9,14 @@ import {ModalModule} from '../../../../projects/ui/src/lib/layout/modal/modal.mo
 import {ClInputModule} from '../../../../projects/ui/src/lib/form-controls/cl-input/cl-input.module';
 import {ClButtonModule} from '../../../../projects/ui/src/lib/layout/button/cl-button.module';
 import {ClSelectModule} from '../../../../projects/ui/src/lib/form-controls/cl-select/cl-select.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     HomeRoutingModule,
     NavbarModule,
     CardCourseModule,

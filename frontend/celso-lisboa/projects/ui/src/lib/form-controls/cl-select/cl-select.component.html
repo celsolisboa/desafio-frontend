@@ -1,8 +1,7 @@
 <div class="input-group">
-  <select id="professor" class="form-input" [(ngModel)]="value" (input)="onChange(value)">
+  <select id="select-{{label}}" class="form-input" [(ngModel)]="value" (input)="onChange(value)">
     <option value="" selected></option>
-    <option>501</option>
-    <option>502</option>
+    <option *ngFor="let option of options" value="option.value">{{option.label}}</option>
   </select>
-  <label class="{{class}}" for="professor">Professor</label>
+  <label class="{{class}}" for="select-{{label}}">{{label}}</label>
 </div>
